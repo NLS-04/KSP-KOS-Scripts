@@ -55,7 +55,7 @@ global runmode is runmodeStart.
     list engines in elist.
 
     local runmodeInfoList is Lex(
-        //  rnM , |<-----------28----------->|
+        //  rmN , |<-----------28----------->|
             "1" , "Initialisation",
             "2" , "Lift-off",
             "3" , "Launch Tower cleared",
@@ -98,7 +98,7 @@ global runmode is runmodeStart.
 // #endregion
 
 // #region INTERCOM
-    local logList is list().
+    local commentList is list().
 
     local CORE_UID is core:part:UID.
     local CORE_NET is core:messages.
@@ -111,17 +111,17 @@ global runmode is runmodeStart.
 
     // SLAVE[GPU] -> MASTER[CPU]
     local Net_RX is Lex(
-        "Get_runmodeInfoList",  { parameter SlaveUID, nullData. onNet(SlaveUID, "Set_runmodeInfoList", runmodeInfoList). },
-        "Get_TargetOrbit",      { parameter SlaveUID, nullData. onNet(SlaveUID, "Set_TargetOrbit", Target_Orbit). },
-        "Get_logList",          { parameter SlaveUID, nullData. onNet(SlaveUID, "Set_logList", logList). },
-        "Get_runmode",          { parameter SlaveUID, nullData. onNet(SlaveUID, "Set_runmode", runmode). },
-        "Get_TZero",            { parameter SlaveUID, nullData. onNet(SlaveUID, "Set_TZero", TZero). },
-        "Get_TNext",            { parameter SlaveUID, nullData. onNet(SlaveUID, "Set_TNext", TNext). },
+        "Get_runmodeInfoList",  { parameter SlaveUID, _. onNet( SlaveUID, "Set_runmodeInfoList",  Net_TX["Set_runmodeInfoList"] ). },
+        "Get_TargetOrbit",      { parameter SlaveUID, _. onNet( SlaveUID, "Set_TargetOrbit",      Net_TX["Set_TargetOrbit"] ). },
+        "Get_CommentList",      { parameter SlaveUID, _. onNet( SlaveUID, "Set_CommentList",      Net_TX["Set_CommentList"] ). },
+        "Get_runmode",          { parameter SlaveUID, _. onNet( SlaveUID, "Set_runmode",          Net_TX["Set_runmode"] ). },
+        "Get_TZero",            { parameter SlaveUID, _. onNet( SlaveUID, "Set_TZero",            Net_TX["Set_TZero"] ). },
+        "Get_TNext",            { parameter SlaveUID, _. onNet( SlaveUID, "Set_TNext",            Net_TX["Set_TNext"] ). },
 
         "Set_runmode",  { parameter from, _runmode. if RunmodeLexicon:haskey(_runmode) { set runmode to _runmode. } },
-        "Set_Input",    { parameter from, data. InputCatcher:call(data). set InputCatcher to {parameter null.}. },
+        "Set_Input",    { parameter from, data. InputCatcher:call(data). set InputCatcher to { parameter null. }. },
 
-        "GPU_REBOOT",   { parameter from, nullData. onNet(from, "FORCED_BOOT", runmode). }
+        "GPU_REBOOT",   { parameter from, _. onNet(from, "FORCED_BOOT", runmode). }
     ).
 
     // MASTER[CPU] -> SLAVE[GPU]
@@ -130,35 +130,35 @@ global runmode is runmodeStart.
         "Set_runmode",          { return runmode. },
         "Set_TZero",            { return TZero. },
         "Set_TNext",            { return TNext. },
-        "Set_logList",          { return logList. },
+        "Set_CommentList",      { return commentList. },
         "Set_Comment",          { return list(time:seconds, com). },
         "Set_TargetOrbit",      { return Target_Orbit. },
         "Set_TargetPort",       { return portT:nodeposition. },
         "Set_ShipPort",         { return portS:nodeposition. },
 
         "Get_TargetOrbit",      { return 0. },
-        "Get_logList",          { return 0. },
+        "Get_CommentList",      { return 0. },
         "Get_TZero",            { return 0. },
         "Get_TNext",            { return 0. },
         "Get_Input",            { return "InputRequest". }
     ).
 
     local function sendGPU {
-        parameter mode, data is "null". // set stuf that needs to be send
+        parameter mode, data is "null". // set stuff that needs to be send
         local dataToSend is choose Net_TX[mode]:call() if data = "null" else data.
         onNet(GPU_UID, mode, dataToSend).
     }
 
-    local function logCom {
+    local function comment {
         parameter com.
-        loglist:add( list(time:seconds, com) ).
+        commentList:add( list(time:seconds, com) ).
         sendGPU( "Set_Comment", list(time:seconds, com) ).
     }
 
     if GPU_UID <> CORE_UID
         set DPCNet[GPU_UID:tostring()] to GPU_PROC:connection.
 
-    local Comunication is {
+    local loggingCommunication is {
         parameter content.
         
         if RT:hasKscConnection(ship) {
@@ -172,7 +172,7 @@ global runmode is runmodeStart.
     if addons:available("RT")
         set RT to addons:RT. 
     else
-        set Comunication to {parameter _.}.
+        set loggingCommunication to { parameter _. }.
     
 // #endregion
 
@@ -222,7 +222,7 @@ global runmode is runmodeStart.
     if terminal:height < 7
         setTerminal().
 
-    logCom("Programm Loaded").   // GUI --> GPU
+    comment("Programm Loaded").   // GUI --> GPU
 // #endregion
     
 // #region RUNMODE & FUNCTIONS
@@ -235,7 +235,7 @@ global runmode is runmodeStart.
             if not Net_RX:haskey(netContent[1][0]) 
                 return. 
 
-            Comunication(netContent).
+            loggingCommunication(netContent).
             
             Net_RX[netContent[1][0]]:call(netContent[0], netContent[1][1]). // Net_RX['command']:call('from', 'data')
         }
@@ -300,14 +300,14 @@ global runmode is runmodeStart.
                     set ctAd to false.
                 }
 
-                logCom("! ABORT WARNING ! " + round(5 - (time:seconds - ctA), 3) + " secs until ABORTION!").
+                comment("! ABORT WARNING ! " + round(5 - (time:seconds - ctA), 3) + " secs until ABORTION!").
 
                 // log (5 - (time:seconds - ctA)) + " , " + VANG(ship:facing:vector, steering:vector) to abortD.csv.
 
                 wait 0.
 
                 if time:seconds - ctA > 5 {
-                    logCom("!!! ABORTING !!! DIRECTION ERROR !!!").
+                    comment("!!! ABORTING !!! DIRECTION ERROR !!!").
                     modeChange("ABORT").
                 }
             } else { 
@@ -321,13 +321,13 @@ global runmode is runmodeStart.
                     set ctAs to false.
                 }
 
-                logCom("! ABORT WARNING ! " + round(5 - (time:seconds - ctS), 3) + " secs until ABORTION!").
+                comment("! ABORT WARNING ! " + round(5 - (time:seconds - ctS), 3) + " secs until ABORTION!").
                 // log (5 - (time:seconds - ctS)) + "," + (dVer(verticalSpeed) +.75*GRAVITY) to abortS.csv.
                 
                 wait 0.
                 
                 if time:seconds - ctS > 5 {
-                    logCom("!!! ABORTING !!! VERTICAL ACCELERATION ERROR !!!").
+                    comment("!!! ABORTING !!! VERTICAL ACCELERATION ERROR !!!").
                     modeChange("ABORT").
                 }
             } else if dVer(verticalSpeed) > -.9*GRAVITY { 
@@ -408,7 +408,7 @@ global runmode is runmodeStart.
 
             interruptWait(timeLaunch - time:seconds - 5). // 5 secs to LAUNCH ===========================
 
-            logCom("Control Override").
+            comment("Control Override").
             RCS off.
             SAS off.
             
@@ -417,7 +417,7 @@ global runmode is runmodeStart.
             interruptWait(timeLaunch - time:seconds - 2). // 2 secs to LAUNCH ===========================
             
             DoSaveStage(). // active engines
-            logCom("Engine startup").
+            comment("Engine startup").
             set startAlt to altitude.
             set throt to 1.
 
@@ -428,7 +428,7 @@ global runmode is runmodeStart.
 
             wait until TWR*(1+mass/towerMass) > 1.
 
-            logCom("Lift-off").
+            comment("Lift-off").
 
             DoSaveStage(). // unclamp from tower
             modeChange(2).  
@@ -438,7 +438,7 @@ global runmode is runmodeStart.
             if (altitude - startAlt) > 200 {
                 set azi to Azimuth(Target_Orbit:Inc).
                 set steering to lookDirUp(Up:vector, North:vector) + R(0,0, azi).
-                logCom("Azimuth-Roll initiated").
+                comment("Azimuth-Roll initiated").
                 
                 modeChange(3).
             } else {
@@ -450,9 +450,9 @@ global runmode is runmodeStart.
             abortChecker().
             launchControl().
             if (altitude - startAlt) > 1000 {
-                logCom("Launch Pad cleared").
-                logCom("flight Path Initialised").
-                logCom("waiting for: save Apoapsis").
+                comment("Launch Pad cleared").
+                comment("flight Path Initialised").
+                comment("waiting for: save Apoapsis").
                 modeChange(4).
             }
         }
@@ -460,8 +460,8 @@ global runmode is runmodeStart.
             abortChecker().
             launchControl().
             if orbit:apoapsis > 30000 {
-                logCom("auto-ABORT mechanism disabled").
-                logCom("waiting for: Engine Flame out").
+                comment("auto-ABORT mechanism disabled").
+                comment("waiting for: Engine Flame out").
 
                 DoSaveStage().
                 modeChange(5).
@@ -480,35 +480,35 @@ global runmode is runmodeStart.
             }
         }
         local function runmode_6 { // MECO
-            logCom("Apoapsis is save").
+            comment("Apoapsis is save").
 
             set steering to ship:facing.
             set throt to 0.
 
             wait 4.
             
-            logCom("waiting for: Kármán-line passage").
+            comment("waiting for: Kármán-line passage").
             set steering to lookDirUp(ship:facing:vector, Up:vector).
             
             modeChange(7).
         }
         local function runmode_7 { // Wait for Atmosphere Exit
             if ship:altitude > 70000 {
-                logCom("Kármán-line has been passed").
+                comment("Kármán-line has been passed").
                 wait 2.
 
                 modeChange(8).
             }
         }
         local function runmode_8 { // Rais Apoapsis to Park km
-            logCom("Node: Circularising at Apoapsis").
+            comment("Node: Circularising at Apoapsis").
             set circNode to NODE(Time:seconds + eta:apoapsis, 0, 0, DeltaVcirc(orbit:apoapsis)).
             add circNode.
 
             Executer(circNode, Update@, DPCNet[GPU_UID]).
         }
         local function runmode_9 { // Circ Orbit at Periapsis km
-            logCom("Node: Circularising Apoapsis at 80 km").
+            comment("Node: Circularising Apoapsis at 80 km").
             wait 1.
             set circ80Node to NODE(Time:seconds + eta:periapsis, 0, 0, DeltaVcirc(orbit:periapsis)).
             add circ80Node.
@@ -704,7 +704,7 @@ global runmode is runmodeStart.
             local l is zeroPlane(positionAt(target, time:seconds)-body:position, velocityAt(target, time:seconds):orbit).
             
             for msg in l {
-                logCom( msg ).
+                comment( msg ).
             }
 
             add l[0].
@@ -718,9 +718,9 @@ global runmode is runmodeStart.
                 return.
             }
             local clsApr is close_aproach_scan(ship, target).
-            logCom("=-=-=-=-= Closest Approach =-=-=-=-=").
-            logCom("Dist: " + round(clsApr:dist, 3) + " m").
-            logCom("Time: " + SecondsToClock(clsApr:UTS - time:seconds)).
+            comment("=-=-=-=-= Closest Approach =-=-=-=-=").
+            comment("Dist: " + round(clsApr:dist, 3) + " m").
+            comment("Time: " + SecondsToClock(clsApr:UTS - time:seconds)).
             modeChange(70).
         }
         local function runmode_54 { // Cls App detail Display
@@ -739,15 +739,15 @@ global runmode is runmodeStart.
 
             add VecToNodeConverter( velocityAt(Target, t):orbit - velocityAt(Ship, t):orbit, t, true).
 
-            logCom("=-=-= Closest Approach ..Detail.. =-=-=").
-            logCom("SVel: "+ round(Vec_SVel:Vector:mag, 2)+" m/s").
-            logCom("TVel: "+ round(Vec_TVel:Vector:mag, 2)+" m/s").
-            logCom("dVel: "+ round(Vec_dVel:Vector:mag, 2)+" m/s").
-            logCom("-------------------------------").
-            logCom("SPos: "+ round(Vec_SPos:Vector:mag, 2)+" m").
-            logCom("TPos: "+ round(Vec_TPos:Vector:mag, 2)+" m").
-            logCom("dPos: "+ round(Vec_dPos:Vector:mag, 2)+" m").
-            logCom("==> Time: " + SecondsToClock(t - time:seconds) +" <==").
+            comment("=-=-= Closest Approach ..Detail.. =-=-=").
+            comment("SVel: "+ round(Vec_SVel:Vector:mag, 2)+" m/s").
+            comment("TVel: "+ round(Vec_TVel:Vector:mag, 2)+" m/s").
+            comment("dVel: "+ round(Vec_dVel:Vector:mag, 2)+" m/s").
+            comment("-------------------------------").
+            comment("SPos: "+ round(Vec_SPos:Vector:mag, 2)+" m").
+            comment("TPos: "+ round(Vec_TPos:Vector:mag, 2)+" m").
+            comment("dPos: "+ round(Vec_dPos:Vector:mag, 2)+" m").
+            comment("==> Time: " + SecondsToClock(t - time:seconds) +" <==").
             .
             modeChange(70).
         }
@@ -794,10 +794,6 @@ global runmode is runmodeStart.
             modeChange(71).
         }
         local function runmode_73 { // Orbit Info >> Self, Target
-            if letprint {
-                clearScreen.
-                set letprint to false.
-            }
 
             if hasTarget {
                 local OrbTarget is target:orbit.
@@ -815,7 +811,7 @@ global runmode is runmodeStart.
                 print "AoVE:    " + (vang(rtarget, solarPrimeVector) - OrbTarget:inclination) at (2, 10).
             }
 
-            local rShip     is ship:position - ship:body:position.
+            local rShip is ship:position - ship:body:position.
 
             print "SHIP:    " at (0, 12).
             print "M:       " + orbit:MeanAnomalyAtEpoch at (2, 13).
@@ -870,7 +866,7 @@ global runmode is runmodeStart.
 
         print SecondsToClock(Time:seconds) + " , " + round(1000*(time:seconds - timeDerivative)) + " ms       " at (2,0).
         print "runmode: " + runmode + "          " at (2,1).
-        print logList[logList:length - 1][1] at (2,2).
+        print commentList[commentList:length - 1][1] at (2,2).
 
         set timeDerivative to time:seconds.
 
@@ -883,7 +879,7 @@ global runmode is runmodeStart.
 
     local function Start {
         sendGPU("Set_TargetOrbit").
-        sendGPU("Get_logList").
+        sendGPU("Get_CommentList").
         sendGPU("Get_TZero").
         sendGPU("Get_TNext").
     }

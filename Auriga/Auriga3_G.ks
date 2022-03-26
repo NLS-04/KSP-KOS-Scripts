@@ -48,7 +48,7 @@ local submode is submodeStart.
                             "off",      OFF_OrbitInfo@,
                             "toggle",   TOGGLE_OrbitInfo@
                         ),
-        "ProxOpInfo",    lex(
+        "ProxOpInfo",   lex(
                             "on",       ON_ProxOpInfo@,
                             "off",      OFF_ProxOpInfo@,
                             "toggle",   TOGGLE_ProxOpInfo@
@@ -70,7 +70,7 @@ local submode is submodeStart.
     local TNext is time:seconds. // constant refernce times
 
     local runmodeInfoList is lex().
-    local logList is list().
+    local commentList is list().
 // #endregion
 
 // #region variables
@@ -83,42 +83,42 @@ local submode is submodeStart.
         local CORE_NET is core:messages.
 
         local DPCNet is lex(). // Direct_Processor_Communication_Network = lex(PROC_UID, PROC)
-        local  onNet is {parameter UID, mode, data. gpuO(true). DPCNet[UID]:connection:sendmessage( list(CORE_UID, list(mode, data)) ).}.
-        local offNet is {if not CORE_NET:empty { gpuI(true). return CORE_NET:pop:content. } else { return false. }}.
+        local  onNet is { parameter UID, mode, data. gpuO(true). DPCNet[UID]:connection:sendmessage( list(CORE_UID, list(mode, data)) ). }.
+        local offNet is { if not CORE_NET:empty { gpuI(true). return CORE_NET:pop:content. } else { return false. } }.
 
         // MASTER[CPU] -> SLAVE[GPU]
         local Net_RX is Lex(
-            "Set_runmodeInfoList",  {parameter from, data. set runmodeInfoList to data. runmodeLister().},
-            "Set_TargetOrbit",      {parameter from, data. set Target_Orbit to data. module:OrbitInfo:on().},
-            "Set_runmode",          {parameter from, data. set runmode to data. runmodeLister().},
-            "Set_TZero",            {parameter from, data. set TZero to data.},
-            "Set_TNext",            {parameter from, data. set TNext to data.},
-            "Set_logList",          {parameter from, data. set logList to data. logLister().},
-            "Set_Comment",          {parameter from, data. logList:add(data). logLister().},
-            "Set_TargetPort",       {parameter from, data. set V_RAM:ProxOp_Toffset to data.},
-            "Set_ShipPort",         {parameter from, data. set V_RAM:ProxOp_Soffset to data.},
+            "Set_runmodeInfoList",  { parameter from, data. set runmodeInfoList  to data.   runmodeLister(). },
+            "Set_TargetOrbit",      { parameter from, data. set Target_Orbit     to data.   module:OrbitInfo:on(). },
+            "Set_runmode",          { parameter from, data. set runmode          to data.   runmodeLister(). },
+            "Set_TZero",            { parameter from, data. set TZero            to data. },
+            "Set_TNext",            { parameter from, data. set TNext            to data. },
+            "Set_CommentList",      { parameter from, data. set commentList      to data.   commentListDisplay(). },
+            "Set_Comment",          { parameter from, data. commentList:add(data).          commentListDisplay(). },
+            "Set_TargetPort",       { parameter from, data. set V_RAM:ProxOp_Toffset to data. },
+            "Set_ShipPort",         { parameter from, data. set V_RAM:ProxOp_Soffset to data. },
 
-            "Get_TargetOrbit",      {parameter from, data. onNet(from, "Set_TargetOrbit", Target_Orbit).},
-            "Get_logList",          {parameter from, data. onNet(from, "Set_logList", logList).},
-            "Get_TZero",            {parameter from, data. onNet(from, "Set_TZero", TZero).},
-            "Get_TNext",            {parameter from, data. onNet(from, "Set_TNext", TNext).},            
-            "Get_Input",            {parameter from, data. onNet(from, "Set_Input", inputHandle(data)).},
+            "Get_TargetOrbit",      { parameter from, data. onNet(from, "Set_TargetOrbit", Target_Orbit). },
+            "Get_CommentList",      { parameter from, data. onNet(from, "Set_CommentList",     commentList). },
+            "Get_TZero",            { parameter from, data. onNet(from, "Set_TZero",       TZero). },
+            "Get_TNext",            { parameter from, data. onNet(from, "Set_TNext",       TNext). },            
+            "Get_Input",            { parameter from, data. onNet(from, "Set_Input",       inputHandle(data)). },
 
-            "Set_Display",          {parameter from, data. if data:istype("list") ON_DisplayHandle(data). else OFF_DisplayHandle().},
-            "CPU_REBOOT",           {parameter from, nullData. onNet(from, "FORCED_BOOT", runmode).}
+            "Set_Display",          { parameter from, data. if data:istype("list") ON_DisplayHandle(data). else OFF_DisplayHandle(). },
+            "CPU_REBOOT",           { parameter from, nullData. onNet(from, "FORCED_BOOT", runmode).}
         ).
 
         // SLAVE[GPU] -> MASTER[CPU]
         local Net_TX is Lex(
-            "Get_runmodeInfoList", {return 0.},
-            "Get_TargetOrbit",     {return 0.},
-            "Get_logList",  {return 0.},
-            "Get_runmode",  {return 0.},
-            "Get_TZero",    {return 0.},
-            "Get_TNext",    {return 0.},
+            "Get_runmodeInfoList",  { return 0. },
+            "Get_TargetOrbit",      { return 0. },
+            "Get_CommentList",      { return 0. },
+            "Get_runmode",          { return 0. },
+            "Get_TZero",            { return 0. },
+            "Get_TNext",            { return 0. },
             
-            "Set_Input",    {return "InputAnswer".},
-            "Set_runmode",  {return runmode.}
+            "Set_Input",            { return "InputAnswer". },
+            "Set_runmode",          { return runmode. }
         ).
 
         local function sendCPU {
@@ -130,7 +130,7 @@ local submode is submodeStart.
         if CPU_UID <> CORE_UID
             set DPCNet[CPU_UID:tostring()] to CPU_PROC.
 
-        local Comunication is {
+        local loggingCommunication is {
             parameter content.
             
             if RT:hasKscConnection(ship) {
@@ -144,7 +144,7 @@ local submode is submodeStart.
         if addons:available("RT")
             set RT to addons:RT. 
         else
-            set Comunication to {parameter _.}.
+            set loggingCommunication to {parameter _.}.
         
     // #endregion
 
@@ -257,15 +257,21 @@ local function setFrame {
 │                                                   │
 └ ================================================= ┘".
 }
-local function logLister {
-    if logList:length = 0 { return. }
+local function commentListDisplay {
+    if commentList:length = 0 
+        return.
 
     local bottom is terminal:height-4.
 
-    for index in range(1, MIN(logList:length, bottom - ptr_bottom)) {
+    for index in range(1, MIN(commentList:length, bottom - ptr_bottom)) {
         print "│                                                   │" at (0, bottom - index).
-        local printString is "["+SecondsToClock(logList[logList:length - index][0]-TZero)+"] "+ logList[logList:length - index][1].
-        if printString:length > 49 {set printString to printString:remove(49, printString:length-49).}
+        
+        local timeFormat is "["+SecondsToClock(commentList[commentList:length - index][0]-TZero)+"] ".
+        local printString is timeFormat + commentList[commentList:length - index][1].
+        
+        if printString:length > terminal:width - 5 {
+            set printString to printString:remove( terminal:width - 5, printString:length-(terminal:width - 5) ).
+        }
 
         print printString at (2, bottom - index).
     }
@@ -341,13 +347,15 @@ local function DataSectionPrinter {
 local function netHandle {
     local netContent is offNet().
 
-    if netContent:istype("boolean") or not netContent:istype("list") { return. }
-    if not Net_RX:haskey(netContent[1][0]) { return. }
+    if netContent:istype("boolean") or not netContent:istype("list") 
+        return.
+    if not Net_RX:haskey(netContent[1][0]) 
+        return.
 
     if procIO[0] { gpuI(false). }
     if procIO[1] { gpuO(false). }
 
-    Comunication(netContent).
+    loggingCommunication(netContent).
 
     ipuAdjuster().
     
@@ -616,14 +624,14 @@ local function Start {
     setFrame().
 
     sendCPU("Get_runmode").
-    sendCPU("Get_logList").
+    sendCPU("Get_CommentList").
     sendCPU("Get_TZero").
     sendCPU("Get_TNext").
     sendCPU("Get_runmodeInfoList").
     sendCPU("Get_TargetOrbit").
 
     module:OrbitInfo:on().
-    logLister().
+    commentListDisplay().
 }
 
 local function Update {
