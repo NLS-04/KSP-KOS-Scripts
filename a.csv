@@ -1,0 +1,2686 @@
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1572430050.65804
+rI:            734425.495242833
+Per_trans:     679184.419760792
+Period_trans:  1914.86563779532
+t_tgt_I:       7089.65160868771
+t_trans:       676.872768640622
+t_phase:       935.483275942727
+t_C_Apo:       724.08375959128
+t_align:       4753.21180451308
+t_align_min:   1852.02006368101
+Per_align:     1849713.49762531
+dv_align:      483.550705153299
+dv_phasing:    -477.708663604872
+dv_Transition: 64.7469391762858
+
+CPU: 2299965316 -> Get_runmode
+  0
+
+CPU: 2299965316 -> Get_logList
+  0
+
+CPU: 2299965316 -> Get_TZero
+  0
+
+CPU: 2299965316 -> Get_TNext
+  0
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4282122.89445708
+[1] = 
+  ["value"] = "Programm Loaded"
+
+CPU: 2299965316 -> Get_runmodeInfoList
+  0
+
+CPU: 2299965316 -> Get_TargetOrbit
+  0
+
+GPU: 3789209745 -> Set_TargetOrbit
+  LEXICON of 7 items:
+[
+  ["value"] = "Apo"] = 
+  ["value"] = 142.768520013329
+[
+  ["value"] = "Per"] = 
+  ["value"] = 98.3511228829235
+[
+  ["value"] = "SMA"] = 
+  ["value"] = 720.559821448127
+[
+  ["value"] = "Inc"] = 
+  ["value"] = 22.835317494984
+[
+  ["value"] = "LAN"] = 
+  ["value"] = 83.6221851623137
+[
+  ["value"] = "AoP"] = 
+  ["value"] = 274.098689826376
+[
+  ["value"] = "ECC"] = 
+  ["value"] = 0.0308214500783149
+
+GPU: 3789209745 -> Get_logList
+  0
+
+GPU: 3789209745 -> Get_TZero
+  0
+
+GPU: 3789209745 -> Get_TNext
+  0
+
+GPU: 3789209745 -> Set_runmode
+  11
+
+GPU: 3789209745 -> Set_logList
+  LIST of 1 items:
+[0] = LIST of 2 items:
+  [0] = 
+    ["value"] = 4282122.89445708
+  [1] = 
+    ["value"] = "Programm Loaded"
+
+GPU: 3789209745 -> Set_TZero
+  4282122.89445708
+
+GPU: 3789209745 -> Set_TNext
+  4282122.89445708
+
+GPU: 3789209745 -> Set_runmodeInfoList
+  LEXICON of 30 items:
+[
+  ["value"] = "1"] = 
+  ["value"] = "Initialisation"
+[
+  ["value"] = "2"] = 
+  ["value"] = "Lift-off"
+[
+  ["value"] = "3"] = 
+  ["value"] = "Launch Tower cleared"
+[
+  ["value"] = "4"] = 
+  ["value"] = "Ascend profile"
+[
+  ["value"] = "5"] = 
+  ["value"] = "LES jetison"
+[
+  ["value"] = "6"] = 
+  ["value"] = "MECO"
+[
+  ["value"] = "7"] = 
+  ["value"] = "Wait for Atmosphere Exit"
+[
+  ["value"] = "8"] = 
+  ["value"] = "Rais Apoapsis to Park km"
+[
+  ["value"] = "9"] = 
+  ["value"] = "Circ Orbit at Periapsis km"
+[
+  ["value"] = "10"] = 
+  ["value"] = "Execute Next Node"
+[
+  ["value"] = "11"] = 
+  ["value"] = "  ▪ ▪ ▪ ▪ ▪ HOLD ▪ ▪ ▪ ▪ ▪"
+[
+  ["value"] = "15"] = 
+  ["value"] = "Hohmann Maneuver"
+[
+  ["value"] = "16"] = 
+  ["value"] = "Hohmann final"
+[
+  ["value"] = "21"] = 
+  ["value"] = "proximity Op-Setup"
+[
+  ["value"] = "22"] = 
+  ["value"] = "proximity Operation"
+[
+  ["value"] = "31"] = 
+  ["value"] = "Aps Line Rotation => TARGET"
+[
+  ["value"] = "32"] = 
+  ["value"] = "Aps Line Rotation => SHIP"
+[
+  ["value"] = "50"] = 
+  ["value"] = "Orbital Vector Display"
+[
+  ["value"] = "51"] = 
+  ["value"] = "Asc. Node Display"
+[
+  ["value"] = "52"] = 
+  ["value"] = "Asc. Node Correction"
+[
+  ["value"] = "53"] = 
+  ["value"] = "Closest Approach scan"
+[
+  ["value"] = "54"] = 
+  ["value"] = "Cls App detail Display"
+[
+  ["value"] = "70"] = 
+  ["value"] = "  ▪ ▪ ▪ ▪ ▪ NOOP ▪ ▪ ▪ ▪ ▪"
+[
+  ["value"] = "71"] = 
+  ["value"] = "Set Target Orbit by Elements"
+[
+  ["value"] = "72"] = 
+  ["value"] = "Set Target Orbit by 'Target'"
+[
+  ["value"] = "73"] = 
+  ["value"] = "Orbit Info >> Self, Target"
+[
+  ["value"] = "97"] = 
+  ["value"] = " ** CLEAR: VecDraws ** "
+[
+  ["value"] = "98"] = 
+  ["value"] = " ** RELOCK KOS - CONTROL ** "
+[
+  ["value"] = "99"] = 
+  ["value"] = " ** UNLOCK KOS - CONTROL ** "
+[
+  ["value"] = "ABORT"] = 
+  ["value"] = "ABORTING"
+
+GPU: 3789209745 -> Set_TargetOrbit
+  LEXICON of 7 items:
+[
+  ["value"] = "Apo"] = 
+  ["value"] = 142.768520013329
+[
+  ["value"] = "Per"] = 
+  ["value"] = 98.3511228829235
+[
+  ["value"] = "SMA"] = 
+  ["value"] = 720.559821448127
+[
+  ["value"] = "Inc"] = 
+  ["value"] = 22.835317494984
+[
+  ["value"] = "LAN"] = 
+  ["value"] = 83.6221851623137
+[
+  ["value"] = "AoP"] = 
+  ["value"] = 274.098689826376
+[
+  ["value"] = "ECC"] = 
+  ["value"] = 0.0308214500783149
+===============================
+h_tgt:         1594462815.51532
+h_trans:       58835645.5747633
+rI:            734425.495242833
+Per_trans:     950.880827812245
+Period_trans:  0.100310378729075
+t_tgt_I:       4828.60399573155
+t_trans:       0.0354580302834783
+t_phase:       331.354359401779
+t_C_Apo:       508.449325430401
+t_align:       3988.76485286909
+t_align_min:   1852.01926155
+Per_align:     1570752.90886162
+dv_align:      420.045183225144
+dv_phasing:    -2574.45586892611
+dv_Transition: -24251.0170521303
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       4795.70399646693
+t_trans:       704.285278859701
+t_phase:       954.365746538078
+t_C_Apo:       475.675098692259
+t_align:       2661.37787237689
+t_align_min:   1852.01806556561
+Per_align:     1038841.30359186
+dv_align:      233.208848393844
+dv_phasing:    -212.323458607628
+dv_Transition: 49.5458089317473
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       4765.8639971339
+t_trans:       704.285278859701
+t_phase:       954.365040334401
+t_C_Apo:       445.951074521219
+t_align:       2661.26260341858
+t_align_min:   1852.01666728792
+Per_align:     1038792.38169525
+dv_align:      233.18602678962
+dv_phasing:    -212.300150085276
+dv_Transition: 49.5463752366557
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       4704.90399849646
+t_trans:       704.285278859701
+t_phase:       954.363164020138
+t_C_Apo:       385.223693121843
+t_align:       2661.03186249478
+t_align_min:   1852.01295220056
+Per_align:     1038694.89441709
+dv_align:      233.140251966122
+dv_phasing:    -212.253721890605
+dv_Transition: 49.5478798576321
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       4479.42400353633
+t_trans:       704.285278859701
+t_phase:       954.358798748321
+t_C_Apo:       160.045217729069
+t_align:       2660.73470819924
+t_align_min:   1852.00430899718
+Per_align:     1038571.21725058
+dv_align:      233.081705254934
+dv_phasing:    -212.194911841878
+dv_Transition: 49.5513804027283
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       4407.92400513448
+t_trans:       704.285278859701
+t_phase:       954.354244647883
+t_C_Apo:       88.6556271883735
+t_align:       2660.62885443853
+t_align_min:   1851.99529191492
+Per_align:     1038530.04267724
+dv_align:      233.061084950831
+dv_phasing:    -212.175486696745
+dv_Transition: 49.5550324052354
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       6324.93162578053
+t_trans:       704.285278859701
+t_phase:       954.346764792462
+t_C_Apo:       1817.32542980354
+t_align:       2848.97415232482
+t_align_min:   1851.98048186195
+Per_align:     1118662.89332671
+dv_align:      269.343627086622
+dv_phasing:    -248.460205310607
+dv_Transition: 49.5610306912062
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       6298.49162637151
+t_trans:       704.285278859701
+t_phase:       954.345065993826
+t_C_Apo:       1790.8665719634
+t_align:       2848.99470955458
+t_align_min:   1851.97711825456
+Per_align:     1118673.17387349
+dv_align:      269.347644345335
+dv_phasing:    -248.46471359383
+dv_Transition: 49.5623930141254
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       7510.77926276927
+t_trans:       704.285278859701
+t_phase:       954.329324280489
+t_C_Apo:       956.118483328598
+t_align:       4896.04617630049
+t_align_min:   1851.94594979297
+Per_align:     1900156.90555284
+dv_align:      493.45136429478
+dv_phasing:    -472.556052604669
+dv_Transition: 49.575017047432
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       7447.8792641752
+t_trans:       704.285278859701
+t_phase:       954.331097783397
+t_C_Apo:       893.218877295676
+t_align:       4896.04401023642
+t_align_min:   1851.94946131381
+Per_align:     1900154.43973201
+dv_align:      493.454331984079
+dv_phasing:    -472.555493366639
+dv_Transition: 49.5735947696608
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       7254.79926849087
+t_trans:       704.285278859701
+t_phase:       954.33532893094
+t_C_Apo:       700.472430594265
+t_align:       4895.70623010597
+t_align_min:   1851.95783895055
+Per_align:     1900031.7492865
+dv_align:      493.44054237396
+dv_phasing:    -472.53175725358
+dv_Transition: 49.5702015815053
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       5036.09165458835
+t_trans:       704.285278859701
+t_phase:       954.33545578649
+t_C_Apo:       527.221953549581
+t_align:       2850.24896639258
+t_align_min:   1851.95809012348
+Per_align:     1119209.96740804
+dv_align:      269.609003296959
+dv_phasing:    -248.695725130948
+dv_Transition: 49.5700998495819
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       4866.89165837026
+t_trans:       704.285278859701
+t_phase:       954.33096351035
+t_C_Apo:       358.672035891107
+t_align:       2849.60338010911
+t_align_min:   1851.94919545431
+Per_align:     1118942.75574148
+dv_align:      269.496941621467
+dv_phasing:    -248.581254213118
+dv_Transition: 49.5737024510408
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       4795.41165996797
+t_trans:       704.285278859701
+t_phase:       954.327804407737
+t_C_Apo:       287.435133314633
+t_align:       2849.3634433859
+t_align_min:   1851.94294045773
+Per_align:     1118844.87151108
+dv_align:      269.455068586073
+dv_phasing:    -248.539394094975
+dv_Transition: 49.5762359282778
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       7829.54691913877
+t_trans:       704.285278859701
+t_phase:       954.286288664542
+t_C_Apo:       1086.29184186388
+t_align:       5084.68350975065
+t_align_min:   1851.86073964879
+Per_align:     1966025.32922426
+dv_align:      505.767180910829
+dv_phasing:    -484.848036555638
+dv_Transition: 49.6095315028623
+
+CPU: 2299965316 -> Get_runmode
+  0
+
+CPU: 2299965316 -> Get_logList
+  0
+
+CPU: 2299965316 -> Get_TZero
+  0
+
+CPU: 2299965316 -> Get_TNext
+  0
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4285347.05438501
+[1] = 
+  ["value"] = "Programm Loaded"
+
+GPU: 3789209745 -> Set_TargetOrbit
+  LEXICON of 7 items:
+[
+  ["value"] = "Apo"] = 
+  ["value"] = 142.768520013329
+[
+  ["value"] = "Per"] = 
+  ["value"] = 98.3511228829235
+[
+  ["value"] = "SMA"] = 
+  ["value"] = 720.559821448127
+[
+  ["value"] = "Inc"] = 
+  ["value"] = 22.835317494984
+[
+  ["value"] = "LAN"] = 
+  ["value"] = 83.6221851623137
+[
+  ["value"] = "AoP"] = 
+  ["value"] = 274.098689826376
+[
+  ["value"] = "ECC"] = 
+  ["value"] = 0.0308214500783149
+
+CPU: 2299965316 -> Get_runmodeInfoList
+  0
+
+CPU: 2299965316 -> Get_TargetOrbit
+  0
+
+GPU: 3789209745 -> Get_logList
+  0
+
+GPU: 3789209745 -> Get_TZero
+  0
+
+GPU: 3789209745 -> Get_TNext
+  0
+
+GPU: 3789209745 -> Set_runmode
+  11
+
+GPU: 3789209745 -> Set_logList
+  LIST of 1 items:
+[0] = LIST of 2 items:
+  [0] = 
+    ["value"] = 4285347.05438501
+  [1] = 
+    ["value"] = "Programm Loaded"
+
+GPU: 3789209745 -> Set_TZero
+  4285347.05438501
+
+GPU: 3789209745 -> Set_TNext
+  4285347.05438501
+
+GPU: 3789209745 -> Set_runmodeInfoList
+  LEXICON of 30 items:
+[
+  ["value"] = "1"] = 
+  ["value"] = "Initialisation"
+[
+  ["value"] = "2"] = 
+  ["value"] = "Lift-off"
+[
+  ["value"] = "3"] = 
+  ["value"] = "Launch Tower cleared"
+[
+  ["value"] = "4"] = 
+  ["value"] = "Ascend profile"
+[
+  ["value"] = "5"] = 
+  ["value"] = "LES jetison"
+[
+  ["value"] = "6"] = 
+  ["value"] = "MECO"
+[
+  ["value"] = "7"] = 
+  ["value"] = "Wait for Atmosphere Exit"
+[
+  ["value"] = "8"] = 
+  ["value"] = "Rais Apoapsis to Park km"
+[
+  ["value"] = "9"] = 
+  ["value"] = "Circ Orbit at Periapsis km"
+[
+  ["value"] = "10"] = 
+  ["value"] = "Execute Next Node"
+[
+  ["value"] = "11"] = 
+  ["value"] = "  ▪ ▪ ▪ ▪ ▪ HOLD ▪ ▪ ▪ ▪ ▪"
+[
+  ["value"] = "15"] = 
+  ["value"] = "Hohmann Maneuver"
+[
+  ["value"] = "16"] = 
+  ["value"] = "Hohmann final"
+[
+  ["value"] = "21"] = 
+  ["value"] = "proximity Op-Setup"
+[
+  ["value"] = "22"] = 
+  ["value"] = "proximity Operation"
+[
+  ["value"] = "31"] = 
+  ["value"] = "Aps Line Rotation => TARGET"
+[
+  ["value"] = "32"] = 
+  ["value"] = "Aps Line Rotation => SHIP"
+[
+  ["value"] = "50"] = 
+  ["value"] = "Orbital Vector Display"
+[
+  ["value"] = "51"] = 
+  ["value"] = "Asc. Node Display"
+[
+  ["value"] = "52"] = 
+  ["value"] = "Asc. Node Correction"
+[
+  ["value"] = "53"] = 
+  ["value"] = "Closest Approach scan"
+[
+  ["value"] = "54"] = 
+  ["value"] = "Cls App detail Display"
+[
+  ["value"] = "70"] = 
+  ["value"] = "  ▪ ▪ ▪ ▪ ▪ NOOP ▪ ▪ ▪ ▪ ▪"
+[
+  ["value"] = "71"] = 
+  ["value"] = "Set Target Orbit by Elements"
+[
+  ["value"] = "72"] = 
+  ["value"] = "Set Target Orbit by 'Target'"
+[
+  ["value"] = "73"] = 
+  ["value"] = "Orbit Info >> Self, Target"
+[
+  ["value"] = "97"] = 
+  ["value"] = " ** CLEAR: VecDraws ** "
+[
+  ["value"] = "98"] = 
+  ["value"] = " ** RELOCK KOS - CONTROL ** "
+[
+  ["value"] = "99"] = 
+  ["value"] = " ** UNLOCK KOS - CONTROL ** "
+[
+  ["value"] = "ABORT"] = 
+  ["value"] = "ABORTING"
+
+GPU: 3789209745 -> Set_TargetOrbit
+  LEXICON of 7 items:
+[
+  ["value"] = "Apo"] = 
+  ["value"] = 142.768520013329
+[
+  ["value"] = "Per"] = 
+  ["value"] = 98.3511228829235
+[
+  ["value"] = "SMA"] = 
+  ["value"] = 720.559821448127
+[
+  ["value"] = "Inc"] = 
+  ["value"] = 22.835317494984
+[
+  ["value"] = "LAN"] = 
+  ["value"] = 83.6221851623137
+[
+  ["value"] = "AoP"] = 
+  ["value"] = 274.098689826376
+[
+  ["value"] = "ECC"] = 
+  ["value"] = 0.0308214500783149
+
+CPU: 2299965316 -> Set_runmode
+  10
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4285579.61437982
+[1] = 
+  ["value"] = "~ Executer Loaded and Started ~"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4285579.61437982
+[1] = 
+  ["value"] = "*  No Active Engines   *"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4285579.61437982
+[1] = 
+  ["value"] = "* Using RCS propulsion *"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4285579.65437982
+[1] = 
+  ["value"] = "Throttle is limited to: 100 %"
+
+GPU: 3789209745 -> Set_Display
+  LIST of 6 items:
+[0] = LIST of 2 items:
+  [0] = 
+    ["value"] = "HEADER"
+  [1] = 
+    ["value"] = "MANEUVER DATA:"
+[1] = LIST of 3 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "ΔV req.          |  "
+  [2] = LIST of 2 items:
+    [0] = 
+      ["value"] = "NODE"
+    [1] = 
+      ["value"] = "DV"
+[2] = LIST of 2 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "Burn Time        |  319.2  s  "
+[3] = LIST of 3 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "Preperation in   |  "
+  [2] = LIST of 2 items:
+    [0] = 
+      ["value"] = "TIME"
+    [1] = 
+      ["value"] = 4286213.98340287
+[4] = LIST of 3 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "Execution begin  |  "
+  [2] = LIST of 2 items:
+    [0] = 
+      ["value"] = "TIME"
+    [1] = 
+      ["value"] = 4286243.98340287
+[5] = LIST of 3 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "Burnout arpox.   |  "
+  [2] = LIST of 2 items:
+    [0] = 
+      ["value"] = "TIME"
+    [1] = 
+      ["value"] = 4286563.18905217
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4286214.33486718
+[1] = 
+  ["value"] = "Time Warping Canceled"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4286243.9986068
+[1] = 
+  ["value"] = "Starting burn"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4286561.23836291
+[1] = 
+  ["value"] = "Throttle reduce has started"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4286944.18487676
+[1] = 
+  ["value"] = "LOCKED Throttle"
+
+GPU: 3789209745 -> Set_runmode
+  11
+
+GPU: 3789209745 -> Set_Display
+  0
+
+GPU: 3789209745 -> Set_runmode
+  11
+
+GPU: 3789209745 -> Set_runmode
+  70
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4286958.08487645
+[1] = 
+  ["value"] = "STOPPED: NODE EXECUTION"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4286958.08487645
+[1] = 
+  ["value"] = "REBOOTING: CPU"
+
+GPU: 3789209745 -> Set_Display
+  0
+
+GPU: 3789209745 -> CPU_REBOOT
+  0
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       7503.42393594467
+t_trans:       704.285278859701
+t_phase:       954.397099666071
+t_C_Apo:       1326.94186870591
+t_align:       4517.79968871299
+t_align_min:   1852.08014451797
+Per_align:     1765487.99081997
+dv_align:      465.987321565616
+dv_phasing:    -445.168308375363
+dv_Transition: 49.5206676987868
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       7439.50393737339
+t_trans:       704.285278859701
+t_phase:       954.396616313617
+t_C_Apo:       1262.77365683695
+t_align:       4518.04838536312
+t_align_min:   1852.07918748372
+Per_align:     1765578.16389933
+dv_align:      466.00865107007
+dv_phasing:    -445.187776086303
+dv_Transition: 49.5210552735709
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       8044.27158735029
+t_trans:       704.285278859701
+t_phase:       954.370988958629
+t_C_Apo:       1680.706908056
+t_align:       4704.90841147596
+t_align_min:   1852.02844551703
+Per_align:     452046184.77673
+dv_align:      947.890367223367
+dv_phasing:    -927.040353101339
+dv_Transition: 49.5416050596922
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       8014.87158800743
+t_trans:       704.285278859701
+t_phase:       954.369253739105
+t_C_Apo:       1651.2372951403
+t_align:       4704.97976026832
+t_align_min:   1852.02500979599
+Per_align:     456432.919967134
+dv_align:      -230.050688330212
+dv_phasing:    250.900336074689
+dv_Transition: 49.5429965188216
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       7173.75160680792
+t_trans:       704.285278859701
+t_phase:       954.365781269724
+t_C_Apo:       808.083320365997
+t_align:       4707.0172263125
+t_align_min:   1852.018134334
+Per_align:     1833304.3601401
+dv_align:      480.237008770058
+dv_phasing:    -459.361052917971
+dv_Transition: 49.5457810804533
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       7095.57160855538
+t_trans:       704.285278859701
+t_phase:       954.367356651525
+t_C_Apo:       730.067454314189
+t_align:       4706.85151872997
+t_align_min:   1852.02125357752
+Per_align:     1833243.88348137
+dv_align:      480.228573825544
+dv_phasing:    -459.348691043957
+dv_Transition: 49.5445177845114
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       7734.25865370446
+t_trans:       704.285278859701
+t_phase:       954.355233218849
+t_C_Apo:       617.101677980356
+t_align:       5458.51646364555
+t_align_min:   1851.99724927746
+Per_align:     2094058.28262441
+dv_align:      527.815666161814
+dv_phasing:    -506.926564080266
+dv_Transition: 49.5542396521458
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       5885.10127200726
+t_trans:       704.285278859701
+t_phase:       954.355042381396
+t_C_Apo:       436.311023841552
+t_align:       3790.14992692461
+t_align_min:   1851.99687142085
+Per_align:     1495449.1799513
+dv_align:      399.802716513832
+dv_phasing:    -378.912970926131
+dv_Transition: 49.5543926880515
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       7395.22284429723
+t_trans:       704.285278859701
+t_phase:       954.330218019167
+t_C_Apo:       1758.55989410874
+t_align:       3978.04745330963
+t_align_min:   1851.94771938803
+Per_align:     1566756.01906413
+dv_align:      419.009622877814
+dv_phasing:    -398.125623634151
+dv_Transition: 49.5743003044107
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       1112.27999424844
+t_trans:       704.285278859701
+t_phase:       954.321316324219
+t_C_Apo:       1610.38179490219
+t_align:       -2156.70839583768
+t_align_min:   1851.93009410743
+Per_align:     814208.462984823
+dv_align:      106.707139987024
+dv_phasing:    -85.8251355275152
+dv_Transition: 49.5814391713621
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       6128.58688168593
+t_trans:       704.285278859701
+t_phase:       954.318670871797
+t_C_Apo:       1557.99808040453
+t_align:       2911.98485154991
+t_align_min:   1851.92485613426
+Per_align:     1145098.12940157
+dv_align:      280.509226846156
+dv_phasing:    -259.627502285937
+dv_Transition: 49.5835607630951
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       6099.3753588023
+t_trans:       704.285278859701
+t_phase:       954.317991553629
+t_C_Apo:       1543.36858155732
+t_align:       2897.40350683165
+t_align_min:   1851.92351109011
+Per_align:     814111.715603236
+dv_align:      106.642568052351
+dv_phasing:    -85.7608719751807
+dv_Transition: 49.5841055624808
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       4127.47198804145
+t_trans:       704.285278859701
+t_phase:       954.315502177966
+t_C_Apo:       1483.27120992382
+t_align:       985.599997079956
+t_align_min:   1851.9185821477
+Per_align:     206958.855718137
+dv_align:      -716.128831246167
+dv_phasing:    737.010658545188
+dv_Transition: 49.5861019979048
+===============================
+h_tgt:         1594462815.51532
+h_trans:       1593376928.68663
+rI:            734425.495242833
+Per_trans:     697400.242055111
+Period_trans:  1992.41532851437
+t_tgt_I:       48875.2119805433
+t_trans:       40782.3745942958
+t_phase:       954.312568607137
+t_C_Apo:       1855.29669770682
+t_align:       5283.22811993353
+t_align_min:   1851.91277370279
+Per_align:     2034410.98715768
+dv_align:      517.813752253022
+dv_phasing:    -496.922061025964
+dv_Transition: 49.588454683456
+
+GPU: 3789209745 -> CPU_REBOOT
+  0
+
+CPU: 2299965316 -> Get_runmode
+  0
+
+CPU: 2299965316 -> Get_logList
+  0
+
+CPU: 2299965316 -> Get_TZero
+  0
+
+CPU: 2299965316 -> Get_TNext
+  0
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4279557.23451443
+[1] = 
+  ["value"] = "Programm Loaded"
+
+CPU: 2299965316 -> Get_runmodeInfoList
+  0
+
+CPU: 2299965316 -> Get_TargetOrbit
+  0
+
+GPU: 3789209745 -> Set_TargetOrbit
+  LEXICON of 7 items:
+[
+  ["value"] = "Apo"] = 
+  ["value"] = 142.768520013329
+[
+  ["value"] = "Per"] = 
+  ["value"] = 98.3511228829235
+[
+  ["value"] = "SMA"] = 
+  ["value"] = 720.559821448127
+[
+  ["value"] = "Inc"] = 
+  ["value"] = 22.835317494984
+[
+  ["value"] = "LAN"] = 
+  ["value"] = 83.6221851623137
+[
+  ["value"] = "AoP"] = 
+  ["value"] = 274.098689826376
+[
+  ["value"] = "ECC"] = 
+  ["value"] = 0.0308214500783149
+
+GPU: 3789209745 -> Get_logList
+  0
+
+GPU: 3789209745 -> Get_TZero
+  0
+
+GPU: 3789209745 -> Get_TNext
+  0
+
+GPU: 3789209745 -> Set_runmode
+  11
+
+GPU: 3789209745 -> Set_logList
+  LIST of 1 items:
+[0] = LIST of 2 items:
+  [0] = 
+    ["value"] = 4279557.23451443
+  [1] = 
+    ["value"] = "Programm Loaded"
+
+GPU: 3789209745 -> Set_TZero
+  4279557.23451443
+
+GPU: 3789209745 -> Set_TNext
+  4279557.23451443
+
+GPU: 3789209745 -> Set_runmodeInfoList
+  LEXICON of 30 items:
+[
+  ["value"] = "1"] = 
+  ["value"] = "Initialisation"
+[
+  ["value"] = "2"] = 
+  ["value"] = "Lift-off"
+[
+  ["value"] = "3"] = 
+  ["value"] = "Launch Tower cleared"
+[
+  ["value"] = "4"] = 
+  ["value"] = "Ascend profile"
+[
+  ["value"] = "5"] = 
+  ["value"] = "LES jetison"
+[
+  ["value"] = "6"] = 
+  ["value"] = "MECO"
+[
+  ["value"] = "7"] = 
+  ["value"] = "Wait for Atmosphere Exit"
+[
+  ["value"] = "8"] = 
+  ["value"] = "Rais Apoapsis to Park km"
+[
+  ["value"] = "9"] = 
+  ["value"] = "Circ Orbit at Periapsis km"
+[
+  ["value"] = "10"] = 
+  ["value"] = "Execute Next Node"
+[
+  ["value"] = "11"] = 
+  ["value"] = "  ▪ ▪ ▪ ▪ ▪ HOLD ▪ ▪ ▪ ▪ ▪"
+[
+  ["value"] = "15"] = 
+  ["value"] = "Hohmann Maneuver"
+[
+  ["value"] = "16"] = 
+  ["value"] = "Hohmann final"
+[
+  ["value"] = "21"] = 
+  ["value"] = "proximity Op-Setup"
+[
+  ["value"] = "22"] = 
+  ["value"] = "proximity Operation"
+[
+  ["value"] = "31"] = 
+  ["value"] = "Aps Line Rotation => TARGET"
+[
+  ["value"] = "32"] = 
+  ["value"] = "Aps Line Rotation => SHIP"
+[
+  ["value"] = "50"] = 
+  ["value"] = "Orbital Vector Display"
+[
+  ["value"] = "51"] = 
+  ["value"] = "Asc. Node Display"
+[
+  ["value"] = "52"] = 
+  ["value"] = "Asc. Node Correction"
+[
+  ["value"] = "53"] = 
+  ["value"] = "Closest Approach scan"
+[
+  ["value"] = "54"] = 
+  ["value"] = "Cls App detail Display"
+[
+  ["value"] = "70"] = 
+  ["value"] = "  ▪ ▪ ▪ ▪ ▪ NOOP ▪ ▪ ▪ ▪ ▪"
+[
+  ["value"] = "71"] = 
+  ["value"] = "Set Target Orbit by Elements"
+[
+  ["value"] = "72"] = 
+  ["value"] = "Set Target Orbit by 'Target'"
+[
+  ["value"] = "73"] = 
+  ["value"] = "Orbit Info >> Self, Target"
+[
+  ["value"] = "97"] = 
+  ["value"] = " ** CLEAR: VecDraws ** "
+[
+  ["value"] = "98"] = 
+  ["value"] = " ** RELOCK KOS - CONTROL ** "
+[
+  ["value"] = "99"] = 
+  ["value"] = " ** UNLOCK KOS - CONTROL ** "
+[
+  ["value"] = "ABORT"] = 
+  ["value"] = "ABORTING"
+
+GPU: 3789209745 -> Set_TargetOrbit
+  LEXICON of 7 items:
+[
+  ["value"] = "Apo"] = 
+  ["value"] = 142.768520013329
+[
+  ["value"] = "Per"] = 
+  ["value"] = 98.3511228829235
+[
+  ["value"] = "SMA"] = 
+  ["value"] = 720.559821448127
+[
+  ["value"] = "Inc"] = 
+  ["value"] = 22.835317494984
+[
+  ["value"] = "LAN"] = 
+  ["value"] = 83.6221851623137
+[
+  ["value"] = "AoP"] = 
+  ["value"] = 274.098689826376
+[
+  ["value"] = "ECC"] = 
+  ["value"] = 0.0308214500783149
+
+CPU: 2299965316 -> Set_runmode
+  10
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4279568.25451418
+[1] = 
+  ["value"] = "~ Executer Loaded and Started ~"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4279568.25451418
+[1] = 
+  ["value"] = "*  No Active Engines   *"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4279568.25451418
+[1] = 
+  ["value"] = "* Using RCS propulsion *"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4279568.29451418
+[1] = 
+  ["value"] = "Throttle is limited to: 100 %"
+
+GPU: 3789209745 -> Set_Display
+  LIST of 6 items:
+[0] = LIST of 2 items:
+  [0] = 
+    ["value"] = "HEADER"
+  [1] = 
+    ["value"] = "MANEUVER DATA:"
+[1] = LIST of 3 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "ΔV req.          |  "
+  [2] = LIST of 2 items:
+    [0] = 
+      ["value"] = "NODE"
+    [1] = 
+      ["value"] = "DV"
+[2] = LIST of 2 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "Burn Time        |  8.1  s  "
+[3] = LIST of 3 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "Preperation in   |  "
+  [2] = LIST of 2 items:
+    [0] = 
+      ["value"] = "TIME"
+    [1] = 
+      ["value"] = 4280258.36919631
+[4] = LIST of 3 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "Execution begin  |  "
+  [2] = LIST of 2 items:
+    [0] = 
+      ["value"] = "TIME"
+    [1] = 
+      ["value"] = 4280288.36919631
+[5] = LIST of 3 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "Burnout arpox.   |  "
+  [2] = LIST of 2 items:
+    [0] = 
+      ["value"] = "TIME"
+    [1] = 
+      ["value"] = 4280296.47587715
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4280258.37039232
+[1] = 
+  ["value"] = "Time Warping Canceled"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4280288.37140728
+[1] = 
+  ["value"] = "Starting burn"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4280294.49140714
+[1] = 
+  ["value"] = "Throttle reduce has started"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4280298.01140706
+[1] = 
+  ["value"] = "LOCKED Throttle"
+
+GPU: 3789209745 -> Set_runmode
+  11
+
+GPU: 3789209745 -> Set_Display
+  0
+
+GPU: 3789209745 -> Set_runmode
+  11
+
+GPU: 3789209745 -> Set_runmode
+  70
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4280300.05140702
+[1] = 
+  ["value"] = "STOPPED: NODE EXECUTION"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4280300.05140702
+[1] = 
+  ["value"] = "REBOOTING: CPU"
+
+GPU: 3789209745 -> Set_Display
+  0
+
+GPU: 3789209745 -> CPU_REBOOT
+  0
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4280305.85140689
+[1] = 
+  ["value"] = "Programm Loaded"
+
+GPU: 3789209745 -> Set_TargetOrbit
+  LEXICON of 7 items:
+[
+  ["value"] = "Apo"] = 
+  ["value"] = 142.768520013329
+[
+  ["value"] = "Per"] = 
+  ["value"] = 98.3511228829235
+[
+  ["value"] = "SMA"] = 
+  ["value"] = 720.559821448127
+[
+  ["value"] = "Inc"] = 
+  ["value"] = 22.835317494984
+[
+  ["value"] = "LAN"] = 
+  ["value"] = 83.6221851623137
+[
+  ["value"] = "AoP"] = 
+  ["value"] = 274.098689826376
+[
+  ["value"] = "ECC"] = 
+  ["value"] = 0.0308214500783149
+
+GPU: 3789209745 -> Get_logList
+  0
+
+GPU: 3789209745 -> Get_TZero
+  0
+
+GPU: 3789209745 -> Get_TNext
+  0
+
+GPU: 3789209745 -> CPU_REBOOT
+  0
+
+CPU: 2299965316 -> Get_runmode
+  0
+
+CPU: 2299965316 -> Get_logList
+  0
+
+CPU: 2299965316 -> Get_TZero
+  0
+
+CPU: 2299965316 -> Get_TNext
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4280455.89140353
+[1] = 
+  ["value"] = "Programm Loaded"
+  0
+
+CPU: 2299965316 -> Get_runmodeInfoList
+  0
+
+CPU: 2299965316 -> Get_TargetOrbit
+  0
+
+GPU: 3789209745 -> Set_TargetOrbit
+  LEXICON of 7 items:
+[
+  ["value"] = "Apo"] = 
+  ["value"] = 142.768520013329
+[
+  ["value"] = "Per"] = 
+  ["value"] = 98.3511228829235
+[
+  ["value"] = "SMA"] = 
+  ["value"] = 720.559821448127
+[
+  ["value"] = "Inc"] = 
+  ["value"] = 22.835317494984
+[
+  ["value"] = "LAN"] = 
+  ["value"] = 83.6221851623137
+[
+  ["value"] = "AoP"] = 
+  ["value"] = 274.098689826376
+[
+  ["value"] = "ECC"] = 
+  ["value"] = 0.0308214500783149
+
+GPU: 3789209745 -> Get_logList
+  0
+
+GPU: 3789209745 -> Get_TZero
+  0
+
+GPU: 3789209745 -> Get_TNext
+  0
+
+GPU: 3789209745 -> Set_runmode
+  11
+
+GPU: 3789209745 -> Set_logList
+  LIST of 1 items:
+[0] = LIST of 2 items:
+  [0] = 
+    ["value"] = 4280455.89140353
+  [1] = 
+    ["value"] = "Programm Loaded"
+
+GPU: 3789209745 -> Set_TZero
+  4280455.89140353
+
+GPU: 3789209745 -> Set_TNext
+  4280455.89140353
+
+GPU: 3789209745 -> Set_runmodeInfoList
+  LEXICON of 30 items:
+[
+  ["value"] = "1"] = 
+  ["value"] = "Initialisation"
+[
+  ["value"] = "2"] = 
+  ["value"] = "Lift-off"
+[
+  ["value"] = "3"] = 
+  ["value"] = "Launch Tower cleared"
+[
+  ["value"] = "4"] = 
+  ["value"] = "Ascend profile"
+[
+  ["value"] = "5"] = 
+  ["value"] = "LES jetison"
+[
+  ["value"] = "6"] = 
+  ["value"] = "MECO"
+[
+  ["value"] = "7"] = 
+  ["value"] = "Wait for Atmosphere Exit"
+[
+  ["value"] = "8"] = 
+  ["value"] = "Rais Apoapsis to Park km"
+[
+  ["value"] = "9"] = 
+  ["value"] = "Circ Orbit at Periapsis km"
+[
+  ["value"] = "10"] = 
+  ["value"] = "Execute Next Node"
+[
+  ["value"] = "11"] = 
+  ["value"] = "  ▪ ▪ ▪ ▪ ▪ HOLD ▪ ▪ ▪ ▪ ▪"
+[
+  ["value"] = "15"] = 
+  ["value"] = "Hohmann Maneuver"
+[
+  ["value"] = "16"] = 
+  ["value"] = "Hohmann final"
+[
+  ["value"] = "21"] = 
+  ["value"] = "proximity Op-Setup"
+[
+  ["value"] = "22"] = 
+  ["value"] = "proximity Operation"
+[
+  ["value"] = "31"] = 
+  ["value"] = "Aps Line Rotation => TARGET"
+[
+  ["value"] = "32"] = 
+  ["value"] = "Aps Line Rotation => SHIP"
+[
+  ["value"] = "50"] = 
+  ["value"] = "Orbital Vector Display"
+[
+  ["value"] = "51"] = 
+  ["value"] = "Asc. Node Display"
+[
+  ["value"] = "52"] = 
+  ["value"] = "Asc. Node Correction"
+[
+  ["value"] = "53"] = 
+  ["value"] = "Closest Approach scan"
+[
+  ["value"] = "54"] = 
+  ["value"] = "Cls App detail Display"
+[
+  ["value"] = "70"] = 
+  ["value"] = "  ▪ ▪ ▪ ▪ ▪ NOOP ▪ ▪ ▪ ▪ ▪"
+[
+  ["value"] = "71"] = 
+  ["value"] = "Set Target Orbit by Elements"
+[
+  ["value"] = "72"] = 
+  ["value"] = "Set Target Orbit by 'Target'"
+[
+  ["value"] = "73"] = 
+  ["value"] = "Orbit Info >> Self, Target"
+[
+  ["value"] = "97"] = 
+  ["value"] = " ** CLEAR: VecDraws ** "
+[
+  ["value"] = "98"] = 
+  ["value"] = " ** RELOCK KOS - CONTROL ** "
+[
+  ["value"] = "99"] = 
+  ["value"] = " ** UNLOCK KOS - CONTROL ** "
+[
+  ["value"] = "ABORT"] = 
+  ["value"] = "ABORTING"
+
+GPU: 3789209745 -> Set_TargetOrbit
+  LEXICON of 7 items:
+[
+  ["value"] = "Apo"] = 
+  ["value"] = 142.768520013329
+[
+  ["value"] = "Per"] = 
+  ["value"] = 98.3511228829235
+[
+  ["value"] = "SMA"] = 
+  ["value"] = 720.559821448127
+[
+  ["value"] = "Inc"] = 
+  ["value"] = 22.835317494984
+[
+  ["value"] = "LAN"] = 
+  ["value"] = 83.6221851623137
+[
+  ["value"] = "AoP"] = 
+  ["value"] = 274.098689826376
+[
+  ["value"] = "ECC"] = 
+  ["value"] = 0.0308214500783149
+
+CPU: 2299965316 -> Set_runmode
+  10
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4280459.71140345
+[1] = 
+  ["value"] = "~ Executer Loaded and Started ~"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4280459.71140345
+[1] = 
+  ["value"] = "*  No Active Engines   *"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4280459.71140345
+[1] = 
+  ["value"] = "* Using RCS propulsion *"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4280459.75140345
+[1] = 
+  ["value"] = "Throttle is limited to: 100 %"
+
+GPU: 3789209745 -> Set_Display
+  LIST of 6 items:
+[0] = LIST of 2 items:
+  [0] = 
+    ["value"] = "HEADER"
+  [1] = 
+    ["value"] = "MANEUVER DATA:"
+[1] = LIST of 3 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "ΔV req.          |  "
+  [2] = LIST of 2 items:
+    [0] = 
+      ["value"] = "NODE"
+    [1] = 
+      ["value"] = "DV"
+[2] = LIST of 2 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "Burn Time        |  3.9  s  "
+[3] = LIST of 3 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "Preperation in   |  "
+  [2] = LIST of 2 items:
+    [0] = 
+      ["value"] = "TIME"
+    [1] = 
+      ["value"] = 4281790.93239892
+[4] = LIST of 3 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "Execution begin  |  "
+  [2] = LIST of 2 items:
+    [0] = 
+      ["value"] = "TIME"
+    [1] = 
+      ["value"] = 4281820.93239892
+[5] = LIST of 3 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "Burnout arpox.   |  "
+  [2] = LIST of 2 items:
+    [0] = 
+      ["value"] = "TIME"
+    [1] = 
+      ["value"] = 4281824.79660718
+
+CPU: 2299965316 -> Get_runmode
+  0
+
+CPU: 2299965316 -> Get_logList
+  0
+
+CPU: 2299965316 -> Get_TZero
+  0
+
+CPU: 2299965316 -> Get_TNext
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4298620.85088257
+[1] = 
+  ["value"] = "Programm Loaded"
+  0
+
+CPU: 2299965316 -> Get_runmodeInfoList
+  0
+
+CPU: 2299965316 -> Get_TargetOrbit
+  0
+
+GPU: 3789209745 -> Set_TargetOrbit
+  LEXICON of 7 items:
+[
+  ["value"] = "Apo"] = 
+  ["value"] = 142.768520013329
+[
+  ["value"] = "Per"] = 
+  ["value"] = 98.3511228829235
+[
+  ["value"] = "SMA"] = 
+  ["value"] = 720.559821448127
+[
+  ["value"] = "Inc"] = 
+  ["value"] = 22.835317494984
+[
+  ["value"] = "LAN"] = 
+  ["value"] = 83.6221851623137
+[
+  ["value"] = "AoP"] = 
+  ["value"] = 274.098689826376
+[
+  ["value"] = "ECC"] = 
+  ["value"] = 0.0308214500783149
+
+GPU: 3789209745 -> Get_logList
+  0
+
+GPU: 3789209745 -> Get_TZero
+  0
+
+GPU: 3789209745 -> Get_TNext
+  0
+
+GPU: 3789209745 -> Set_runmode
+  11
+
+GPU: 3789209745 -> Set_logList
+  LIST of 1 items:
+[0] = LIST of 2 items:
+  [0] = 
+    ["value"] = 4298620.85088257
+  [1] = 
+    ["value"] = "Programm Loaded"
+
+GPU: 3789209745 -> Set_TZero
+  4298620.85088257
+
+GPU: 3789209745 -> Set_TNext
+  4298620.85088257
+
+GPU: 3789209745 -> Set_runmodeInfoList
+  LEXICON of 30 items:
+[
+  ["value"] = "1"] = 
+  ["value"] = "Initialisation"
+[
+  ["value"] = "2"] = 
+  ["value"] = "Lift-off"
+[
+  ["value"] = "3"] = 
+  ["value"] = "Launch Tower cleared"
+[
+  ["value"] = "4"] = 
+  ["value"] = "Ascend profile"
+[
+  ["value"] = "5"] = 
+  ["value"] = "LES jetison"
+[
+  ["value"] = "6"] = 
+  ["value"] = "MECO"
+[
+  ["value"] = "7"] = 
+  ["value"] = "Wait for Atmosphere Exit"
+[
+  ["value"] = "8"] = 
+  ["value"] = "Rais Apoapsis to Park km"
+[
+  ["value"] = "9"] = 
+  ["value"] = "Circ Orbit at Periapsis km"
+[
+  ["value"] = "10"] = 
+  ["value"] = "Execute Next Node"
+[
+  ["value"] = "11"] = 
+  ["value"] = "  ▪ ▪ ▪ ▪ ▪ HOLD ▪ ▪ ▪ ▪ ▪"
+[
+  ["value"] = "15"] = 
+  ["value"] = "Hohmann Maneuver"
+[
+  ["value"] = "16"] = 
+  ["value"] = "Hohmann final"
+[
+  ["value"] = "21"] = 
+  ["value"] = "proximity Op-Setup"
+[
+  ["value"] = "22"] = 
+  ["value"] = "proximity Operation"
+[
+  ["value"] = "31"] = 
+  ["value"] = "Aps Line Rotation => TARGET"
+[
+  ["value"] = "32"] = 
+  ["value"] = "Aps Line Rotation => SHIP"
+[
+  ["value"] = "50"] = 
+  ["value"] = "Orbital Vector Display"
+[
+  ["value"] = "51"] = 
+  ["value"] = "Asc. Node Display"
+[
+  ["value"] = "52"] = 
+  ["value"] = "Asc. Node Correction"
+[
+  ["value"] = "53"] = 
+  ["value"] = "Closest Approach scan"
+[
+  ["value"] = "54"] = 
+  ["value"] = "Cls App detail Display"
+[
+  ["value"] = "70"] = 
+  ["value"] = "  ▪ ▪ ▪ ▪ ▪ NOOP ▪ ▪ ▪ ▪ ▪"
+[
+  ["value"] = "71"] = 
+  ["value"] = "Set Target Orbit by Elements"
+[
+  ["value"] = "72"] = 
+  ["value"] = "Set Target Orbit by 'Target'"
+[
+  ["value"] = "73"] = 
+  ["value"] = "Orbit Info >> Self, Target"
+[
+  ["value"] = "97"] = 
+  ["value"] = " ** CLEAR: VecDraws ** "
+[
+  ["value"] = "98"] = 
+  ["value"] = " ** RELOCK KOS - CONTROL ** "
+[
+  ["value"] = "99"] = 
+  ["value"] = " ** UNLOCK KOS - CONTROL ** "
+[
+  ["value"] = "ABORT"] = 
+  ["value"] = "ABORTING"
+
+GPU: 3789209745 -> Set_TargetOrbit
+  LEXICON of 7 items:
+[
+  ["value"] = "Apo"] = 
+  ["value"] = 142.768520013329
+[
+  ["value"] = "Per"] = 
+  ["value"] = 98.3511228829235
+[
+  ["value"] = "SMA"] = 
+  ["value"] = 720.559821448127
+[
+  ["value"] = "Inc"] = 
+  ["value"] = 22.835317494984
+[
+  ["value"] = "LAN"] = 
+  ["value"] = 83.6221851623137
+[
+  ["value"] = "AoP"] = 
+  ["value"] = 274.098689826376
+[
+  ["value"] = "ECC"] = 
+  ["value"] = 0.0308214500783149
+
+CPU: 2299965316 -> Set_runmode
+  10
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4298623.33088251
+[1] = 
+  ["value"] = "~ Executer Loaded and Started ~"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4298623.33088251
+[1] = 
+  ["value"] = "*  No Active Engines   *"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4298623.33088251
+[1] = 
+  ["value"] = "* Using RCS propulsion *"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4298623.37088251
+[1] = 
+  ["value"] = "Throttle is limited to: 100 %"
+
+GPU: 3789209745 -> Set_Display
+  LIST of 6 items:
+[0] = LIST of 2 items:
+  [0] = 
+    ["value"] = "HEADER"
+  [1] = 
+    ["value"] = "MANEUVER DATA:"
+[1] = LIST of 3 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "ΔV req.          |  "
+  [2] = LIST of 2 items:
+    [0] = 
+      ["value"] = "NODE"
+    [1] = 
+      ["value"] = "DV"
+[2] = LIST of 2 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "Burn Time        |  32.1  s  "
+[3] = LIST of 3 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "Preperation in   |  "
+  [2] = LIST of 2 items:
+    [0] = 
+      ["value"] = "TIME"
+    [1] = 
+      ["value"] = 4298611.13318739
+[4] = LIST of 3 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "Execution begin  |  "
+  [2] = LIST of 2 items:
+    [0] = 
+      ["value"] = "TIME"
+    [1] = 
+      ["value"] = 4298641.13318739
+[5] = LIST of 3 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "Burnout arpox.   |  "
+  [2] = LIST of 2 items:
+    [0] = 
+      ["value"] = "TIME"
+    [1] = 
+      ["value"] = 4298673.21691605
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4298623.37088251
+[1] = 
+  ["value"] = "Time Warping Canceled"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4298641.13408524
+[1] = 
+  ["value"] = "Starting burn"
+
+GPU: 3789209745 -> Set_runmode
+  70
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4298657.93408487
+[1] = 
+  ["value"] = "STOPPED: NODE EXECUTION"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4298657.93408487
+[1] = 
+  ["value"] = "REBOOTING: CPU"
+
+GPU: 3789209745 -> Set_Display
+  0
+
+GPU: 3789209745 -> CPU_REBOOT
+  0
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4298663.67408474
+[1] = 
+  ["value"] = "Programm Loaded"
+
+GPU: 3789209745 -> Set_TargetOrbit
+  LEXICON of 7 items:
+[
+  ["value"] = "Apo"] = 
+  ["value"] = 142.768520013329
+[
+  ["value"] = "Per"] = 
+  ["value"] = 98.3511228829235
+[
+  ["value"] = "SMA"] = 
+  ["value"] = 720.559821448127
+[
+  ["value"] = "Inc"] = 
+  ["value"] = 22.835317494984
+[
+  ["value"] = "LAN"] = 
+  ["value"] = 83.6221851623137
+[
+  ["value"] = "AoP"] = 
+  ["value"] = 274.098689826376
+[
+  ["value"] = "ECC"] = 
+  ["value"] = 0.0308214500783149
+
+GPU: 3789209745 -> Get_logList
+  0
+
+GPU: 3789209745 -> Get_TZero
+  0
+
+GPU: 3789209745 -> Get_TNext
+  0
+
+CPU: 2299965316 -> Get_runmode
+  0
+
+CPU: 2299965316 -> Get_logList
+  0
+
+CPU: 2299965316 -> Get_TZero
+  0
+
+CPU: 2299965316 -> Get_TNext
+  0
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4282744.31135238
+[1] = 
+  ["value"] = "Programm Loaded"
+
+CPU: 2299965316 -> Get_runmodeInfoList
+  0
+
+CPU: 2299965316 -> Get_TargetOrbit
+  0
+
+GPU: 3789209745 -> Set_TargetOrbit
+  LEXICON of 7 items:
+[
+  ["value"] = "Apo"] = 
+  ["value"] = 142.768520013329
+[
+  ["value"] = "Per"] = 
+  ["value"] = 98.3511228829235
+[
+  ["value"] = "SMA"] = 
+  ["value"] = 720.559821448127
+[
+  ["value"] = "Inc"] = 
+  ["value"] = 22.835317494984
+[
+  ["value"] = "LAN"] = 
+  ["value"] = 83.6221851623137
+[
+  ["value"] = "AoP"] = 
+  ["value"] = 274.098689826376
+[
+  ["value"] = "ECC"] = 
+  ["value"] = 0.0308214500783149
+
+GPU: 3789209745 -> Get_logList
+  0
+
+GPU: 3789209745 -> Get_TZero
+  0
+
+GPU: 3789209745 -> Get_TNext
+  0
+
+GPU: 3789209745 -> Set_runmode
+  11
+
+GPU: 3789209745 -> Set_logList
+  LIST of 1 items:
+[0] = LIST of 2 items:
+  [0] = 
+    ["value"] = 4282744.31135238
+  [1] = 
+    ["value"] = "Programm Loaded"
+
+GPU: 3789209745 -> Set_TZero
+  4282744.31135238
+
+GPU: 3789209745 -> Set_TNext
+  4282744.31135238
+
+GPU: 3789209745 -> Set_runmodeInfoList
+  LEXICON of 31 items:
+[
+  ["value"] = "1"] = 
+  ["value"] = "Initialisation"
+[
+  ["value"] = "2"] = 
+  ["value"] = "Lift-off"
+[
+  ["value"] = "3"] = 
+  ["value"] = "Launch Tower cleared"
+[
+  ["value"] = "4"] = 
+  ["value"] = "Ascend profile"
+[
+  ["value"] = "5"] = 
+  ["value"] = "LES jetison"
+[
+  ["value"] = "6"] = 
+  ["value"] = "MECO"
+[
+  ["value"] = "7"] = 
+  ["value"] = "Wait for Atmosphere Exit"
+[
+  ["value"] = "8"] = 
+  ["value"] = "Rais Apoapsis to Park km"
+[
+  ["value"] = "9"] = 
+  ["value"] = "Circ Orbit at Periapsis km"
+[
+  ["value"] = "10"] = 
+  ["value"] = "Execute Next Node"
+[
+  ["value"] = "11"] = 
+  ["value"] = "  ▪ ▪ ▪ ▪ ▪ HOLD ▪ ▪ ▪ ▪ ▪"
+[
+  ["value"] = "15"] = 
+  ["value"] = "Rendezvous Caculation"
+[
+  ["value"] = "21"] = 
+  ["value"] = "proximity Op-Setup"
+[
+  ["value"] = "23"] = 
+  ["value"] = "proximity Operation"
+[
+  ["value"] = "25"] = 
+  ["value"] = "proximity Operation"
+[
+  ["value"] = "31"] = 
+  ["value"] = "Aps Line Rotation => TARGET"
+[
+  ["value"] = "32"] = 
+  ["value"] = "Aps Line Rotation => SHIP"
+[
+  ["value"] = "50"] = 
+  ["value"] = "Orbital Vector Display"
+[
+  ["value"] = "51"] = 
+  ["value"] = "Asc. Node Display"
+[
+  ["value"] = "52"] = 
+  ["value"] = "Asc. Node Correction"
+[
+  ["value"] = "53"] = 
+  ["value"] = "Closest Approach scan"
+[
+  ["value"] = "54"] = 
+  ["value"] = "Cls App detail Display"
+[
+  ["value"] = "70"] = 
+  ["value"] = "  ▪ ▪ ▪ ▪ ▪ NOOP ▪ ▪ ▪ ▪ ▪"
+[
+  ["value"] = "71"] = 
+  ["value"] = "Set Target Orbit by Elements"
+[
+  ["value"] = "72"] = 
+  ["value"] = "Set Target Orbit by 'Target'"
+[
+  ["value"] = "73"] = 
+  ["value"] = "Orbit Info >> Self, Target"
+[
+  ["value"] = "74"] = 
+  ["value"] = "set rendezvous angle "
+[
+  ["value"] = "97"] = 
+  ["value"] = " ** CLEAR: VecDraws ** "
+[
+  ["value"] = "98"] = 
+  ["value"] = " ** RELOCK KOS - CONTROL ** "
+[
+  ["value"] = "99"] = 
+  ["value"] = " ** UNLOCK KOS - CONTROL ** "
+[
+  ["value"] = "ABORT"] = 
+  ["value"] = "ABORTING"
+
+GPU: 3789209745 -> Set_TargetOrbit
+  LEXICON of 7 items:
+[
+  ["value"] = "Apo"] = 
+  ["value"] = 142.768520013329
+[
+  ["value"] = "Per"] = 
+  ["value"] = 98.3511228829235
+[
+  ["value"] = "SMA"] = 
+  ["value"] = 720.559821448127
+[
+  ["value"] = "Inc"] = 
+  ["value"] = 22.835317494984
+[
+  ["value"] = "LAN"] = 
+  ["value"] = 83.6221851623137
+[
+  ["value"] = "AoP"] = 
+  ["value"] = 274.098689826376
+[
+  ["value"] = "ECC"] = 
+  ["value"] = 0.0308214500783149
+
+GPU: 3789209745 -> CPU_REBOOT
+  0
+
+GPU: 3789209745 -> CPU_REBOOT
+  0
+
+GPU: 3789209745 -> CPU_REBOOT
+  0
+
+GPU: 3789209745 -> CPU_REBOOT
+  0
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4282815.2913508
+[1] = 
+  ["value"] = "Programm Loaded"
+
+GPU: 3789209745 -> Set_TargetOrbit
+  LEXICON of 7 items:
+[
+  ["value"] = "Apo"] = 
+  ["value"] = 142.768520013329
+[
+  ["value"] = "Per"] = 
+  ["value"] = 98.3511228829235
+[
+  ["value"] = "SMA"] = 
+  ["value"] = 720.559821448127
+[
+  ["value"] = "Inc"] = 
+  ["value"] = 22.835317494984
+[
+  ["value"] = "LAN"] = 
+  ["value"] = 83.6221851623137
+[
+  ["value"] = "AoP"] = 
+  ["value"] = 274.098689826376
+[
+  ["value"] = "ECC"] = 
+  ["value"] = 0.0308214500783149
+
+GPU: 3789209745 -> Get_logList
+  0
+
+GPU: 3789209745 -> Get_TZero
+  0
+
+GPU: 3789209745 -> Get_TNext
+  0
+
+CPU: 2299965316 -> GPU_REBOOT
+  0
+
+CPU: 2299965316 -> Get_runmode
+  0
+
+CPU: 2299965316 -> Get_logList
+  0
+
+CPU: 2299965316 -> Get_TZero
+  0
+
+CPU: 2299965316 -> Get_TNext
+  0
+
+CPU: 2299965316 -> Get_runmodeInfoList
+  0
+
+
+GPU: 3789209745 -> Set_runmode
+  11
+CPU: 2299965316 -> Get_TargetOrbit
+  0
+
+GPU: 3789209745 -> Set_logList
+  LIST of 1 items:
+[0] = LIST of 2 items:
+  [0] = 
+    ["value"] = 4282815.2913508
+  [1] = 
+    ["value"] = "Programm Loaded"
+
+GPU: 3789209745 -> Set_TZero
+  4282815.2913508
+
+GPU: 3789209745 -> Set_TNext
+  4282815.2913508
+
+GPU: 3789209745 -> Set_runmodeInfoList
+  LEXICON of 31 items:
+[
+  ["value"] = "1"] = 
+  ["value"] = "Initialisation"
+[
+  ["value"] = "2"] = 
+  ["value"] = "Lift-off"
+[
+  ["value"] = "3"] = 
+  ["value"] = "Launch Tower cleared"
+[
+  ["value"] = "4"] = 
+  ["value"] = "Ascend profile"
+[
+  ["value"] = "5"] = 
+  ["value"] = "LES jetison"
+[
+  ["value"] = "6"] = 
+  ["value"] = "MECO"
+[
+  ["value"] = "7"] = 
+  ["value"] = "Wait for Atmosphere Exit"
+[
+  ["value"] = "8"] = 
+  ["value"] = "Rais Apoapsis to Park km"
+[
+  ["value"] = "9"] = 
+  ["value"] = "Circ Orbit at Periapsis km"
+[
+  ["value"] = "10"] = 
+  ["value"] = "Execute Next Node"
+[
+  ["value"] = "11"] = 
+  ["value"] = "  ▪ ▪ ▪ ▪ ▪ HOLD ▪ ▪ ▪ ▪ ▪"
+[
+  ["value"] = "15"] = 
+  ["value"] = "Rendezvous Caculation"
+[
+  ["value"] = "21"] = 
+  ["value"] = "proximity Op-Setup"
+[
+  ["value"] = "23"] = 
+  ["value"] = "proximity Operation"
+[
+  ["value"] = "25"] = 
+  ["value"] = "proximity Operation"
+[
+  ["value"] = "31"] = 
+  ["value"] = "Aps Line Rotation => TARGET"
+[
+  ["value"] = "32"] = 
+  ["value"] = "Aps Line Rotation => SHIP"
+[
+  ["value"] = "50"] = 
+  ["value"] = "Orbital Vector Display"
+[
+  ["value"] = "51"] = 
+  ["value"] = "Asc. Node Display"
+[
+  ["value"] = "52"] = 
+  ["value"] = "Asc. Node Correction"
+[
+  ["value"] = "53"] = 
+  ["value"] = "Closest Approach scan"
+[
+  ["value"] = "54"] = 
+  ["value"] = "Cls App detail Display"
+[
+  ["value"] = "70"] = 
+  ["value"] = "  ▪ ▪ ▪ ▪ ▪ NOOP ▪ ▪ ▪ ▪ ▪"
+[
+  ["value"] = "71"] = 
+  ["value"] = "Set Target Orbit by Elements"
+[
+  ["value"] = "72"] = 
+  ["value"] = "Set Target Orbit by 'Target'"
+[
+  ["value"] = "73"] = 
+  ["value"] = "Orbit Info >> Self, Target"
+[
+  ["value"] = "74"] = 
+  ["value"] = "set rendezvous angle "
+[
+  ["value"] = "97"] = 
+  ["value"] = " ** CLEAR: VecDraws ** "
+[
+  ["value"] = "98"] = 
+  ["value"] = " ** RELOCK KOS - CONTROL ** "
+[
+  ["value"] = "99"] = 
+  ["value"] = " ** UNLOCK KOS - CONTROL ** "
+[
+  ["value"] = "ABORT"] = 
+  ["value"] = "ABORTING"
+
+GPU: 3789209745 -> Set_TargetOrbit
+  LEXICON of 7 items:
+[
+  ["value"] = "Apo"] = 
+  ["value"] = 142.768520013329
+[
+  ["value"] = "Per"] = 
+  ["value"] = 98.3511228829235
+[
+  ["value"] = "SMA"] = 
+  ["value"] = 720.559821448127
+[
+  ["value"] = "Inc"] = 
+  ["value"] = 22.835317494984
+[
+  ["value"] = "LAN"] = 
+  ["value"] = 83.6221851623137
+[
+  ["value"] = "AoP"] = 
+  ["value"] = 274.098689826376
+[
+  ["value"] = "ECC"] = 
+  ["value"] = 0.0308214500783149
+
+CPU: 2299965316 -> Set_runmode
+  15
+
+GPU: 3789209745 -> Set_runmode
+  10
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4282845.61135012
+[1] = 
+  ["value"] = "~ Executer Loaded and Started ~"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4282845.61135012
+[1] = 
+  ["value"] = "*  No Active Engines   *"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4282845.61135012
+[1] = 
+  ["value"] = "* Using RCS propulsion *"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4282845.65135012
+[1] = 
+  ["value"] = "Throttle is limited to: 100 %"
+
+GPU: 3789209745 -> Set_Display
+  LIST of 6 items:
+[0] = LIST of 2 items:
+  [0] = 
+    ["value"] = "HEADER"
+  [1] = 
+    ["value"] = "MANEUVER DATA:"
+[1] = LIST of 3 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "ΔV req.          |  "
+  [2] = LIST of 2 items:
+    [0] = 
+      ["value"] = "NODE"
+    [1] = 
+      ["value"] = "DV"
+[2] = LIST of 2 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "Burn Time        |  4.4  s  "
+[3] = LIST of 3 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "Preperation in   |  "
+  [2] = LIST of 2 items:
+    [0] = 
+      ["value"] = "TIME"
+    [1] = 
+      ["value"] = 4283647.50736732
+[4] = LIST of 3 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "Execution begin  |  "
+  [2] = LIST of 2 items:
+    [0] = 
+      ["value"] = "TIME"
+    [1] = 
+      ["value"] = 4283677.50736732
+[5] = LIST of 3 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "Burnout arpox.   |  "
+  [2] = LIST of 2 items:
+    [0] = 
+      ["value"] = "TIME"
+    [1] = 
+      ["value"] = 4283681.8718987
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4283648.00744405
+[1] = 
+  ["value"] = "Time Warping Canceled"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4283677.51416216
+[1] = 
+  ["value"] = "Starting burn"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4283679.89416211
+[1] = 
+  ["value"] = "Throttle reduce has started"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4283681.91416207
+[1] = 
+  ["value"] = "LOCKED Throttle"
+
+GPU: 3789209745 -> Set_runmode
+  11
+
+GPU: 3789209745 -> Set_Display
+  0
+
+GPU: 3789209745 -> Set_runmode
+  11
+
+GPU: 3789209745 -> Set_runmode
+  10
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4283683.89416202
+[1] = 
+  ["value"] = "~ Executer Loaded and Started ~"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4283683.89416202
+[1] = 
+  ["value"] = "*  No Active Engines   *"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4283683.89416202
+[1] = 
+  ["value"] = "* Using RCS propulsion *"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4283683.93416202
+[1] = 
+  ["value"] = "Throttle is limited to: 100 %"
+
+GPU: 3789209745 -> Set_Display
+  LIST of 6 items:
+[0] = LIST of 2 items:
+  [0] = 
+    ["value"] = "HEADER"
+  [1] = 
+    ["value"] = "MANEUVER DATA:"
+[1] = LIST of 3 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "ΔV req.          |  "
+  [2] = LIST of 2 items:
+    [0] = 
+      ["value"] = "NODE"
+    [1] = 
+      ["value"] = "DV"
+[2] = LIST of 2 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "Burn Time        |  31.7  s  "
+[3] = LIST of 3 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "Preperation in   |  "
+  [2] = LIST of 2 items:
+    [0] = 
+      ["value"] = "TIME"
+    [1] = 
+      ["value"] = 4298611.30822579
+[4] = LIST of 3 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "Execution begin  |  "
+  [2] = LIST of 2 items:
+    [0] = 
+      ["value"] = "TIME"
+    [1] = 
+      ["value"] = 4298641.30822579
+[5] = LIST of 3 items:
+  [0] = 
+    ["value"] = "TXT"
+  [1] = 
+    ["value"] = "Burnout arpox.   |  "
+  [2] = LIST of 2 items:
+    [0] = 
+      ["value"] = "TIME"
+    [1] = 
+      ["value"] = 4298672.96082313
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4298611.32320939
+[1] = 
+  ["value"] = "Time Warping Canceled"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4298641.32320872
+[1] = 
+  ["value"] = "Starting burn"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4298670.98320806
+[1] = 
+  ["value"] = "Throttle reduce has started"
+
+GPU: 3789209745 -> Set_runmode
+  11
+
+GPU: 3789209745 -> Set_Display
+  0
+
+GPU: 3789209745 -> Set_runmode
+  11
+
+GPU: 3789209745 -> Set_runmode
+  10
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4298670.98320806
+[1] = 
+  ["value"] = "~ Executer Loaded and Started ~"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4298670.98320806
+[1] = 
+  ["value"] = "*  No Active Engines   *"
+
+GPU: 3789209745 -> Set_Comment
+  LIST of 2 items:
+[0] = 
+  ["value"] = 4298670.98320806
+[1] = 
+  ["value"] = "* Using RCS propulsion *"

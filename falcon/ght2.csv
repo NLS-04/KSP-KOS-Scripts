@@ -1,0 +1,3427 @@
+FALCON 4-A:
+    // BOOSTER STAGE
+        [0] = "PART(TE.19.F9.S1.Tank (Falcon 4),uid=4124020736)"
+        [1] = "PART(TE.19.F9.S1.Engine,tag=eng1)"
+            //GROUND EQUIPEMENT
+                [2] = "PART(AM.MLP.GeneralLaunchBase,uid=4065046016)"
+                [3] = "PART(AM.MLP.GeneralStrongbackTowerFull,uid=2319956992)"
+        [4] = "PART(KRE-FalconLeg-M,uid=2018587136)"
+        [5] = "PART(KRE-FalconLeg-M,uid=824923136)"
+        [6] = "PART(KRE-FalconLeg-M,uid=1034823168)"
+        [7] = "PART(KRE-FalconLeg-M,uid=2104631808)"
+        [8] = "PART(Grid Fin M Titanium,tag=fin)"
+        [9] = "PART(Grid Fin M Titanium,tag=fin)"
+        [10] = "PART(Grid Fin M Titanium,tag=fin)"
+        [11] = "PART(Grid Fin M Titanium,tag=fin)"
+        [12] = "PART(HotGasThruster-L,tag=rcs)"
+        [13] = "PART(HotGasThruster-L,tag=rcs)"
+        [14] = "PART(HotGasThruster-L,tag=rcs)"
+        [15] = "PART(HotGasThruster-L,tag=rcs)"
+        [16] = "PART(aerocam,uid=1042018304)"
+        [17] = "PART(TE.19.C.Dragon.Decoupler,uid=3440320512)"
+        [18] = "PART(SurfAntenna,uid=4083374080)"
+    //ORBITER STAGE
+        [19] = "PART(TE.19.F910.S2.Engine,tag=eng2)"
+        [20] = "PART(TE.19.F910.S2.Tank,uid=2546111488)"
+        [21] = "PART(TE.F9.Fairing.Adapter,uid=1520863232)"
+        [22] = "PART(TE.19.F9.Fairing,uid=2020104192)"
+        [23] = "PART(TE.19.F9.Fairing,uid=3960227840)"
+
+FALCON 4-B:
+    // BOOSTER STAGE
+        [0] = "PART(TE.19.F9.S1.Tank,tag=tank1)"
+        [1] = "PART(TE.19.F9.S1.Engine,tag=eng1)"
+            //GROUND EQUIPEMENT
+                [2] = "PART(AM.MLP.GeneralLaunchBase,tag=ground)"
+                [3] = "PART(AM.MLP.GeneralStrongbackTowerFull,tag=ground)"
+        [4] = "PART(KRE-FalconLeg-M,uid=2916194816)"
+        [5] = "PART(KRE-FalconLeg-M,uid=4086638080)"
+        [6] = "PART(KRE-FalconLeg-M,uid=913346560)"
+        [7] = "PART(KRE-FalconLeg-M,uid=762690560)"
+        [8] = "PART(Grid Fin M Titanium,tag=fin)"
+        [9] = "PART(Grid Fin M Titanium,tag=fin)"
+        [10] = "PART(Grid Fin M Titanium,tag=fin)"
+        [11] = "PART(Grid Fin M Titanium,tag=fin)"
+        [12] = "PART(HotGasThruster-L,tag=rcs)"
+        [13] = "PART(HotGasThruster-L,tag=rcs)"
+        [14] = "PART(HotGasThruster-L,tag=rcs)"
+        [15] = "PART(HotGasThruster-L,tag=rcs)"
+        [16] = "PART(aerocam,uid=2608202752)"
+        [17] = "PART(TE.19.C.Dragon.Decoupler,uid=3823282688)"
+    //ORBITER STAGE
+        [18] = "PART(TE.19.F910.S2.Engine,tag=eng2)"
+        [19] = "PART(TE.19.F9.S2.Tank,uid=3935290880)"
+        [20] = "PART(TE.F9.Fairing.Adapter,uid=3585211392)"
+        [21] = "PART(TE.19.F9.Fairing,tag=fairing)"
+        [22] = "PART(TE.19.F9.Fairing,tag=fairing)"
+        [23] = "PART(kOSMachineRad,uid=1918526464)"
+        [24] = "PART(Engineer7500,uid=3290649088)"
+        [25] = "PART(Decoupler.1,tag=seperator)"
+            //PAYLOAD STAGE
+                [26] = "PART(truss-micro-02,uid=2496927744)"
+                [27] = "PART(hc.scicam,uid=3899741696)"
+                [28] = "PART(SurfAntenna,uid=27966976)"
+                [29] = "PART(TE2.19.F9.CGT,uid=4164960256)"
+                [30] = "PART(TE2.19.F9.CGT,uid=2670564352)"
+                [31] = "PART(TE2.19.F9.CGT,uid=2949897728)"
+                [32] = "PART(TE2.19.F9.CGT,uid=2936532480)"
+                [33] = "PART(EngineerChip,uid=1530460672)"
+                [34] = "PART(hc.scicam,uid=3395361792)"
+                [35] = "PART(kOSMachineRad,uid=4096616448)"
+                [36] = "PART(SurfAntenna,uid=4153012736)"LIST of 3 items:
+NEW MODULES LIST ===================================================================
+PART(TE.19.F9.S1.Tank,tag=tank1)
+   modules:
+       FlagDecal
+           fields:
+           events:
+           actions:
+       ModuleSootyShader
+           fields:
+           events:
+               (callable) toggle soot, is KSPEvent
+           actions:
+               (callable) toggle soot, is KSPAction
+       ModuleB9PartSwitch
+           fields:
+           events:
+           actions:
+       ModuleB9PartSwitch
+           fields:
+           events:
+           actions:
+       ModuleB9PartSwitch
+           fields:
+           events:
+           actions:
+       ModuleB9PartSwitch
+           fields:
+           events:
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       ModuleTankManager
+           fields:
+           events:
+               (callable) manage tanks, is KSPEvent
+           actions:
+       TweakScale
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+       ModuleB9PartInfo
+           fields:
+           events:
+           actions:
+       ModuleSwitchableTank
+           fields:
+           events:
+           actions:
+       ModuleSwitchableTank
+           fields:
+           events:
+           actions:
+PART(TE.19.F9.S1.Engine,tag=eng1)
+   modules:
+       ModuleGimbal
+           fields:
+               (settable) kardanring, is Boolean
+           events:
+               (callable) lenkschalter einblenden, is KSPEvent
+           actions:
+               (callable) kard. aufh. ein/aus, is KSPAction
+               (callable) kard. aufh. arret., is KSPAction
+               (callable) kard. aufh. frei, is KSPAction
+               (callable) ng. k. aufh. ein/aus, is KSPAction
+               (callable) g. k. aufh. ein/aus, is KSPAction
+               (callable) r. k. aufh. ein/aus, is KSPAction
+       WBIMultiModeEngine
+           fields:
+               (settable) current mode, is String
+               (settable) switch mode on flameout, is Boolean
+           events:
+               (callable) next engine, is KSPEvent
+               (callable) previous engine, is KSPEvent
+           actions:
+               (callable) activate engine, is KSPAction
+               (callable) shutdown engine, is KSPAction
+               (callable) activate/shutdown engine, is KSPAction
+               (callable) toggle engine mode, is KSPAction
+       ModuleEnginesFX
+           fields:
+               (settable) treibstofffluss, is Single
+               (settable) schub, is Single
+               (settable) spezifischer impuls, is Single
+               (settable) status, is String
+               (settable) schub, is Boolean
+               (settable) schubbegrenzung, is Single
+           events:
+               (callable) triebwerk einschalten, is KSPEvent
+           actions:
+               (callable) triebwerk ein/aus, is KSPAction
+               (callable) triebwerk ausschalten, is KSPAction
+               (callable) triebwerk einschalten, is KSPAction
+               (callable) unabhängiger schub ein/aus, is KSPAction
+       ModuleEnginesFX
+           fields:
+               (settable) treibstofffluss, is Single
+               (settable) schub, is Single
+               (settable) spezifischer impuls, is Single
+               (settable) status, is String
+               (settable) schub, is Boolean
+               (settable) schubbegrenzung, is Single
+           events:
+               (callable) triebwerk einschalten, is KSPEvent
+           actions:
+               (callable) triebwerk ein/aus, is KSPAction
+               (callable) triebwerk ausschalten, is KSPAction
+               (callable) triebwerk einschalten, is KSPAction
+               (callable) unabhängiger schub ein/aus, is KSPAction
+       ModuleEnginesFX
+           fields:
+               (settable) treibstofffluss, is Single
+               (settable) schub, is Single
+               (settable) spezifischer impuls, is Single
+               (settable) status, is String
+               (settable) schub, is Boolean
+               (settable) schubbegrenzung, is Single
+           events:
+               (callable) triebwerk einschalten, is KSPEvent
+           actions:
+               (callable) triebwerk ein/aus, is KSPAction
+               (callable) triebwerk ausschalten, is KSPAction
+               (callable) triebwerk einschalten, is KSPAction
+               (callable) unabhängiger schub ein/aus, is KSPAction
+       ModuleSurfaceFX
+           fields:
+           events:
+           actions:
+       ModuleSurfaceFX
+           fields:
+           events:
+           actions:
+       ModuleSurfaceFX
+           fields:
+           events:
+           actions:
+       ModuleGimbal
+           fields:
+               (settable) kardanring, is Boolean
+           events:
+               (callable) lenkschalter einblenden, is KSPEvent
+           actions:
+               (callable) kard. aufh. ein/aus, is KSPAction
+               (callable) kard. aufh. arret., is KSPAction
+               (callable) kard. aufh. frei, is KSPAction
+               (callable) ng. k. aufh. ein/aus, is KSPAction
+               (callable) g. k. aufh. ein/aus, is KSPAction
+               (callable) r. k. aufh. ein/aus, is KSPAction
+       ModuleAlternator
+           fields:
+               (settable) generatorleistung, is Single
+           events:
+           actions:
+       AYA_Engine
+           fields:
+           events:
+               (callable) activate all engines in current stage, is KSPEvent
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       TweakScale
+           fields:
+           events:
+           actions:
+       ModuleTweakableGimbal
+           fields:
+               (settable) control, is Boolean
+           events:
+           actions:
+               (callable) toggle gimbal control flip, is KSPAction
+       EngineLightEffect
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+PART(AM.MLP.GeneralLaunchBase,tag=ground)
+   modules:
+       LaunchClamp
+           fields:
+           events:
+               (callable) klemme entfernen, is KSPEvent
+           actions:
+               (callable) klemme entfernen, is KSPAction
+       ModuleGenerator
+           fields:
+               (settable) effizienz, is Single
+               (settable) generator, is String
+           events:
+               (callable) generator aktivieren, is KSPEvent
+           actions:
+               (callable) generator ein/aus, is KSPAction
+               (callable) generator aktivieren, is KSPAction
+               (callable) generator ausschalten, is KSPAction
+       ModuleGenerator
+           fields:
+               (settable) effizienz, is Single
+               (settable) generator, is String
+           events:
+               (callable) generator aktivieren, is KSPEvent
+           actions:
+               (callable) generator ein/aus, is KSPAction
+               (callable) generator aktivieren, is KSPAction
+               (callable) generator ausschalten, is KSPAction
+       ModuleB9PartSwitch
+           fields:
+           events:
+           actions:
+       ModuleB9PartSwitch
+           fields:
+           events:
+           actions:
+       ModuleB9PartSwitch
+           fields:
+           events:
+           actions:
+       ModuleB9PartSwitch
+           fields:
+           events:
+           actions:
+       ModuleB9PartSwitch
+           fields:
+           events:
+           actions:
+       ModuleB9PartSwitch
+           fields:
+           events:
+           actions:
+       ModuleAnimateGeneric
+           fields:
+               (settable) status, is String
+               (settable) entfaltungsgrad, is Single
+           events:
+               (callable) umschalten, is KSPEvent
+           actions:
+               (callable) umschalten, is KSPAction
+       ModuleB9PartSwitch
+           fields:
+           events:
+           actions:
+       ModuleAnimateGeneric
+           fields:
+               (settable) status, is String
+               (settable) entfaltungsgrad, is Single
+           events:
+               (callable) umschalten, is KSPEvent
+           actions:
+               (callable) umschalten, is KSPAction
+       ModuleAnimateGeneric
+           fields:
+               (settable) status, is String
+               (settable) entfaltungsgrad, is Single
+           events:
+               (callable) umschalten, is KSPEvent
+           actions:
+               (callable) umschalten, is KSPAction
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+       ModuleB9PartInfo
+           fields:
+           events:
+           actions:
+PART(AM.MLP.GeneralStrongbackTowerFull,tag=ground)
+   modules:
+       ModuleB9PartSwitch
+           fields:
+           events:
+           actions:
+       ModuleB9PartSwitch
+           fields:
+           events:
+           actions:
+       ModuleB9PartSwitch
+           fields:
+           events:
+           actions:
+       ModuleB9PartSwitch
+           fields:
+           events:
+           actions:
+       ModuleB9PartSwitch
+           fields:
+           events:
+           actions:
+       ModuleAnimateGeneric
+           fields:
+               (settable) status, is String
+               (settable) entfaltungsgrad, is Single
+           events:
+               (callable) umschalten, is KSPEvent
+           actions:
+               (callable) umschalten, is KSPAction
+       ModuleB9PartSwitch
+           fields:
+           events:
+           actions:
+       ModuleAnimateGeneric
+           fields:
+               (settable) status, is String
+               (settable) entfaltungsgrad, is Single
+           events:
+               (callable) umschalten, is KSPEvent
+           actions:
+               (callable) umschalten, is KSPAction
+       ModuleAnimateGeneric
+           fields:
+               (settable) status, is String
+               (settable) entfaltungsgrad, is Single
+           events:
+               (callable) umschalten, is KSPEvent
+           actions:
+               (callable) umschalten, is KSPAction
+       ModuleAnimatedDecoupler
+           fields:
+           events:
+               (callable) entkoppeln, is KSPEvent
+           actions:
+               (callable) entkoppeln, is KSPAction
+       ModuleAnimateGeneric
+           fields:
+               (settable) status, is String
+               (settable) entfaltungsgrad, is Single
+           events:
+               (callable) umschalten, is KSPEvent
+           actions:
+               (callable) umschalten, is KSPAction
+       ModuleAnimateGeneric
+           fields:
+               (settable) status, is String
+               (settable) entfaltungsgrad, is Single
+           events:
+               (callable) umschalten, is KSPEvent
+           actions:
+               (callable) umschalten, is KSPAction
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       RecoveryIDModule
+           fields:
+           events:
+               (callable) recoveryowner: auto, is KSPEvent
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       tjs_DecouplerLight
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+       ModuleB9PartInfo
+           fields:
+           events:
+           actions:
+PART(KRE-FalconLeg-M,uid=1207890944)
+   modules:
+       ModuleWheelBase
+           fields:
+           events:
+           actions:
+               (callable) reibungskontrolle, is KSPAction
+       ModuleWheelSuspension
+           fields:
+               (settable) federungsstärke, is Single
+               (settable) dämpferstärke, is Single
+           events:
+               (callable) federung/dämpfer: übersteuern, is KSPEvent
+           actions:
+       ModuleWheelDeployment
+           fields:
+               (settable) abgeschirmt entf., is Boolean
+               (settable) status, is String
+           events:
+               (callable) ausfahren, is KSPEvent
+           actions:
+               (callable) ausfahren/einfahren, is KSPAction
+       ModuleWheelLock
+           fields:
+           events:
+           actions:
+       ModuleWheelDamage
+           fields:
+               (settable) radbelastung, is Single
+           events:
+           actions:
+       FXModuleLookAtConstraint
+           fields:
+           events:
+           actions:
+       ModulePartVariants
+           fields:
+           events:
+           actions:
+       ModuleCrewRequirement
+           fields:
+           events:
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       TweakScale
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+PART(KRE-FalconLeg-M,uid=3217998848)
+   modules:
+       ModuleWheelBase
+           fields:
+           events:
+           actions:
+               (callable) reibungskontrolle, is KSPAction
+       ModuleWheelSuspension
+           fields:
+               (settable) federungsstärke, is Single
+               (settable) dämpferstärke, is Single
+           events:
+               (callable) federung/dämpfer: übersteuern, is KSPEvent
+           actions:
+       ModuleWheelDeployment
+           fields:
+               (settable) abgeschirmt entf., is Boolean
+               (settable) status, is String
+           events:
+               (callable) ausfahren, is KSPEvent
+           actions:
+               (callable) ausfahren/einfahren, is KSPAction
+       ModuleWheelLock
+           fields:
+           events:
+           actions:
+       ModuleWheelDamage
+           fields:
+               (settable) radbelastung, is Single
+           events:
+           actions:
+       FXModuleLookAtConstraint
+           fields:
+           events:
+           actions:
+       ModulePartVariants
+           fields:
+           events:
+           actions:
+       ModuleCrewRequirement
+           fields:
+           events:
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       TweakScale
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+PART(KRE-FalconLeg-M,uid=3216217600)
+   modules:
+       ModuleWheelBase
+           fields:
+           events:
+           actions:
+               (callable) reibungskontrolle, is KSPAction
+       ModuleWheelSuspension
+           fields:
+               (settable) federungsstärke, is Single
+               (settable) dämpferstärke, is Single
+           events:
+               (callable) federung/dämpfer: übersteuern, is KSPEvent
+           actions:
+       ModuleWheelDeployment
+           fields:
+               (settable) abgeschirmt entf., is Boolean
+               (settable) status, is String
+           events:
+               (callable) ausfahren, is KSPEvent
+           actions:
+               (callable) ausfahren/einfahren, is KSPAction
+       ModuleWheelLock
+           fields:
+           events:
+           actions:
+       ModuleWheelDamage
+           fields:
+               (settable) radbelastung, is Single
+           events:
+           actions:
+       FXModuleLookAtConstraint
+           fields:
+           events:
+           actions:
+       ModulePartVariants
+           fields:
+           events:
+           actions:
+       ModuleCrewRequirement
+           fields:
+           events:
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       TweakScale
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+PART(KRE-FalconLeg-M,uid=2283687936)
+   modules:
+       ModuleWheelBase
+           fields:
+           events:
+           actions:
+               (callable) reibungskontrolle, is KSPAction
+       ModuleWheelSuspension
+           fields:
+               (settable) federungsstärke, is Single
+               (settable) dämpferstärke, is Single
+           events:
+               (callable) federung/dämpfer: übersteuern, is KSPEvent
+           actions:
+       ModuleWheelDeployment
+           fields:
+               (settable) abgeschirmt entf., is Boolean
+               (settable) status, is String
+           events:
+               (callable) ausfahren, is KSPEvent
+           actions:
+               (callable) ausfahren/einfahren, is KSPAction
+       ModuleWheelLock
+           fields:
+           events:
+           actions:
+       ModuleWheelDamage
+           fields:
+               (settable) radbelastung, is Single
+           events:
+           actions:
+       FXModuleLookAtConstraint
+           fields:
+           events:
+           actions:
+       ModulePartVariants
+           fields:
+           events:
+           actions:
+       ModuleCrewRequirement
+           fields:
+           events:
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       TweakScale
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+PART(Grid Fin M Titanium,tag=fin)
+   modules:
+       ModuleAnimateGeneric
+           fields:
+               (settable) status, is String
+           events:
+               (callable) extend fins, is KSPEvent
+           actions:
+               (callable) toggle fins, is KSPAction
+       SyncModuleControlSurface
+           fields:
+               (settable) neigung, is Boolean
+               (settable) gierung, is Boolean
+               (settable) rollwinkel, is Boolean
+               (settable) entfalten, is Boolean
+               (settable) entfaltungsrichtung, is Boolean
+               (settable) einsatzwinkel, is Single
+               (settable) kontrollbegrenzer, is Single
+           events:
+           actions:
+               (callable) entfalten ein/aus, is KSPAction
+               (callable) ausfahren, is KSPAction
+               (callable) einfahren, is KSPAction
+       ModuleDeployableAero
+           fields:
+           events:
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       ControlActionGroup
+           fields:
+           events:
+           actions:
+               (callable) toggle yaw, is KSPAction
+               (callable) toggle pitch, is KSPAction
+               (callable) toggle roll, is KSPAction
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       TweakScale
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+PART(Grid Fin M Titanium,tag=fin)
+   modules:
+       ModuleAnimateGeneric
+           fields:
+               (settable) status, is String
+           events:
+               (callable) extend fins, is KSPEvent
+           actions:
+               (callable) toggle fins, is KSPAction
+       SyncModuleControlSurface
+           fields:
+               (settable) neigung, is Boolean
+               (settable) gierung, is Boolean
+               (settable) rollwinkel, is Boolean
+               (settable) entfalten, is Boolean
+               (settable) entfaltungsrichtung, is Boolean
+               (settable) einsatzwinkel, is Single
+               (settable) kontrollbegrenzer, is Single
+           events:
+           actions:
+               (callable) entfalten ein/aus, is KSPAction
+               (callable) ausfahren, is KSPAction
+               (callable) einfahren, is KSPAction
+       ModuleDeployableAero
+           fields:
+           events:
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       ControlActionGroup
+           fields:
+           events:
+           actions:
+               (callable) toggle yaw, is KSPAction
+               (callable) toggle pitch, is KSPAction
+               (callable) toggle roll, is KSPAction
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       TweakScale
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+PART(Grid Fin M Titanium,tag=fin)
+   modules:
+       ModuleAnimateGeneric
+           fields:
+               (settable) status, is String
+           events:
+               (callable) extend fins, is KSPEvent
+           actions:
+               (callable) toggle fins, is KSPAction
+       SyncModuleControlSurface
+           fields:
+               (settable) neigung, is Boolean
+               (settable) gierung, is Boolean
+               (settable) rollwinkel, is Boolean
+               (settable) entfalten, is Boolean
+               (settable) entfaltungsrichtung, is Boolean
+               (settable) einsatzwinkel, is Single
+               (settable) kontrollbegrenzer, is Single
+           events:
+           actions:
+               (callable) entfalten ein/aus, is KSPAction
+               (callable) ausfahren, is KSPAction
+               (callable) einfahren, is KSPAction
+       ModuleDeployableAero
+           fields:
+           events:
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       ControlActionGroup
+           fields:
+           events:
+           actions:
+               (callable) toggle yaw, is KSPAction
+               (callable) toggle pitch, is KSPAction
+               (callable) toggle roll, is KSPAction
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       TweakScale
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+PART(Grid Fin M Titanium,tag=fin)
+   modules:
+       ModuleAnimateGeneric
+           fields:
+               (settable) status, is String
+           events:
+               (callable) extend fins, is KSPEvent
+           actions:
+               (callable) toggle fins, is KSPAction
+       SyncModuleControlSurface
+           fields:
+               (settable) neigung, is Boolean
+               (settable) gierung, is Boolean
+               (settable) rollwinkel, is Boolean
+               (settable) entfalten, is Boolean
+               (settable) entfaltungsrichtung, is Boolean
+               (settable) einsatzwinkel, is Single
+               (settable) kontrollbegrenzer, is Single
+           events:
+           actions:
+               (callable) entfalten ein/aus, is KSPAction
+               (callable) ausfahren, is KSPAction
+               (callable) einfahren, is KSPAction
+       ModuleDeployableAero
+           fields:
+           events:
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       ControlActionGroup
+           fields:
+           events:
+           actions:
+               (callable) toggle yaw, is KSPAction
+               (callable) toggle pitch, is KSPAction
+               (callable) toggle roll, is KSPAction
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       TweakScale
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+PART(HotGasThruster-L,tag=rcs)
+   modules:
+       ModuleRCSFX
+           fields:
+               (settable) rfs, is Boolean
+               (settable) schubbegrenzung, is Single
+               (settable) rfs-isp, is Single
+           events:
+               (callable) lenkschalter einblenden, is KSPEvent
+           actions:
+               (callable) rfs-schub ein/aus, is KSPAction
+       ModulePartVariants
+           fields:
+           events:
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       TweakScale
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+PART(HotGasThruster-L,tag=rcs)
+   modules:
+       ModuleRCSFX
+           fields:
+               (settable) rfs, is Boolean
+               (settable) schubbegrenzung, is Single
+               (settable) rfs-isp, is Single
+           events:
+               (callable) lenkschalter einblenden, is KSPEvent
+           actions:
+               (callable) rfs-schub ein/aus, is KSPAction
+       ModulePartVariants
+           fields:
+           events:
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       TweakScale
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+PART(HotGasThruster-L,tag=rcs)
+   modules:
+       ModuleRCSFX
+           fields:
+               (settable) rfs, is Boolean
+               (settable) schubbegrenzung, is Single
+               (settable) rfs-isp, is Single
+           events:
+               (callable) lenkschalter einblenden, is KSPEvent
+           actions:
+               (callable) rfs-schub ein/aus, is KSPAction
+       ModulePartVariants
+           fields:
+           events:
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       TweakScale
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+PART(HotGasThruster-L,tag=rcs)
+   modules:
+       ModuleRCSFX
+           fields:
+               (settable) rfs, is Boolean
+               (settable) schubbegrenzung, is Single
+               (settable) rfs-isp, is Single
+           events:
+               (callable) lenkschalter einblenden, is KSPEvent
+           actions:
+               (callable) rfs-schub ein/aus, is KSPAction
+       ModulePartVariants
+           fields:
+           events:
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       TweakScale
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+PART(aerocam,uid=2692905984)
+   modules:
+       MuMechModuleHullCameraZoom
+           fields:
+           events:
+               (callable) aktiviere kamera, is KSPEvent
+               (callable) kamera nicht verfügbar, is KSPEvent
+           actions:
+               (callable) vergrößern, is KSPAction
+               (callable) verkleinern, is KSPAction
+               (callable) aktiviere kamera, is KSPAction
+               (callable) deactiviere kamera, is KSPAction
+               (callable) näcshte kamera, is KSPAction
+               (callable) vorherige kamera, is KSPAction
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+       JSIExternalCameraSelector
+           fields:
+               (settable) camera id: , is String
+           events:
+               (callable) id +, is KSPEvent
+               (callable) id -, is KSPEvent
+           actions:
+PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter)
+   modules:
+       ModuleCommand
+           fields:
+               (settable) komm signal, is String
+               (settable) komm erster sprung - weite, is String
+               (settable) kommandostatus, is String
+           events:
+               (callable) von hier steuern, is KSPEvent
+               (callable) raumfahrzeug umbenennen, is KSPEvent
+           actions:
+               (callable) von hier steuern, is KSPAction
+               (callable) schlaf ein/aus, is KSPAction
+       ModuleSAS
+           fields:
+           events:
+           actions:
+       ModuleDecouple
+           fields:
+           events:
+               (callable) entkoppeln, is KSPEvent
+           actions:
+               (callable) entkoppeln, is KSPAction
+       ModuleB9PartSwitch
+           fields:
+           events:
+           actions:
+       kOSProcessor
+           fields:
+               (settable) kos disk space, is Int32
+               (settable) kos average power, is Single
+           events:
+               (callable) open terminal, is KSPEvent
+               (callable) close terminal, is KSPEvent
+               (callable) toggle power, is KSPEvent
+           actions:
+               (callable) open terminal, is KSPAction
+               (callable) close terminal, is KSPAction
+               (callable) toggle terminal, is KSPAction
+               (callable) toggle power, is KSPAction
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       Module_BobsPanicBox
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       MechJebCore
+           fields:
+               (settable) mechjeb, is Boolean
+           events:
+           actions:
+               (callable) orbit prograde, is KSPAction
+               (callable) orbit retrograde, is KSPAction
+               (callable) orbit normal, is KSPAction
+               (callable) orbit antinormal, is KSPAction
+               (callable) orbit radial in, is KSPAction
+               (callable) orbit radial out, is KSPAction
+               (callable) orbit kill rotation, is KSPAction
+               (callable) deactivate smartacs, is KSPAction
+               (callable) land somewhere, is KSPAction
+               (callable) land at ksc, is KSPAction
+               (callable) panic!, is KSPAction
+               (callable) translatron off, is KSPAction
+               (callable) translatron keep vert, is KSPAction
+               (callable) translatron zero speed, is KSPAction
+               (callable) translatron +1 speed, is KSPAction
+               (callable) translatron -1 speed, is KSPAction
+               (callable) translatron toggle h/s, is KSPAction
+               (callable) ascent ap toggle, is KSPAction
+       RecoveryIDModule
+           fields:
+           events:
+               (callable) recoveryowner: auto, is KSPEvent
+           actions:
+       AYCrewPart
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       TweakScale
+           fields:
+           events:
+           actions:
+       ModuleTweakableSAS
+           fields:
+           events:
+           actions:
+       tjs_DecouplerLight
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+       TrajectoriesVesselSettings
+           fields:
+           events:
+           actions:
+       ModuleB9PartInfo
+           fields:
+           events:
+           actions:
+       ModuleTripLogger
+           fields:
+           events:
+           actions:
+PART(TE.19.F910.S2.Engine,tag=eng2)
+   modules:
+       ModuleGimbal
+           fields:
+               (settable) kardanring, is Boolean
+           events:
+               (callable) lenkschalter einblenden, is KSPEvent
+           actions:
+               (callable) kard. aufh. ein/aus, is KSPAction
+               (callable) kard. aufh. arret., is KSPAction
+               (callable) kard. aufh. frei, is KSPAction
+               (callable) ng. k. aufh. ein/aus, is KSPAction
+               (callable) g. k. aufh. ein/aus, is KSPAction
+               (callable) r. k. aufh. ein/aus, is KSPAction
+       ModuleEnginesFX
+           fields:
+               (settable) treibstofffluss, is Single
+               (settable) schub, is Single
+               (settable) spezifischer impuls, is Single
+               (settable) status, is String
+               (settable) schub, is Boolean
+               (settable) schubbegrenzung, is Single
+           events:
+               (callable) triebwerk einschalten, is KSPEvent
+           actions:
+               (callable) triebwerk ein/aus, is KSPAction
+               (callable) triebwerk ausschalten, is KSPAction
+               (callable) triebwerk einschalten, is KSPAction
+               (callable) unabhängiger schub ein/aus, is KSPAction
+       ModuleAlternator
+           fields:
+               (settable) generatorleistung, is Single
+           events:
+           actions:
+       ModuleSurfaceFX
+           fields:
+           events:
+           actions:
+       ModuleJettison
+           fields:
+           events:
+               (callable) mantel abwerfen, is KSPEvent
+           actions:
+               (callable) mantel abwerfen, is KSPAction
+       FXModuleLookAtConstraint
+           fields:
+           events:
+           actions:
+       FXModuleThrottleEffects
+           fields:
+           events:
+           actions:
+       FXModuleThrottleEffects
+           fields:
+           events:
+           actions:
+       ModuleColorChanger
+           fields:
+           events:
+           actions:
+               (callable) toggle color, is KSPAction
+       ModuleColorChanger
+           fields:
+           events:
+           actions:
+               (callable) toggle color, is KSPAction
+       AYA_Engine
+           fields:
+           events:
+               (callable) activate all engines in current stage, is KSPEvent
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       ModuleTweakableGimbal
+           fields:
+               (settable) control, is Boolean
+           events:
+           actions:
+               (callable) toggle gimbal control flip, is KSPAction
+       EngineLightEffect
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+PART(TE.19.F9.S2.Tank,uid=3707519488)
+   modules:
+       FlagDecal
+           fields:
+           events:
+           actions:
+       ModuleB9PartSwitch
+           fields:
+           events:
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       ModuleTankManager
+           fields:
+           events:
+               (callable) manage tanks, is KSPEvent
+           actions:
+       TweakScale
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+       ModuleB9PartInfo
+           fields:
+           events:
+           actions:
+       ModuleSwitchableTank
+           fields:
+           events:
+           actions:
+       ModuleSwitchableTank
+           fields:
+           events:
+           actions:
+PART(TE.F9.Fairing.Adapter,uid=749114368)
+   modules:
+       ModuleProbeControlPoint
+           fields:
+           events:
+           actions:
+       ModuleCommand
+           fields:
+               (settable) komm signal, is String
+               (settable) komm erster sprung - weite, is String
+               (settable) kommandostatus, is String
+               (settable) schlafen, is Boolean
+               (settable) beim vorspulen schlafen, is Boolean
+           events:
+               (callable) von hier steuern, is KSPEvent
+               (callable) raumfahrzeug umbenennen, is KSPEvent
+           actions:
+               (callable) von hier steuern, is KSPAction
+               (callable) schlaf ein/aus, is KSPAction
+       ModuleReactionWheel
+           fields:
+               (settable) reaktionsräder, is Int32
+               (settable) radkontrolle, is Single
+               (settable) reaktionsräder, is String
+           events:
+               (callable) drehmoment ein/aus, is KSPEvent
+           actions:
+               (callable) radmodus durchsch., is KSPAction
+               (callable) rad aktivieren, is KSPAction
+               (callable) rad deaktivieren, is KSPAction
+               (callable) rr ein/aus, is KSPAction
+       ModuleSAS
+           fields:
+           events:
+           actions:
+       ModuleB9PartSwitch
+           fields:
+           events:
+           actions:
+       AYA_SAS
+           fields:
+           events:
+               (callable) deaktiviere alle sas, is KSPEvent
+           actions:
+       kOSProcessor
+           fields:
+               (settable) kos disk space, is Int32
+               (settable) kos average power, is Single
+           events:
+               (callable) open terminal, is KSPEvent
+               (callable) close terminal, is KSPEvent
+               (callable) toggle power, is KSPEvent
+           actions:
+               (callable) open terminal, is KSPAction
+               (callable) close terminal, is KSPAction
+               (callable) toggle terminal, is KSPAction
+               (callable) toggle power, is KSPAction
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       Module_BobsPanicBox
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       MechJebCore
+           fields:
+               (settable) mechjeb, is Boolean
+           events:
+           actions:
+               (callable) orbit prograde, is KSPAction
+               (callable) orbit retrograde, is KSPAction
+               (callable) orbit normal, is KSPAction
+               (callable) orbit antinormal, is KSPAction
+               (callable) orbit radial in, is KSPAction
+               (callable) orbit radial out, is KSPAction
+               (callable) orbit kill rotation, is KSPAction
+               (callable) deactivate smartacs, is KSPAction
+               (callable) land somewhere, is KSPAction
+               (callable) land at ksc, is KSPAction
+               (callable) panic!, is KSPAction
+               (callable) translatron off, is KSPAction
+               (callable) translatron keep vert, is KSPAction
+               (callable) translatron zero speed, is KSPAction
+               (callable) translatron +1 speed, is KSPAction
+               (callable) translatron -1 speed, is KSPAction
+               (callable) translatron toggle h/s, is KSPAction
+               (callable) ascent ap toggle, is KSPAction
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYCrewPart
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       ModuleTweakableReactionWheel
+           fields:
+               (settable) torque limiter, is Single
+           events:
+           actions:
+       ModuleTweakableSAS
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+       TrajectoriesVesselSettings
+           fields:
+           events:
+           actions:
+       ModuleB9PartInfo
+           fields:
+           events:
+           actions:
+PART(TE.19.F9.Fairing,tag=fairing)
+   modules:
+       ModuleColorChanger
+           fields:
+           events:
+           actions:
+               (callable) toggle color, is KSPAction
+       ModuleB9PartSwitch
+           fields:
+           events:
+           actions:
+       ModuleCargoBay
+           fields:
+           events:
+           actions:
+       ModuleDecouple
+           fields:
+           events:
+               (callable) entkoppeln, is KSPEvent
+           actions:
+               (callable) entkoppeln, is KSPAction
+       FlagDecal
+           fields:
+           events:
+           actions:
+       AYA_CargoBay
+           fields:
+           events:
+               (callable) öffne alle luken, is KSPEvent
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       RecoveryIDModule
+           fields:
+           events:
+               (callable) recoveryowner: auto, is KSPEvent
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       TweakScale
+           fields:
+           events:
+           actions:
+       tjs_DecouplerLight
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+       ModuleB9PartInfo
+           fields:
+           events:
+           actions:
+PART(TE.19.F9.Fairing,tag=fairing)
+   modules:
+       ModuleColorChanger
+           fields:
+           events:
+           actions:
+               (callable) toggle color, is KSPAction
+       ModuleB9PartSwitch
+           fields:
+           events:
+           actions:
+       ModuleCargoBay
+           fields:
+           events:
+           actions:
+       ModuleDecouple
+           fields:
+           events:
+               (callable) entkoppeln, is KSPEvent
+           actions:
+               (callable) entkoppeln, is KSPAction
+       FlagDecal
+           fields:
+           events:
+           actions:
+       AYA_CargoBay
+           fields:
+           events:
+               (callable) öffne alle luken, is KSPEvent
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       RecoveryIDModule
+           fields:
+           events:
+               (callable) recoveryowner: auto, is KSPEvent
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       TweakScale
+           fields:
+           events:
+           actions:
+       tjs_DecouplerLight
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+       ModuleB9PartInfo
+           fields:
+           events:
+           actions:
+PART(kOSMachineRad,tag=cpu2)
+   modules:
+       kOSProcessor
+           fields:
+               (settable) kos disk space, is Int32
+               (settable) kos average power, is Single
+           events:
+               (callable) open terminal, is KSPEvent
+               (callable) close terminal, is KSPEvent
+               (callable) toggle power, is KSPEvent
+           actions:
+               (callable) open terminal, is KSPAction
+               (callable) close terminal, is KSPAction
+               (callable) toggle terminal, is KSPAction
+               (callable) toggle power, is KSPAction
+       ModuleDeployableSolarPanel
+           fields:
+               (settable) sonneneinstrahlung, is Single
+               (settable) energiefluss, is Single
+               (settable) status, is String
+           events:
+           actions:
+               (callable) module ein-/ausblenden, is KSPAction
+               (callable) modul ausfahren, is KSPAction
+               (callable) modul einfahren, is KSPAction
+       AYA_Solar
+           fields:
+           events:
+               (callable) fahre alle solarpanele aus, is KSPEvent
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       ModuleTweakableDeployablePanel
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+PART(Engineer7500,uid=1672685056)
+   modules:
+       FlightEngineerModule
+           fields:
+           events:
+               (callable) verbose simulation log, is KSPEvent
+           actions:
+       TapeDriveAnimator
+           fields:
+           events:
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+PART(truss-micro-02,uid=1182848000)
+   modules:
+       ModuleB9PartSwitch
+           fields:
+           events:
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+       ModuleB9PartInfo
+           fields:
+           events:
+           actions:
+PART(hc.scicam,uid=495263232)
+   modules:
+       MuMechModuleHullCameraZoom
+           fields:
+           events:
+               (callable) aktiviere kamera, is KSPEvent
+               (callable) kamera nicht verfügbar, is KSPEvent
+           actions:
+               (callable) vergrößern, is KSPAction
+               (callable) verkleinern, is KSPAction
+               (callable) aktiviere kamera, is KSPAction
+               (callable) deactiviere kamera, is KSPAction
+               (callable) näcshte kamera, is KSPAction
+               (callable) vorherige kamera, is KSPAction
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+       JSIExternalCameraSelector
+           fields:
+               (settable) camera id: , is String
+           events:
+               (callable) id +, is KSPEvent
+               (callable) id -, is KSPEvent
+           actions:
+PART(SurfAntenna,uid=71900672)
+   modules:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ModuleControllableEmissive
+           fields:
+           events:
+           actions:
+       ModuleDataTransmitterIndicator
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       TweakScale
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+       ModuleRTAntenna
+           fields:
+               (settable) energy, is String
+               (settable) omni range, is String
+               (settable) status, is String
+               (settable) auto threshold, is String
+               (settable) deactivate at ec %, is Single
+               (settable) activate at ec %, is Single
+               (settable) science packet size, is String
+               (settable) science packet interval, is String
+               (settable) science packet cost, is String
+               (settable) target, is String | Body | Vessel
+           events:
+               (callable) deactivate, is KSPEvent
+               (callable) transmit all science, is KSPEvent
+           actions:
+               (callable) toggle, is KSPAction
+               (callable) activate, is KSPAction
+               (callable) deactivate, is KSPAction
+       ModuleSPUPassive
+           fields:
+           events:
+           actions:
+       ModuleRTDataTransmitter
+           fields:
+               (settable) comms, is String
+           events:
+           actions:
+PART(Decoupler.1,tag=sepPayload)
+   modules:
+       ModuleDecouple
+           fields:
+           events:
+               (callable) entkoppeln, is KSPEvent
+           actions:
+               (callable) entkoppeln, is KSPAction
+       ModuleToggleCrossfeed
+           fields:
+           events:
+               (callable) überkreuzzuleitung aktivieren, is KSPEvent
+           actions:
+               (callable) überkreuzzuleitung ein/aus, is KSPAction
+               (callable) überkreuzzuleitung aktivieren, is KSPAction
+               (callable) überkreuzzuleitung deaktiv., is KSPAction
+       ModuleTestSubject
+           fields:
+           events:
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       RecoveryIDModule
+           fields:
+           events:
+               (callable) recoveryowner: auto, is KSPEvent
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       TweakScale
+           fields:
+           events:
+           actions:
+       ModuleDecouplerShroud
+           fields:
+           events:
+               (callable) jettison, is KSPEvent
+           actions:
+       tjs_DecouplerLight
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+PART(TE2.19.F9.CGT,uid=551313920)
+   modules:
+       ModuleRCSFX
+           fields:
+               (settable) rfs, is Boolean
+               (settable) schubbegrenzung, is Single
+               (settable) rfs-isp, is Single
+           events:
+               (callable) lenkschalter einblenden, is KSPEvent
+           actions:
+               (callable) rfs-schub ein/aus, is KSPAction
+       ModulePartVariants
+           fields:
+           events:
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+PART(TE2.19.F9.CGT,uid=3499189760)
+   modules:
+       ModuleRCSFX
+           fields:
+               (settable) rfs, is Boolean
+               (settable) schubbegrenzung, is Single
+               (settable) rfs-isp, is Single
+           events:
+               (callable) lenkschalter einblenden, is KSPEvent
+           actions:
+               (callable) rfs-schub ein/aus, is KSPAction
+       ModulePartVariants
+           fields:
+           events:
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+PART(TE2.19.F9.CGT,uid=1408568320)
+   modules:
+       ModuleRCSFX
+           fields:
+               (settable) rfs, is Boolean
+               (settable) schubbegrenzung, is Single
+               (settable) rfs-isp, is Single
+           events:
+               (callable) lenkschalter einblenden, is KSPEvent
+           actions:
+               (callable) rfs-schub ein/aus, is KSPAction
+       ModulePartVariants
+           fields:
+           events:
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+PART(TE2.19.F9.CGT,uid=1733974016)
+   modules:
+       ModuleRCSFX
+           fields:
+               (settable) rfs, is Boolean
+               (settable) schubbegrenzung, is Single
+               (settable) rfs-isp, is Single
+           events:
+               (callable) lenkschalter einblenden, is KSPEvent
+           actions:
+               (callable) rfs-schub ein/aus, is KSPAction
+       ModulePartVariants
+           fields:
+           events:
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+PART(EngineerChip,uid=2997042176)
+   modules:
+       FlightEngineerModule
+           fields:
+           events:
+               (callable) verbose simulation log, is KSPEvent
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+PART(hc.scicam,uid=2741620736)
+   modules:
+       MuMechModuleHullCameraZoom
+           fields:
+           events:
+               (callable) aktiviere kamera, is KSPEvent
+               (callable) kamera nicht verfügbar, is KSPEvent
+           actions:
+               (callable) vergrößern, is KSPAction
+               (callable) verkleinern, is KSPAction
+               (callable) aktiviere kamera, is KSPAction
+               (callable) deactiviere kamera, is KSPAction
+               (callable) näcshte kamera, is KSPAction
+               (callable) vorherige kamera, is KSPAction
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+       JSIExternalCameraSelector
+           fields:
+               (settable) camera id: , is String
+           events:
+               (callable) id +, is KSPEvent
+               (callable) id -, is KSPEvent
+           actions:
+PART(kOSMachineRad,tag=cpu1)
+   modules:
+       kOSProcessor
+           fields:
+               (settable) kos disk space, is Int32
+               (settable) kos average power, is Single
+           events:
+               (callable) open terminal, is KSPEvent
+               (callable) close terminal, is KSPEvent
+               (callable) toggle power, is KSPEvent
+           actions:
+               (callable) open terminal, is KSPAction
+               (callable) close terminal, is KSPAction
+               (callable) toggle terminal, is KSPAction
+               (callable) toggle power, is KSPAction
+       ModuleDeployableSolarPanel
+           fields:
+               (settable) sonneneinstrahlung, is Single
+               (settable) energiefluss, is Single
+               (settable) status, is String
+           events:
+           actions:
+               (callable) module ein-/ausblenden, is KSPAction
+               (callable) modul ausfahren, is KSPAction
+               (callable) modul einfahren, is KSPAction
+       AYA_Solar
+           fields:
+           events:
+               (callable) fahre alle solarpanele aus, is KSPEvent
+           actions:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       ModuleTweakableDeployablePanel
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+PART(SurfAntenna,uid=2118781952)
+   modules:
+       Module_BobsExplosionDetector
+           fields:
+           events:
+           actions:
+       CollisionFX
+           fields:
+           events:
+           actions:
+       FMRS_PM
+           fields:
+           events:
+           actions:
+       ModuleControllableEmissive
+           fields:
+           events:
+           actions:
+       ModuleDataTransmitterIndicator
+           fields:
+           events:
+           actions:
+       ControllingRecoveryModule
+           fields:
+           events:
+           actions:
+       AYPart
+           fields:
+           events:
+           actions:
+       TweakScale
+           fields:
+           events:
+           actions:
+       GeometryPartModule
+           fields:
+           events:
+           actions:
+       FARAeroPartModule
+           fields:
+           events:
+           actions:
+       FARPartModule
+           fields:
+           events:
+           actions:
+       KOSNameTag
+           fields:
+               (settable) name tag, is String
+           events:
+               (callable) change name tag, is KSPEvent
+           actions:
+       ModuleRTAntenna
+           fields:
+               (settable) energy, is String
+               (settable) omni range, is String
+               (settable) status, is String
+               (settable) auto threshold, is String
+               (settable) deactivate at ec %, is Single
+               (settable) activate at ec %, is Single
+               (settable) science packet size, is String
+               (settable) science packet interval, is String
+               (settable) science packet cost, is String
+               (settable) target, is String | Body | Vessel
+           events:
+               (callable) deactivate, is KSPEvent
+               (callable) transmit all science, is KSPEvent
+           actions:
+               (callable) toggle, is KSPAction
+               (callable) activate, is KSPAction
+               (callable) deactivate, is KSPAction
+       ModuleSPUPassive
+           fields:
+           events:
+           actions:
+       ModuleRTDataTransmitter
+           fields:
+               (settable) comms, is String
+           events:
+           actions:
+
+
+-1: PART(TE.19.F9.S1.Tank,tag=tank1)
+5: PART(TE.19.F9.S1.Engine,tag=eng1)
+4: PART(AM.MLP.GeneralLaunchBase,tag=ground)
+4: PART(AM.MLP.GeneralStrongbackTowerFull,tag=ground)
+-1: PART(KRE-FalconLeg-M,uid=2679019008)
+-1: PART(KRE-FalconLeg-M,uid=3419121152)
+-1: PART(KRE-FalconLeg-M,uid=2203174400)
+-1: PART(KRE-FalconLeg-M,uid=2999965696)
+-1: PART(Grid Fin M Titanium,tag=fin)
+-1: PART(Grid Fin M Titanium,tag=fin)
+-1: PART(Grid Fin M Titanium,tag=fin)
+-1: PART(Grid Fin M Titanium,tag=fin)
+-1: PART(HotGasThruster-L,tag=rcs)
+-1: PART(HotGasThruster-L,tag=rcs)
+-1: PART(HotGasThruster-L,tag=rcs)
+-1: PART(HotGasThruster-L,tag=rcs)
+-1: PART(aerocam,uid=1070582272)
+3: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter)
+3: PART(TE.19.F910.S2.Engine,tag=eng2)
+3: PART(TE.19.F9.S2.Tank,uid=2738907648)
+3: PART(TE.F9.Fairing.Adapter,uid=3556658176)
+2: PART(TE.19.F9.Fairing,tag=fairing)
+2: PART(TE.19.F9.Fairing,tag=fairing)
+3: PART(kOSMachineRad,tag=cpu2)
+3: PART(Engineer7500,uid=1309087744)
+3: PART(truss-micro-02,uid=2305847808)
+3: PART(hc.scicam,uid=2591105024)
+3: PART(SurfAntenna,uid=2754183168)
+1: PART(Decoupler.1,tag=sepPayload)
+1: PART(Size1p5.Size2.Adapter.02,uid=724856832)
+0: PART(Size1p5.Strut.Decoupler,uid=1219035648)
+0: PART(commandPod.1p5,uid=400019456)
+3: PART(TE2.19.F9.CGT,uid=3434555392)
+3: PART(TE2.19.F9.CGT,uid=2894421504)
+3: PART(TE2.19.F9.CGT,uid=1908823552)
+3: PART(TE2.19.F9.CGT,uid=1733388288)
+3: PART(EngineerChip,uid=3018703872)
+3: PART(hc.scicam,uid=1812700672)
+3: PART(kOSMachineRad,tag=cpu1)
+3: PART(SurfAntenna,uid=2741193216)
+
+
+
+
+
+3: PART(TE.19.F910.S2.Engine,tag=eng2)
+3: PART(TE.19.F9.S2.Tank,uid=3444440064)
+3: PART(TE.F9.Fairing.Adapter,uid=2494414336)
+    2: PART(TE.19.F9.Fairing,tag=fairing)
+    2: PART(TE.19.F9.Fairing,tag=fairing)
+3: PART(kOSMachineRad,tag=cpu2)
+3: PART(Engineer7500,uid=1572935168)
+3: PART(truss-micro-02,uid=1782887936)
+3: PART(hc.scicam,uid=106828288)
+3: PART(SurfAntenna,uid=2375656448)
+1: PART(Decoupler.1,tag=sepPayload)
+    1: PART(Size1p5.Size2.Adapter.02,uid=2741187072)
+    0: PART(Size1p5.Strut.Decoupler,uid=996977152)
+    0: PART(commandPod.1p5,uid=2221543424)
+3: PART(TE2.19.F9.CGT,uid=796791808)
+3: PART(TE2.19.F9.CGT,uid=1963631616)
+3: PART(TE2.19.F9.CGT,uid=2023033856)
+3: PART(TE2.19.F9.CGT,uid=3034137600)
+
+
+-1: PART(TE.19.F9.S1.Tank (Falcon 4),tag=tank1)
+1: PART(TE.19.F9.S1.Engine,tag=eng1)
+    0: PART(AM.MLP.GeneralLaunchBase,tag=ground)
+    0: PART(AM.MLP.GeneralStrongbackTowerFull,tag=ground)
+-1: PART(KRE-FalconLeg-M,uid=3767735808)
+-1: PART(KRE-FalconLeg-M,uid=1105035264)
+-1: PART(KRE-FalconLeg-M,uid=3202623488)
+-1: PART(KRE-FalconLeg-M,uid=3786960384)
+-1: PART(Grid Fin M Titanium,tag=fin)
+-1: PART(Grid Fin M Titanium,tag=fin)
+-1: PART(Grid Fin M Titanium,tag=fin)
+-1: PART(Grid Fin M Titanium,tag=fin)
+-1: PART(HotGasThruster-L,tag=rcs)
+-1: PART(HotGasThruster-L,tag=rcs)
+-1: PART(HotGasThruster-L,tag=rcs)
+-1: PART(HotGasThruster-L,tag=rcs)
+-1: PART(aerocam,uid=364434944)
+2: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter)
+2: PART(EngineerChip,uid=518372352)
+2: PART(hc.scicam,uid=4150270464)
+2: PART(kOSMachineRad,tag=cpu1)
+2: PART(SurfAntenna,uid=154359296)
+
+
+-1: -1: None: PART(TE.19.F9.S1.Tank,tag=tank1)
+5: -1: None: PART(TE.19.F9.S1.Engine,tag=eng1)
+4: -1: None: PART(AM.MLP.GeneralLaunchBase,tag=ground)
+4: 4: PART(AM.MLP.GeneralLaunchBase,tag=ground): PART(AM.MLP.GeneralStrongbackTowerFull,tag=ground)
+-1: -1: None: PART(KRE-FalconLeg-M,uid=1451470848)
+-1: -1: None: PART(KRE-FalconLeg-M,uid=3790177792)
+-1: -1: None: PART(KRE-FalconLeg-M,uid=783731712)
+-1: -1: None: PART(KRE-FalconLeg-M,uid=386455040)
+-1: -1: None: PART(Grid Fin M Titanium,tag=fin)
+-1: -1: None: PART(Grid Fin M Titanium,tag=fin)
+-1: -1: None: PART(Grid Fin M Titanium,tag=fin)
+-1: -1: None: PART(Grid Fin M Titanium,tag=fin)
+-1: -1: None: PART(HotGasThruster-L,tag=rcs)
+-1: -1: None: PART(HotGasThruster-L,tag=rcs)
+-1: -1: None: PART(HotGasThruster-L,tag=rcs)
+-1: -1: None: PART(HotGasThruster-L,tag=rcs)
+-1: -1: None: PART(aerocam,uid=1210029568)
+3: -1: None: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter)
+3: 3: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter): PART(TE.19.F910.S2.Engine,tag=eng2)
+3: 3: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter): PART(TE.19.F9.S2.Tank,uid=3349107712)
+3: 3: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter): PART(TE.F9.Fairing.Adapter,uid=2953401344)
+3: 3: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter): PART(kOSMachineRad,tag=cpu2)
+3: 3: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter): PART(Engineer7500,uid=1539507712)
+3: 3: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter): PART(truss-micro-02,uid=1210984448)
+3: 3: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter): PART(hc.scicam,uid=3713437696)
+3: 3: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter): PART(SurfAntenna,uid=1056121856)
+1: 3: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter): PART(Decoupler.1,tag=sepPayload)
+1: 1: PART(Decoupler.1,tag=sepPayload): PART(TE.19.F910.S2.Tank,uid=3431877120)
+0: 1: PART(Decoupler.1,tag=sepPayload): PART(Size1p5.Strut.Decoupler,uid=3772206592)
+0: 0: PART(Size1p5.Strut.Decoupler,uid=3772206592): PART(Rockomax32.BW,uid=968957440)
+2: 3: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter): PART(TE.19.F9.Fairing,tag=fairing)
+2: 3: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter): PART(TE.19.F9.Fairing,tag=fairing)
+3: 3: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter): PART(TE2.19.F9.CGT,uid=2064904704)
+3: 3: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter): PART(TE2.19.F9.CGT,uid=4203960320)
+3: 3: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter): PART(TE2.19.F9.CGT,uid=751206400)
+3: 3: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter): PART(TE2.19.F9.CGT,uid=3640881152)
+3: 3: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter): PART(EngineerChip,uid=1506525184)
+3: 3: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter): PART(hc.scicam,uid=1085453312)
+3: 3: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter): PART(kOSMachineRad,tag=cpu1)
+3: 3: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter): PART(SurfAntenna,uid=3778857472)
+
+
+PART(TE.19.F9.S1.Tank,tag=tank1)
+   > Stage:     -1
+   > Payload:  1
+   > Decoupler: None
+   > masses:    
+       > DRY:   11.8000030517578
+       > WET:   124.927841186523
+   > res:       2
+
+PART(TE.19.F9.S1.Engine,tag=eng1)
+   > Stage:     4
+   > Payload:  1
+   > Decoupler: None
+   > masses:    
+       > DRY:   9.39999961853027
+       > WET:   9.39999961853027
+   > res:       1
+
+PART(KRE-FalconLeg-M,uid=76418048)
+   > Stage:     -1
+   > Payload:  1
+   > Decoupler: None
+   > masses:    
+       > DRY:   0.25
+       > WET:   0.25
+   > res:       0
+
+PART(KRE-FalconLeg-M,uid=1670529024)
+   > Stage:     -1
+   > Payload:  1
+   > Decoupler: None
+   > masses:    
+       > DRY:   0.25
+       > WET:   0.25
+   > res:       0
+
+PART(KRE-FalconLeg-M,uid=1416982528)
+   > Stage:     -1
+   > Payload:  1
+   > Decoupler: None
+   > masses:    
+       > DRY:   0.25
+       > WET:   0.25
+   > res:       0
+
+PART(KRE-FalconLeg-M,uid=3888573952)
+   > Stage:     -1
+   > Payload:  1
+   > Decoupler: None
+   > masses:    
+       > DRY:   0.25
+       > WET:   0.25
+   > res:       0
+
+PART(Grid Fin M Titanium,tag=fin)
+   > Stage:     -1
+   > Payload:  1
+   > Decoupler: None
+   > masses:    
+       > DRY:   0.400000005960464
+       > WET:   0.400000005960464
+   > res:       0
+
+PART(Grid Fin M Titanium,tag=fin)
+   > Stage:     -1
+   > Payload:  1
+   > Decoupler: None
+   > masses:    
+       > DRY:   0.400000005960464
+       > WET:   0.400000005960464
+   > res:       0
+
+PART(Grid Fin M Titanium,tag=fin)
+   > Stage:     -1
+   > Payload:  1
+   > Decoupler: None
+   > masses:    
+       > DRY:   0.400000005960464
+       > WET:   0.400000005960464
+   > res:       0
+
+PART(Grid Fin M Titanium,tag=fin)
+   > Stage:     -1
+   > Payload:  1
+   > Decoupler: None
+   > masses:    
+       > DRY:   0.400000005960464
+       > WET:   0.400000005960464
+   > res:       0
+
+PART(HotGasThruster-L,tag=rcs)
+   > Stage:     -1
+   > Payload:  1
+   > Decoupler: None
+   > masses:    
+       > DRY:   0
+       > WET:   0
+   > res:       0
+
+PART(HotGasThruster-L,tag=rcs)
+   > Stage:     -1
+   > Payload:  1
+   > Decoupler: None
+   > masses:    
+       > DRY:   0
+       > WET:   0
+   > res:       0
+
+PART(HotGasThruster-L,tag=rcs)
+   > Stage:     -1
+   > Payload:  1
+   > Decoupler: None
+   > masses:    
+       > DRY:   0
+       > WET:   0
+   > res:       0
+
+PART(HotGasThruster-L,tag=rcs)
+   > Stage:     -1
+   > Payload:  1
+   > Decoupler: None
+   > masses:    
+       > DRY:   0
+       > WET:   0
+   > res:       0
+
+PART(aerocam,uid=2398437888)
+   > Stage:     -1
+   > Payload:  1
+   > Decoupler: None
+   > masses:    
+       > DRY:   0.00100000004749745
+       > WET:   0.00100000004749745
+   > res:       0
+
+PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter)
+   > Stage:     2
+   > Payload:  1
+   > Decoupler: None
+   > masses:    
+       > DRY:   0.224999994039536
+       > WET:   0.224999994039536
+   > res:       2
+
+PART(TE.19.F910.S2.Engine,tag=eng2)
+   > Stage:     2
+   > Payload:  2
+   > Decoupler: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter)
+   > masses:    
+       > DRY:   3.40000009536743
+       > WET:   3.40000009536743
+   > res:       1
+
+PART(TE.19.F9.S2.Tank,uid=3743408128)
+   > Stage:     2
+   > Payload:  2
+   > Decoupler: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter)
+   > masses:    
+       > DRY:   2.92000007629395
+       > WET:   29.1818237304688
+   > res:       2
+
+PART(TE.F9.Fairing.Adapter,uid=2405011968)
+   > Stage:     2
+   > Payload:  2
+   > Decoupler: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter)
+   > masses:    
+       > DRY:   0.819999992847443
+       > WET:   0.819999992847443
+   > res:       2
+
+PART(kOSMachineRad,tag=cpu2)
+   > Stage:     2
+   > Payload:  2
+   > Decoupler: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter)
+   > masses:    
+       > DRY:   0.0308789201080799
+       > WET:   0.0308789201080799
+   > res:       0
+
+PART(Engineer7500,uid=3302801408)
+   > Stage:     2
+   > Payload:  2
+   > Decoupler: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter)
+   > masses:    
+       > DRY:   0
+       > WET:   0
+   > res:       0
+
+PART(truss-micro-02,uid=1623284736)
+   > Stage:     2
+   > Payload:  2
+   > Decoupler: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter)
+   > masses:    
+       > DRY:   0.00700000068172812
+       > WET:   0.00700000068172812
+   > res:       0
+
+PART(hc.scicam,uid=1855971840)
+   > Stage:     2
+   > Payload:  2
+   > Decoupler: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter)
+   > masses:    
+       > DRY:   0
+       > WET:   0
+   > res:       0
+
+PART(SurfAntenna,uid=3552931840)
+   > Stage:     2
+   > Payload:  2
+   > Decoupler: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter)
+   > masses:    
+       > DRY:   0
+       > WET:   0
+   > res:       0
+
+PART(Decoupler.1,tag=sepPayload)
+   > Stage:     0
+   > Payload:  2
+   > Decoupler: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter)
+   > masses:    
+       > DRY:   0.0399999991059303
+       > WET:   0.0399999991059303
+   > res:       0
+
+PART(TE.19.F9.Fairing,tag=fairing)
+   > Stage:     1
+   > Payload:  2f
+   > Decoupler: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter)
+   > masses:    
+       > DRY:   0.200000002980232
+       > WET:   0.200000002980232
+   > res:       0
+
+PART(TE.19.F9.Fairing,tag=fairing)
+   > Stage:     1
+   > Payload:  2f
+   > Decoupler: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter)
+   > masses:    
+       > DRY:   0.200000002980232
+       > WET:   0.200000002980232
+   > res:       0
+
+PART(TE2.19.F9.CGT,uid=3743712768)
+   > Stage:     2
+   > Payload:  2
+   > Decoupler: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter)
+   > masses:    
+       > DRY:   0
+       > WET:   0
+   > res:       0
+
+PART(TE2.19.F9.CGT,uid=3364090368)
+   > Stage:     2
+   > Payload:  2
+   > Decoupler: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter)
+   > masses:    
+       > DRY:   0
+       > WET:   0
+   > res:       0
+
+PART(TE2.19.F9.CGT,uid=1430880768)
+   > Stage:     2
+   > Payload:  2
+   > Decoupler: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter)
+   > masses:    
+       > DRY:   0
+       > WET:   0
+   > res:       0
+
+PART(TE2.19.F9.CGT,uid=185255936)
+   > Stage:     2
+   > Payload:  2
+   > Decoupler: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter)
+   > masses:    
+       > DRY:   0
+       > WET:   0
+   > res:       0
+
+PART(EngineerChip,uid=2963409408)
+   > Stage:     2
+   > Payload:  2
+   > Decoupler: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter)
+   > masses:    
+       > DRY:   0
+       > WET:   0
+   > res:       0
+
+PART(hc.scicam,uid=181746176)
+   > Stage:     2
+   > Payload:  2
+   > Decoupler: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter)
+   > masses:    
+       > DRY:   0
+       > WET:   0
+   > res:       0
+
+PART(kOSMachineRad,tag=cpu1)
+   > Stage:     2
+   > Payload:  2
+   > Decoupler: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter)
+   > masses:    
+       > DRY:   0.0308789201080799
+       > WET:   0.0308789201080799
+   > res:       0
+
+PART(SurfAntenna,uid=3334283776)
+   > Stage:     2
+   > Payload:  2
+   > Decoupler: PART(TE.19.C.Dragon.Decoupler,tag=sepOrbiter)
+   > masses:    
+       > DRY:   0
+       > WET:   0
+   > res:       0
+
+LEXICON of 3 items:
+
+["resParts"] = LIST of 1 items:
+
+  [0] = "PART(TE.19.F9.S1.Tank,tag=tank1)"
+
+["wet"] = 137.153840822983
+
+["dry"] = 24.026002688217
+LEXICON of 3 items:
+
+["resParts"] = LIST of 1 items:
+
+  [0] = "PART(TE.19.F9.S2.Tank,uid=3743408128)"
+
+["wet"] = 33.9105816646479
+
+["dry"] = 7.24875800451264
+0
+0
