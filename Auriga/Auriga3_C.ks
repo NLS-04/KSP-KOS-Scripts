@@ -10,20 +10,23 @@ copypath("0:/_lib/Classes.ks"    , "1:"). runOncePath("1:Classes.ks").      // #
 // extra Script imports
 copypath("0:/_lib/Rendezvous_Algorithm.ks" , "1:"). // #include "0:/_lib/Rendezvous_Algorithm.ks"
 
+// importing the global pool
+copypath("0:/Auriga/Auriga3_globalPool.ks", "1:"). runOncePath("1:Auriga3_globalPool.ks"). // #include "0:/Auriga/Auriga3_globalPool.ks"
 
 switch to 1.
 
-parameter runmodeStart, GPU_UID is choose ship:partstaggedpattern("GPU")[0]:uid if ship:partstaggedpattern("GPU"):length > 0 else core:part:uid.
-local GPU_PROC is {for proc in ship:modulesnamed("kosprocessor") { if proc:part:uid = GPU_UID { return proc. } } }.
+
+parameter
+    runmodeStart, 
+    GPU_UID is choose ship:partstaggedpattern("GPU")[0]:uid if ship:partstaggedpattern("GPU"):length > 0 else core:part:uid.
+
+local GPU_PROC is { for proc in ship:modulesnamed("kosprocessor") { if proc:part:uid = GPU_UID { return proc. } } }.
 set GPU_PROC to GPU_PROC:call().
 
 global runmode is runmodeStart.
 
+
 // #region INITIALISATION
-    // clearing
-    clearscreen.
-    clearVecDraws().
-    
     // Control setup
     lock throt to 0.
     lock throttle to throt.
@@ -54,69 +57,20 @@ global runmode is runmodeStart.
 
     list engines in elist.
 
-    local runmodeInfoList is Lex(
-        //  rmN , |<-----------28----------->|
-            "1" , "Initialisation",
-            "2" , "Lift-off",
-            "3" , "Launch Tower cleared",
-            "4" , "Ascend profile",
-            "5" , "LES jetison",
-            "6" , "MECO",
-            "7" , "Wait for Atmosphere Exit",
-            "8" , "Rais Apoapsis to Park km",
-            "9" , "Circ Orbit at Periapsis km",
-            "10", "Execute Next Node",
-            "11", "  ▪ ▪ ▪ ▪ ▪ HOLD ▪ ▪ ▪ ▪ ▪",
-
-            "15", "Rendezvous Caculation",
-
-            "21", "proximity Op-Setup",
-            "23", "proximity Operation",
-            "25", "proximity Operation",
-
-            "31", "Aps Line Rotation => TARGET",
-            "32", "Aps Line Rotation => SHIP",
-
-            "50", "Orbital Vector Display",
-            "51", "Asc. Node Display",
-            "52", "Asc. Node Correction",
-            "53", "Closest Approach scan",
-            "54", "Cls App detail Display",
-                
-            "70", "  ▪ ▪ ▪ ▪ ▪ NOOP ▪ ▪ ▪ ▪ ▪",
-            "71", "Set Target Orbit by Elements",
-            "72", "Set Target Orbit by 'Target'",
-            "73", "Orbit Info >> Self, Target",
-            "74", "set rendezvous angle ",
-
-            "97", " ** CLEAR: VecDraws ** ",
-            "98", " ** RELOCK KOS - CONTROL ** ",
-            "99", " ** UNLOCK KOS - CONTROL ** ",
-
-            "ABORT", "ABORTING"
-        ).
 // #endregion
 
 // #region INTERCOM
     local commentList is list().
 
-    local CORE_UID is core:part:UID.
-    local CORE_NET is core:messages.
-
-    local DPCNet is lex(). // Direct_Processor_Communication_Network = lex(PROC_UID, PROC:connection)
-    local  onNet is { parameter UID, mode, data. DPCNet[UID]:sendmessage( list(CORE_UID, list(mode, data)) ). }. // wait so we wont try fetching ourself
-    local offNet is { return choose CORE_NET:pop():content if not CORE_NET:empty else false. }.
-
     local InputCatcher is { parameter null. }.
 
     // SLAVE[GPU] -> MASTER[CPU]
     local Net_RX is Lex(
-        "Get_runmodeInfoList",  { parameter SlaveUID, _. onNet( SlaveUID, "Set_runmodeInfoList",  Net_TX["Set_runmodeInfoList"] ). },
-        "Get_TargetOrbit",      { parameter SlaveUID, _. onNet( SlaveUID, "Set_TargetOrbit",      Net_TX["Set_TargetOrbit"] ). },
-        "Get_CommentList",      { parameter SlaveUID, _. onNet( SlaveUID, "Set_CommentList",      Net_TX["Set_CommentList"] ). },
-        "Get_runmode",          { parameter SlaveUID, _. onNet( SlaveUID, "Set_runmode",          Net_TX["Set_runmode"] ). },
-        "Get_TZero",            { parameter SlaveUID, _. onNet( SlaveUID, "Set_TZero",            Net_TX["Set_TZero"] ). },
-        "Get_TNext",            { parameter SlaveUID, _. onNet( SlaveUID, "Set_TNext",            Net_TX["Set_TNext"] ). },
+        "Get_TargetOrbit",      { parameter SlaveUID, _. onNet( SlaveUID, "Set_TargetOrbit",      Net_TX["Set_TargetOrbit"]() ). },
+        "Get_CommentList",      { parameter SlaveUID, _. onNet( SlaveUID, "Set_CommentList",      Net_TX["Set_CommentList"]() ). },
+        "Get_runmode",          { parameter SlaveUID, _. onNet( SlaveUID, "Set_runmode",          Net_TX["Set_runmode"]() ). },
+        "Get_TZero",            { parameter SlaveUID, _. onNet( SlaveUID, "Set_TZero",            Net_TX["Set_TZero"]() ). },
+        "Get_TNext",            { parameter SlaveUID, _. onNet( SlaveUID, "Set_TNext",            Net_TX["Set_TNext"]() ). },
 
         "Set_runmode",  { parameter from, _runmode. if RunmodeLexicon:haskey(_runmode) { set runmode to _runmode. } },
         "Set_Input",    { parameter from, data. InputCatcher:call(data). set InputCatcher to { parameter null. }. },
@@ -126,7 +80,6 @@ global runmode is runmodeStart.
 
     // MASTER[CPU] -> SLAVE[GPU]
     local Net_TX is Lex(
-        "Set_runmodeInfoList",  { return runmodeInfoList. },
         "Set_runmode",          { return runmode. },
         "Set_TZero",            { return TZero. },
         "Set_TNext",            { return TNext. },
@@ -135,6 +88,8 @@ global runmode is runmodeStart.
         "Set_TargetOrbit",      { return Target_Orbit. },
         "Set_TargetPort",       { return portT:nodeposition. },
         "Set_ShipPort",         { return portS:nodeposition. },
+
+        "Set_checklist",        { return 0. },
 
         "Get_TargetOrbit",      { return 0. },
         "Get_CommentList",      { return 0. },
@@ -162,9 +117,8 @@ global runmode is runmodeStart.
         parameter content.
         
         if RT:hasKscConnection(ship) {
-            log "" to path("0:/a.csv").
-            log "CPU: " + content[0] +" -> "+ content[1][0] to path("0:/a.csv").
-            log "  " + content[1][1] to path("0:/a.csv").
+            logFile:writeLn( "CPU: " + content[0] + " -> " + content[1][0] ).
+            logFile:writeLn( "     => " + content[1][1]:toString() ).
         }
     }.
 
@@ -761,7 +715,7 @@ global runmode is runmodeStart.
                     list("VAR", "Inclination:   ", round(Target_Orbit:Inc, 3)),
                     list("VAR", "Lng. Asc. Node:", round(Target_Orbit:Lan, 3)),
                     list("VAR", "Arg. of Periap:", round(Target_Orbit:AoP, 3))
-                )            
+                )
             ).
 
             set InputCatcher to {
@@ -774,7 +728,7 @@ global runmode is runmodeStart.
                 set Target_Orbit:AoP to data[4]:tonumber(Target_Orbit:AoP).  // refer to default vals if unclear
                 
                 set Target_Orbit:SMA to 0.5*(Target_Orbit:Apo + Target_Orbit:Per).
-                set Target_Orbit:ECC to 0.5*(Target_Orbit:Apo - Target_Orbit:Per)/Target_Orbit:SMA.
+                set Target_Orbit:ECC to choose 0.5*(Target_Orbit:Apo - Target_Orbit:Per)/Target_Orbit:SMA if Target_Orbit:SMA > 0 else 0.
 
                 sendGPU("Set_TargetOrbit").
             }.
@@ -792,36 +746,6 @@ global runmode is runmodeStart.
             }
 
             modeChange(71).
-        }
-        local function runmode_73 { // Orbit Info >> Self, Target
-
-            if hasTarget {
-                local OrbTarget is target:orbit.
-                local rtarget   is target:position - target:body:position.
-                local targetMean to OrbTarget:MeanAnomalyAtEpoch + 360 * MOD((time:seconds - OrbTarget:epoch) / OrbTarget:period, 1).
-            
-                print "TARGET:  " at (0, 2).
-                print "M:       " + targetMean at (2, 3).
-                print "w:       " + OrbTarget:ArgumentOfPeriapsis at (2, 4).
-                print "O:       " + OrbTarget:longitudeofascendingnode at (2, 5).
-                print "I:       " + OrbTarget:inclination at (2, 6).
-                print "t:       " + OrbTarget:epoch at (2, 7).
-                print "------------------------" at (2, 8).
-                print "AoE:     " + MOD(targetMean + OrbTarget:ArgumentOfPeriapsis + OrbTarget:longitudeofascendingnode, 360) at (2, 9).
-                print "AoVE:    " + (vang(rtarget, solarPrimeVector) - OrbTarget:inclination) at (2, 10).
-            }
-
-            local rShip is ship:position - ship:body:position.
-
-            print "SHIP:    " at (0, 12).
-            print "M:       " + orbit:MeanAnomalyAtEpoch at (2, 13).
-            print "w:       " + orbit:ArgumentOfPeriapsis at (2, 14).
-            print "O:       " + orbit:longitudeofascendingnode at (2, 15).
-            print "I:       " + orbit:inclination at (2, 16).
-            print "t:       " + orbit:epoch at (2, 17).
-            print "------------------------" at (2, 18).
-            print "AoE:     " + MOD(orbit:MeanAnomalyAtEpoch + orbit:ArgumentOfPeriapsis + orbit:longitudeofascendingnode, 360) at (2, 19).
-            print "AoVE:    " + (vang(rShip, solarPrimeVector) - orbit:inclination) at (2, 20).
         }
         local function runmode_74 { // set rendezvous angle 
             sendGPU("Get_Input", 
@@ -872,7 +796,7 @@ global runmode is runmodeStart.
 
         if terminal:input:haschar {
             if terminal:input:getchar() = terminal:input:enter {
-                set runmode to TerminalInput("runmode").
+                modeChange( TerminalInput("runmode") ).
             }
         }
     }
@@ -919,7 +843,6 @@ global runmode is runmodeStart.
         70, HOLD        ,
         71, runmode_71 @,
         72, runmode_72 @,
-        73, runmode_73 @,
         74, runmode_74 @,
 
         97, runmode_97 @,

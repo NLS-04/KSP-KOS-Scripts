@@ -1,32 +1,36 @@
 @lazyGlobal off.
 
-copypath("0:/_lib/Terminal.ks", "1:").
-runOncePath("1:Terminal.ks").
-// #include "0:_lib/Terminal.ks"
+// importing libraries
+copypath("0:/_lib/Terminal.ks", "1:"). runOncePath("1:Terminal.ks"). // #include "0:_lib/Terminal.ks"
 
-parameter runmodeStart is 0, submodeStart is 0, CPU_UID is choose ship:partstaggedpattern("CPU")[0]:uid if ship:partstaggedpattern("CPU"):length > 0 else core:part:uid.
-local CPU_PROC is {for proc in ship:modulesnamed("kosprocessor") { if proc:part:uid = CPU_UID { return proc. } } }.
+// importing the global pool
+copypath("0:/Auriga/Auriga3_globalPool.ks", "1:"). runOncePath("1:Auriga3_globalPool.ks"). // #include "0:/Auriga/Auriga3_globalPool.ks"
+
+parameter 
+    runmodeStart is 0, 
+    submodeStart is 0, 
+    CPU_UID is choose ship:partstaggedpattern("CPU")[0]:uid if ship:partstaggedpattern("CPU"):length > 0 else core:part:uid.
+
+local CPU_PROC is { for proc in ship:modulesnamed("kosprocessor") { if proc:part:uid = CPU_UID { return proc. } } }.
 set CPU_PROC to CPU_PROC:call().
 
 local runmode is runmodeStart.
-local submode is submodeStart.
+local submode is submodeStart. // not actually in use atm
 
 // AT STARTUP:
 //  CPU:
 //      - runmode initialized & synced
 //      - GPU is set
-//     => recieve runmode Info List request
-//     <= Send runmode Info List
 //
 //  GPU:
 //      - runmode initialized & synced
 //      - CPU is set
-//     <= send runmode Info List request
-//     => Await runmode Info List
 
-// log  to path("0:/a.ks").
 
 // #region initialisation
+    // general setup
+    local displayHeight to terminal:height.
+
     local holdTime is 0.
 
     local printUpdate is list(
@@ -57,10 +61,15 @@ local submode is submodeStart.
                             "on",       ON_DisplayHandle@,
                             "off",      OFF_DisplayHandle@,
                             "toggle",   TOGGLE_DisplayHandle@
+                        ),
+        "Checklist",    lex(
+                            "on",       ON_Checklist@,
+                            "off",      OFF_Checklist@,
+                            "toggle",   TOGGLE_Checklist@
                         )
     ).
     // Virtual Calculation RAM
-    local VC_RAM is lex(). // [ key, func ] ==> outputs funcs values to same key in V_Ram
+    local VC_RAM is lex(). // [ key, func ] ==> outputs funcs values to same key in V_RAM
     local V_RAM is lex().  // [ key, value ] 
 
     local displayInfoVariables is list(true).
@@ -69,37 +78,31 @@ local submode is submodeStart.
     local TZero is time:seconds. // constant refernce times
     local TNext is time:seconds. // constant refernce times
 
-    local runmodeInfoList is lex().
-    local commentList is list().
 // #endregion
 
 // #region variables
     // #region intercom
+        local commentList is list().
+
         local procIO is list(false, false).
         local gpuI is {parameter state. set procIO[0] to state. print choose "•" if state else " " at (42, 4).}.
         local gpuO is {parameter state. set procIO[1] to state. print choose "•" if state else " " at (44, 4).}.
 
-        local CORE_UID is core:part:UID.
-        local CORE_NET is core:messages.
-
-        local DPCNet is lex(). // Direct_Processor_Communication_Network = lex(PROC_UID, PROC)
-        local  onNet is { parameter UID, mode, data. gpuO(true). DPCNet[UID]:connection:sendmessage( list(CORE_UID, list(mode, data)) ). }.
-        local offNet is { if not CORE_NET:empty { gpuI(true). return CORE_NET:pop:content. } else { return false. } }.
-
         // MASTER[CPU] -> SLAVE[GPU]
         local Net_RX is Lex(
-            "Set_runmodeInfoList",  { parameter from, data. set runmodeInfoList  to data.   runmodeLister(). },
             "Set_TargetOrbit",      { parameter from, data. set Target_Orbit     to data.   module:OrbitInfo:on(). },
-            "Set_runmode",          { parameter from, data. set runmode          to data.   runmodeLister(). },
+            "Set_runmode",          { parameter from, data. set runmode          to data.   runmodeLister(). checklist_byRunmode(). },
             "Set_TZero",            { parameter from, data. set TZero            to data. },
             "Set_TNext",            { parameter from, data. set TNext            to data. },
             "Set_CommentList",      { parameter from, data. set commentList      to data.   commentListDisplay(). },
             "Set_Comment",          { parameter from, data. commentList:add(data).          commentListDisplay(). },
             "Set_TargetPort",       { parameter from, data. set V_RAM:ProxOp_Toffset to data. },
             "Set_ShipPort",         { parameter from, data. set V_RAM:ProxOp_Soffset to data. },
+            
+            "Set_checklist",        { parameter from, data. checklist_byCPU(data). },
 
-            "Get_TargetOrbit",      { parameter from, data. onNet(from, "Set_TargetOrbit", Target_Orbit). },
-            "Get_CommentList",      { parameter from, data. onNet(from, "Set_CommentList",     commentList). },
+            "Get_TargetOrbit",      { parameter from, data. onNet(from, "Set_TargetOrbit", Target_Orbit ). },
+            "Get_CommentList",      { parameter from, data. onNet(from, "Set_CommentList", commentList ). },
             "Get_TZero",            { parameter from, data. onNet(from, "Set_TZero",       TZero). },
             "Get_TNext",            { parameter from, data. onNet(from, "Set_TNext",       TNext). },            
             "Get_Input",            { parameter from, data. onNet(from, "Set_Input",       inputHandle(data)). },
@@ -110,7 +113,6 @@ local submode is submodeStart.
 
         // SLAVE[GPU] -> MASTER[CPU]
         local Net_TX is Lex(
-            "Get_runmodeInfoList",  { return 0. },
             "Get_TargetOrbit",      { return 0. },
             "Get_CommentList",      { return 0. },
             "Get_runmode",          { return 0. },
@@ -122,21 +124,20 @@ local submode is submodeStart.
         ).
 
         local function sendCPU {
-            parameter mode, data is "null". // set stuf that needs to be send
+            parameter mode, data is "null". // set stuff that needs to be send
             local dataToSend is choose Net_TX[mode]:call() if data = "null" else data.
             onNet(CPU_UID, mode, dataToSend).
         }
 
         if CPU_UID <> CORE_UID
-            set DPCNet[CPU_UID:tostring()] to CPU_PROC.
+            set DPCNet[CPU_UID:tostring()] to CPU_PROC:connection.
 
         local loggingCommunication is {
             parameter content.
             
             if RT:hasKscConnection(ship) {
-                log "" to path("0:/a.csv").
-                log "GPU: " + content[0] +" -> "+ content[1][0] to path("0:/a.csv").
-                log "  " + content[1][1] to path("0:/a.csv").
+                logFile:writeLn( "GPU: " + content[0] + " -> " + content[1][0] ).
+                logFile:writeLn( "     => " + content[1][1]:tostring() ).
             }
         }.
 
@@ -148,7 +149,7 @@ local submode is submodeStart.
         
     // #endregion
 
-    // #region default orbit vals
+    // #region default vals
         local selfOrbit is ship:orbit.
 
         local Target_Orbit is lex(
@@ -169,10 +170,17 @@ local submode is submodeStart.
         set V_RAM:ProxOp_Soffset to ship:dockingports[0]:position.
 
         set V_RAM:DisplayHandle_Vars to list( list("HEADER", " ### TEST ### "), list("VAR", "testVar:     ", "defaultValue"), list("TXT", "this is a lovely Text :)") ).
+
+        local checklistData is readJson( CHECKLIST_PATH_NAME ).
+        local checklist_listPtr is 0. // current Checklist
+        local checklist_pagePtr is 0. // current page of checklist
+        local checklist_itemPtr is 0. // current item of specific page of checklist
+        local checklist_promtInput is false. // indicates that the user input is now directed to the checklist
+        local checklist_inputDecision is true. // holds intended/inputed value for items of type 3, e.g. items which req. a decision 
     // #endregion
 // #endregion
 
-function Vec2Ship {
+local function Vec2Ship {
     parameter vecI.
 
     return list(
@@ -181,14 +189,18 @@ function Vec2Ship {
         vdot(vecI, ship:facing:starVector)
     ).
 }
+local function comment {
+    parameter com.
+    commentList:add( list( time:seconds, com ) ).
+    commentListDisplay().
+}
 
-
+// FORMATION FUNCTIONS ------------------------------------
 local function diffTime {
     parameter timePoint, leading.
     local difTime is timePoint - time:seconds. 
-    return choose leading+"+"+SecondsToClock(difTime, true) if difTime < 0 else leading+"-"+SecondsToClock(difTime, true).
+    return leading + (choose "+" if difTime < 0 else "-") + SecondsToClock(difTime, true).
 }
-
 local function middleString {
     parameter string, space, spacer is " ", hasleftTendency is true.
 
@@ -202,7 +214,6 @@ local function middleString {
 
     return out.
 }
-
 local function RightString {
     parameter string, space, spacer is " ".
 
@@ -214,48 +225,44 @@ local function RightString {
 
     return whites + string.
 }
-
 local function decimalAlign {
     parameter rightSideIndex, scalar.
     return rightSideIndex - floor(scalar):tostring():length.
 }
 
-
+// GUI FUNCTIONS ------------------------------------------
 local function setFrame {
     set terminal:width to 54.
-    set terminal:height to 31.
 
-    print "
+    local str is "
 ┌ =================== AURIGA III ================== ┐
 │ •                                    │ T+00:00:00 │
 │ •                                    │ N-00:00:00 │
 │―> [?] ... Requesting Programs ...    │> CPU_MAIN <│
 │ •                                    │ [*|*] [*]  │
 │ •                                    │ [*] Input  │
-│――――――――――――――――――――――――――――――――――――― + ―――――――――――│
-│                                                   │
-│                                                   │
-│                                                   │
-│                                                   │
-│                                                   │
-│                                                   │
-│                                                   │
-│                                                   │
-│                                                   │
-│                                                   │
-│                                                   │
-│                                                   │
-│                                                   │
-│                                                   │
-│                                                   │
-│                                                   │
-│                                                   │
-│                                                   │
-│                                                   │
-│                                                   │
+│――――――――――――――――――――――――――――――――――――― + ―――――――――――│".
+
+    for _ in range(displayHeight - 11, 0) 
+        set str to str + "
+│                                                   │".
+
+    set str to str + "
 │―――――――――――――――――――――――――――――――――――――――――――――――――――│
 │                                                   │
 └ ================================================= ┘".
+
+    print str.
+}
+local function visualNotification {
+    local waitTime is 0.1.
+    for _ in range(4) {
+        toggleTerminalReverse(). 
+        wait waitTime.
+    }
+}
+local function toggleTerminalReverse {
+    set terminal:reverse to not terminal:reverse.
 }
 local function commentListDisplay {
     if commentList:length = 0 
@@ -288,55 +295,50 @@ local function runmodeLister {
 
     local relcol is 4.
     local p is {
-        parameter r, s, i, l. 
-        print "["+r + (choose " | " + s if s > 0 else "") + "]" at (relcol, l).
-        print i at (relcol+5, l).
+        parameter run, sub, info, line. 
+        print "["+run + (choose " | " + sub if sub > 0 else "") + "]" at (relcol, line).
+        print info at (relcol+5, line).
     }.
 
-    for i in range(1,6) { // clear the fields
+    for i in range(1,6) // clear the fields
         print "                                  " at (relcol, i).
-    }
 
-    if lexi:haskey(RmodeS) {
-        if lexi[RmodeS]:istype("String") { // == no Submodes for that runmode (submode => new lex())
+    // printing the runmodeInfoList entry for the current runmode, e.g. the middle of the runmodeDisplay
+    if lexi:haskey(RmodeS)
+        // check if this runmode embedds submodes
+        if lexi[RmodeS]:istype("String") // == no Submodes for that runmode (submode => new lex())
             p(Rmode, Smode, lexi[RmodeS], 3). 
-        } else {
+        else
             p(Rmode, Smode, lexi[RmodeS][SmodeS], 3). 
-        }
-    } else {
+    else
         p(Rmode, Smode, "", 3). 
-    }
 
+    // printing the runmodeInfoList entries for the two leading runmodes
     local lastR is Rmode.
     local lastS is 0.
-    for line in range(2,0) {
-        for lowwer in range(lastR-1, -1) {
-            if lexi:haskey(lowwer:toString()) {
-                print (choose squeezFlag if lowwer < lastR-1 else " ") at (2, line).
-                set lastR to lowwer.
-                p(lowwer, Smode, lexi[lowwer:toString()], line).
+    for line in range(2,0)
+        for lower in range(lastR-1, 0)
+            if lexi:haskey(lower:toString()) {
+                print (choose squeezFlag if lower < lastR-1 else " ") at (2, line).
+                set lastR to lower.
+                p(lower, Smode, lexi[lower:toString()], line).
                 break.
             }
-        }
-    }
 
+    // printing the runmodeInfoList entries for the two following runmodes
     set lastR to Rmode.
     set lastS to 0.
-    for line in range(4,6) {
-        for upper in range(lastR+1, 100) {
+    for line in range(4,6)
+        for upper in range(lastR+1, 99)
             if lexi:haskey(upper:toString()) {
                 print (choose squeezFlag if upper > lastR+1 else " ") at (2, line).
                 set lastR to upper.
                 p(upper, Smode, lexi[upper:toString()], line).
                 break.
             }
-        }
-    }
-    
 }
-
 local function DataSectionPrinter {
-    for section in printUpdate { // gets the reletive section line number
+    for section in printUpdate { // gets the relative section line number
         local secLine is section[0].
 
         for element in section[1] {
@@ -344,6 +346,8 @@ local function DataSectionPrinter {
         }
     }
 }
+
+// PROCESS FUNCTIONS --------------------------------------
 local function netHandle {
     local netContent is offNet().
 
@@ -372,21 +376,19 @@ local function ipuAdjuster {
     print round( 100*listLength/max )+"] " at (48, 4).
 }
 local function VC_Calc {
-    for calc in VC_RAM:keys {
+    for calc in VC_RAM:keys
         set V_RAM[calc] to VC_RAM[calc]:call().
-    }
 }
 
-
+// MODULES ------------------------------------------------
 local function __offModule {
     parameter key, linesRefreshed.
 
     if not section_Ptr_lex:haskey(key) 
         return.
 
-    for line in range(0, linesRefreshed+1) {
+    for line in range(0, linesRefreshed+1)
         print "                                                   " at(1, section_Ptr_lex[key]+1 + line).
-    }
 
     for sectionIndex in range(printUpdate:length-1, -1) {
         if printUpdate[sectionIndex][0] > section_Ptr_lex[key]
@@ -400,11 +402,13 @@ local function __offModule {
 
     section_Ptr_lex:remove(key).
 
-    for activeModule in section_Ptr_lex:keys {            
-        if module:haskey(activeModule) { if module[activeModule]:hassuffix("on") { module[activeModule]:on(). } }
-    }
+    for activeModule in section_Ptr_lex:keys           
+        if module:haskey(activeModule)
+            if module[activeModule]:hassuffix("on")
+                module[activeModule]:on(). 
 }
 
+// ORBIT INFO MODULE
 local function ON_OrbitInfo {
     OFF_OrbitInfo().
 
@@ -449,7 +453,8 @@ local function TOGGLE_OrbitInfo {
     if section_Ptr_lex:haskey("OrbitInfo") { OFF_OrbitInfo(). } else { ON_OrbitInfo(). }
 }
 local function updateTargetorbit {
-    if not section_Ptr_lex:haskey("OrbitInfo") { return. }
+    if not section_Ptr_lex:haskey("OrbitInfo")
+        return.
 
     local sectionLine is section_Ptr_lex["OrbitInfo"].
 
@@ -462,6 +467,7 @@ local function updateTargetorbit {
     print round( Target_Orbit:ECC, 3 ) at ( decimalAlign(28, Target_Orbit:ECC ), sectionLine + 8 ).
 }
 
+// PROXIMITY OPERATION INFO MODULE
 local function ON_ProxOpInfo {
     OFF_ProxOpInfo().
 
@@ -513,6 +519,7 @@ local function TOGGLE_ProxOpInfo {
     if section_Ptr_lex:haskey("ProxOpInfo") OFF_ProxOpInfo(). else ON_ProxOpInfo().
 }
 
+// DISPLAY INFO MODULE
 local function ON_DisplayHandle {
     // vars = [['HEADER', header], ['VAR', varName, (defaultValue: optional)], ['TXT', text, (optional) ['time', timeToCalc]]]
     // all spaces and layout relevant stuff MUST be set in vars
@@ -586,10 +593,194 @@ local function TOGGLE_DisplayHandle {
     if section_Ptr_lex:haskey("DisplayInfo") OFF_DisplayHandle(). else ON_DisplayHandle().
 }
 
+// CHECKLIST MODULE
+local function ON_Checklist {
+    OFF_Checklist().
+
+    set section_Ptr_lex["Checklist"] to ptr_bottom.
+
+    print "CHECKLIST:                                    "+(checklist_pagePtr+1)+"/"+checklistData[checklist_listPtr]:pages at ( 2, ptr_bottom + 1 ).
+    print checklistData[checklist_listPtr]:name at ( 13, ptr_bottom + 1 ).
+    print " ------------------------------------------------- " at ( 1, ptr_bottom + 2 ).
+
+    local printOffset is 0.
+    for item in checklistData[checklist_listPtr]:items[checklist_pagePtr] {
+        for line in item:lines {
+            print line at ( 2, ptr_bottom + 3 + printOffset ).
+            set printOffset to printOffset + 1.
+        }
+    }
+    print "―――――――――――――――――――――――――――――――――――――――――――――――――――" at ( 1, ptr_bottom + checklistData[checklist_listPtr]:linesPerPage + 3 ).
+
+    checklist_setupNextItem().
+
+    set ptr_bottom to ptr_bottom + checklistData[checklist_listPtr]:linesPerPage + 3.
+}
+local function OFF_Checklist {
+    __offModule("Checklist", checklistData[checklist_listPtr]:linesPerPage + 2).
+}
+local function TOGGLE_Checklist {
+    if section_Ptr_lex:haskey("Checklist") OFF_Checklist(). else ON_Checklist().
+}
+
+local function checklist_byRunmode {
+    if checklist_initialize(runmode) {
+        ON_Checklist().
+    }    
+}
+local function checklist_byCPU {
+    parameter key.
+    if checklist_initialize(key) {
+        ON_Checklist().
+    }
+}
+local function checklist_initialize {
+    parameter key.
+
+    local _ is {
+        if key:isType("string") {
+            for i in range( checklistData:length )
+                if checklist[i]:name = key
+                    return i.
+        } else if key:isType("scalar") {
+            for i in range( checklistData:length )
+                if checklist[i]:runmode = key
+                    return i.
+        }
+        return -1.
+    }.
+
+    set checklist_listPtr to _().
+    set checklist_pagePtr to 0.
+    set checklist_itemPtr to 0.
+    set checklist_promtInput to false.
+    set checklist_inputDecision to true.
+
+    return checklist_listPtr >= 0.
+}
+
+local function checklist_stepInto {
+    checklist_blankItemTick().
+
+    if not checklist_inputDecision { // potentially stepping over an if block on the checklist, so search for the next item of the same Logic Depth
+        set checklist_itemPtr to checklist_findNextItemOfDepth().
+    } else { // 
+        checklist_markItemTick().
+        set checklist_itemPtr to checklist_itemPtr + 1.
+    }
+    comment(checklist_itemPtr).
+
+    if checklist_itemPtr >= checklistData[checklist_listPtr]:items[checklist_pagePtr]:length
+        checklist_goToNextPage().
+
+    checklist_setupNextItem().
+}
+local function checklist_setupNextItem {
+    local nextItem is checklistData[checklist_listPtr]:items[checklist_pagePtr][checklist_itemPtr].
+
+    if nextItem:isEndOfChecklist {
+        checklist_completed().
+        return.
+    }
+
+    set checklist_inputDecision to true.
+
+    checklist_selectItemtick().
+
+    // CHECKLIST ITEM MODES
+    // | MODE NAME       | JSON TYPE NUMBER | REQUIRES MANUAL ACTION | ABRIVIATION |
+    // | AUTO CONFIRM    | 0                | YES                    | AC          |
+    // | AUTO ACTION     | 1                | NO                     | AA          |
+    // | MANUAL CONFIRM  | 2                | NO                     | MC          |
+    // | MANUAL DECISION | 3                | YES (req. user input)  | MD          |
+
+    if nextItem:type = "0" {
+
+    } else if nextItem:type = "1" {
+
+    } else if nextItem:type = "2" {
+        visualNotification().
+        set checklist_promtInput to true.
+        print "│ ░░░░░░░░░░░░░░░░░░░░ CONFIRM ░░░░░░░░░░░░░░░░░░░░ │" at (0, terminal:height-3).
+    } else if nextItem:type = "3" {
+        visualNotification().
+        set checklist_promtInput to true.
+        print "│ ░░░░░░░░░ YES ░░░░░░░░░ |           NO            │" at (0, terminal:height-3).
+    }
+}
+
+local function checklist_goToNextPage {
+    comment("Next Page Event").
+    set checklist_itemPtr to 0.
+    set checklist_pagePtr to checklist_pagePtr + 1.
+
+    if checklist_pagePtr >= checklistData[checklist_listPtr]:pages {
+        checklist_completed().
+        return.
+    }
+
+    // recycling the checklist
+    module:Checklist:off().
+    module:Checklist:on().
+}
+local function checklist_completed {
+    comment("Checklist "+checklistData[checklist_listPtr]:name+" Completed").
+    set checklist_pagePtr to 0.
+    set checklist_itemPtr to 0.
+    set checklist_inputDecision to true.
+    wait 1.
+    module:Checklist:off().
+}
+
+local function checklist_colLineOfMark {
+    return list( checklistData[checklist_listPtr]:items[checklist_pagePtr][checklist_itemPtr]:checkCoordinate, section_Ptr_lex["Checklist"] + 3 + checklist_itemPtr ).
+}
+
+local function checklist_blankItemTick {
+    local colLine is checklist_colLineOfMark().
+    print "[ ]" at ( colLine[0]-1, colLine[1] ).
+}
+local function checklist_selectItemtick {
+    local colLine is checklist_colLineOfMark().
+    print ">○<" at ( colLine[0]-1, colLine[1] ).
+}
+local function checklist_markItemTick {
+    local colLine is checklist_colLineOfMark().
+    print "[●]" at ( colLine[0]-1, colLine[1] ).
+}
+
+local function checklist_checkInput {
+    parameter char.
+
+    if char = terminal:input:enter {
+        set checklist_promtInput to false.
+        print "│                                                   │" at (0, terminal:height-3).
+        checklist_stepInto().
+        return.
+    }
+    
+    if checklistData[checklist_listPtr]:items[checklist_pagePtr][checklist_itemPtr]:type = "3" {
+        if char = terminal:input:leftCursorOne or char = terminal:input:rightCursorOne {
+            set checklist_inputDecision to not checklist_inputDecision.
+            print choose "│ ░░░░░░░░░ YES ░░░░░░░░░ |           NO            │" if checklist_inputDecision else "│           YES           | ░░░░░░░░░ NO ░░░░░░░░░░ │" at (0, terminal:height-3).
+        }
+        return.
+    }        
+}
+
+local function checklist_findNextItemOfDepth {
+    local currentDepth is checklistData[checklist_listPtr]:items[checklist_pagePtr][checklist_itemPtr]:logicDepth.
+
+    for index in range( checklist_itemPtr+1, checklistData[checklist_listPtr]:items[checklist_pagePtr]:length )
+        if checklistData[checklist_listPtr]:items[checklist_pagePtr][index]:logicDepth = currentDepth
+            return index.
+}
+
+
 local function inputHandle {
     parameter vars.
 
-    local leftOffset is 2.
+    local leftOffset is 3.
     local topOffset is ptr_bottom.
     local select is ">".
 
@@ -619,21 +810,45 @@ local function inputHandle {
     return outList.
 }
 
+local function general_userInput {
+    parameter char.
+
+    if char = terminal:input:enter {
+        print "■" at (42,5).
+        set runmode to TerminalInput("│ RUNMODE", 3, false).
+        
+        print "│                                                   │" at (0, terminal:height-3).
+        print " " at (42,5).
+        
+        if runmode > 100 { set runmode to 70. }
+        runmodeLister().
+        sendCPU("Set_runmode").
+    } else {
+        if char = "1" module:OrbitInfo:toggle().
+        if char = "2" module:ProxOpInfo:toggle().
+        if char = "7" module:Checklist:toggle().
+        if char = "8" visualNotification().
+        if char = "9" module:DisplayInfo:toggle().
+
+        //Temporary
+        if char = "+" checklist_stepInto().
+    }
+}
+
+// LOOP ==================================================
 
 local function Start {
-    setFrame().
-
     sendCPU("Get_runmode").
     sendCPU("Get_CommentList").
     sendCPU("Get_TZero").
     sendCPU("Get_TNext").
-    sendCPU("Get_runmodeInfoList").
     sendCPU("Get_TargetOrbit").
 
-    module:OrbitInfo:on().
+    setFrame().
+
+    // module:OrbitInfo:on().
     commentListDisplay().
 }
-
 local function Update {
     // wait holdTime.
 
@@ -643,26 +858,25 @@ local function Update {
 
     if terminal:input:haschar {
         local char is terminal:input:getchar().
-        
-        if char = terminal:input:enter {
-            print "■" at (42,5).
-            set runmode to TerminalInput("│ RUNMODE", 3, false).
-            
-            print "│                                                   │" at (0, terminal:height-3).
-            print " " at (42,5).
-            
-            if runmode > 100 { set runmode to 70. }
-            runmodeLister().
-            sendCPU("Set_runmode").
-        } else {
-            if char = "1" module:OrbitInfo:toggle().
-            if char = "2" module:ProxOpInfo:toggle().
-            if char = "9" module:DisplayInfo:toggle().
+
+        if checklist_promtInput {
+            checklist_checkInput( char ).
+            return.
         }
+        
+        general_userInput( char ).        
     }
 }
 
-// EXAMPLES
+Start().
+until runmode = 0
+    Update().
+
+
+
+
+
+// EXAMPLES =====================================================================================
 local printUpdate_EXAMPLE is list(
     list("section_0: int", list( list("Name: string", "data1: func", "colum: func", "relLine: int"), list("Name: string", "data2: func", "colum: func", "relLine: int") )),
     list("section_1: int", list( list("Name: string", "data1: func", "colum: func", "relLine: int"), list("Name: string", "data2: func", "colum: func", "relLine: int") ))
@@ -698,18 +912,3 @@ local term is " ΩΔω‖ε|→←│┌┐└┘―⁞‰͢   ͚˽ꓕ  ː˸•
 │ RUNMODE >>                                        │
 └ ================================================= ┘
 ".
-
-// LOOP -- SETUP =========================================
-        // local HOLD is {return.}.
-
-        // local RunmodeLexicon is Lex(
-        //     "", runmode_ @,
-        // ).
-
-// LOOP ==================================================
-    Start().
-
-    until runmode = 0 {
-        Update().
-            // RunmodeLexicon[runmode:tostring()]:call().
-    }
