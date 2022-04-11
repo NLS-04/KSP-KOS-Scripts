@@ -100,6 +100,7 @@ local submode is submodeStart. // not actually in use atm
             "Set_ShipPort",         { parameter from, data. set V_RAM:ProxOp_Soffset to data. },
             
             "Set_checklist",        { parameter from, data. checklist_byCPU(data). },
+            "Set_checklist_tick",   { parameter from, data. checklist_stepInto(). },
 
             "Get_TargetOrbit",      { parameter from, data. onNet(from, "Set_TargetOrbit", Target_Orbit ). },
             "Get_CommentList",      { parameter from, data. onNet(from, "Set_CommentList", commentList ). },
@@ -118,6 +119,8 @@ local submode is submodeStart. // not actually in use atm
             "Get_runmode",          { return 0. },
             "Get_TZero",            { return 0. },
             "Get_TNext",            { return 0. },
+
+            "Set_checklist_MANUAL", { return checklist_inputDecision. },
             
             "Set_Input",            { return "InputAnswer". },
             "Set_runmode",          { return runmode. }
@@ -255,8 +258,8 @@ local function setFrame {
     print str.
 }
 local function visualNotification {
-    local waitTime is 0.1.
-    for _ in range(4) {
+    parameter flashes is 1, waitTime is 0.1.
+    for _ in range(2*flashes) {
         toggleTerminalReverse(). 
         wait waitTime.
     }
@@ -617,6 +620,8 @@ local function ON_Checklist {
     set ptr_bottom to ptr_bottom + checklistData[checklist_listPtr]:linesPerPage + 3.
 }
 local function OFF_Checklist {
+    log checklist_listPtr to log_path.
+    log checklistData[checklist_listPtr]:linesPerPage to log_path.
     __offModule("Checklist", checklistData[checklist_listPtr]:linesPerPage + 2).
 }
 local function TOGGLE_Checklist {
@@ -630,45 +635,49 @@ local function checklist_byRunmode {
 }
 local function checklist_byCPU {
     parameter key.
+    // the key comes from the cpu via the DPCNet => key is by default a string (because of serialization reasons)
+    // but we dont know whether it is an actual string or if it was originally a scalar or if it was something else we are not interessted in
+    set key to key:tostring():tonumber( key ).
     if checklist_initialize(key) {
         ON_Checklist().
+        return.
     }
+    comment("CPU requested a checklist: " + key + ", which does not exist").
 }
 local function checklist_initialize {
     parameter key.
 
-    local _ is {
-        if key:isType("string") {
-            for i in range( checklistData:length )
-                if checklist[i]:name = key
-                    return i.
-        } else if key:isType("scalar") {
-            for i in range( checklistData:length )
-                if checklist[i]:runmode = key
-                    return i.
-        }
-        return -1.
-    }.
-
-    set checklist_listPtr to _().
     set checklist_pagePtr to 0.
     set checklist_itemPtr to 0.
     set checklist_promtInput to false.
     set checklist_inputDecision to true.
 
-    return checklist_listPtr >= 0.
+    if key:isType("string") {
+        for i in range( checklistData:length )
+            if checklistData[i]:name = key{
+                set checklist_listPtr to i.
+                return true.
+            }
+    } else if key:isType("scalar") {
+        for i in range( checklistData:length )
+            if checklistData[i]:runmode = key {
+                set checklist_listPtr to i.
+                return true.
+            }
+    }
+    return false.
 }
 
 local function checklist_stepInto {
     checklist_blankItemTick().
 
-    if not checklist_inputDecision { // potentially stepping over an if block on the checklist, so search for the next item of the same Logic Depth
+    // potentially stepping over an if block on the checklist, therefor search for the next item of the same Logic Depth
+    if not checklist_inputDecision {
         set checklist_itemPtr to checklist_findNextItemOfDepth().
     } else { // 
         checklist_markItemTick().
         set checklist_itemPtr to checklist_itemPtr + 1.
     }
-    comment(checklist_itemPtr).
 
     if checklist_itemPtr >= checklistData[checklist_listPtr]:items[checklist_pagePtr]:length
         checklist_goToNextPage().
@@ -695,7 +704,7 @@ local function checklist_setupNextItem {
     // | MANUAL DECISION | 3                | YES (req. user input)  | MD          |
 
     if nextItem:type = "0" {
-
+        
     } else if nextItem:type = "1" {
 
     } else if nextItem:type = "2" {
@@ -710,7 +719,6 @@ local function checklist_setupNextItem {
 }
 
 local function checklist_goToNextPage {
-    comment("Next Page Event").
     set checklist_itemPtr to 0.
     set checklist_pagePtr to checklist_pagePtr + 1.
 
@@ -724,7 +732,7 @@ local function checklist_goToNextPage {
     module:Checklist:on().
 }
 local function checklist_completed {
-    comment("Checklist "+checklistData[checklist_listPtr]:name+" Completed").
+    comment("Checklist "+checklistData[checklist_listPtr]:name:trim+" Completed").
     set checklist_pagePtr to 0.
     set checklist_itemPtr to 0.
     set checklist_inputDecision to true.
@@ -755,6 +763,7 @@ local function checklist_checkInput {
     if char = terminal:input:enter {
         set checklist_promtInput to false.
         print "│                                                   │" at (0, terminal:height-3).
+        sendCPU( "Set_checklist_MANUAL" ).
         checklist_stepInto().
         return.
     }
@@ -775,6 +784,7 @@ local function checklist_findNextItemOfDepth {
         if checklistData[checklist_listPtr]:items[checklist_pagePtr][index]:logicDepth = currentDepth
             return index.
 }
+
 
 
 local function inputHandle {

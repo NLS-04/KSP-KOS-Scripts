@@ -1,0 +1,1169 @@
+{
+    "items": [
+        {
+            "entries": [
+                {
+                    "value": "name",
+                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                },
+                {
+                    "value": "PLANNING RENDEZVOUS               ",
+                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                },
+                {
+                    "value": "runmode",
+                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                },
+                {
+                    "value": 15,
+                    "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                },
+                {
+                    "value": "items",
+                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                },
+                {
+                    "items": [
+                        {
+                            "items": [
+                                {
+                                    "entries": [
+                                        {
+                                            "value": "type",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 1,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "checkCoordinate",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 3,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "logicDepth",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "isEndOfChecklist",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": false,
+                                            "$type": "kOS.Safe.Encapsulation.BooleanValue"
+                                        },
+                                        {
+                                            "value": "lines",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "items": [
+                                                {
+                                                    "value": "[ ] SAS ...................................... ON",
+                                                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                                                }
+                                            ],
+                                            "$type": "kOS.Safe.Encapsulation.ListValue"
+                                        }
+                                    ],
+                                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                                },
+                                {
+                                    "entries": [
+                                        {
+                                            "value": "type",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 1,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "checkCoordinate",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 3,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "logicDepth",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "isEndOfChecklist",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": false,
+                                            "$type": "kOS.Safe.Encapsulation.BooleanValue"
+                                        },
+                                        {
+                                            "value": "lines",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "items": [
+                                                {
+                                                    "value": "[ ] RCS ...................................... ON",
+                                                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                                                }
+                                            ],
+                                            "$type": "kOS.Safe.Encapsulation.ListValue"
+                                        }
+                                    ],
+                                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                                },
+                                {
+                                    "entries": [
+                                        {
+                                            "value": "type",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 2,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "checkCoordinate",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 3,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "logicDepth",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "isEndOfChecklist",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": false,
+                                            "$type": "kOS.Safe.Encapsulation.BooleanValue"
+                                        },
+                                        {
+                                            "value": "lines",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "items": [
+                                                {
+                                                    "value": "[ ] TARGET ........................ CONFRIM & SET",
+                                                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                                                }
+                                            ],
+                                            "$type": "kOS.Safe.Encapsulation.ListValue"
+                                        }
+                                    ],
+                                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                                },
+                                {
+                                    "entries": [
+                                        {
+                                            "value": "type",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 3,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "checkCoordinate",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 5,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "logicDepth",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "isEndOfChecklist",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": false,
+                                            "$type": "kOS.Safe.Encapsulation.BooleanValue"
+                                        },
+                                        {
+                                            "value": "lines",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "items": [
+                                                {
+                                                    "value": "┎ [ ] if ( TARGET ORBITS OTHER BODY )            ",
+                                                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                                                }
+                                            ],
+                                            "$type": "kOS.Safe.Encapsulation.ListValue"
+                                        }
+                                    ],
+                                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                                },
+                                {
+                                    "entries": [
+                                        {
+                                            "value": "type",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "checkCoordinate",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 5,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "logicDepth",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 1,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "isEndOfChecklist",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": false,
+                                            "$type": "kOS.Safe.Encapsulation.BooleanValue"
+                                        },
+                                        {
+                                            "value": "lines",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "items": [
+                                                {
+                                                    "value": "┋ [ ] RUNMODE ......................... SET TO 31",
+                                                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                                                }
+                                            ],
+                                            "$type": "kOS.Safe.Encapsulation.ListValue"
+                                        }
+                                    ],
+                                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                                },
+                                {
+                                    "entries": [
+                                        {
+                                            "value": "type",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "checkCoordinate",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 5,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "logicDepth",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 1,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "isEndOfChecklist",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": true,
+                                            "$type": "kOS.Safe.Encapsulation.BooleanValue"
+                                        },
+                                        {
+                                            "value": "lines",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "items": [
+                                                {
+                                                    "value": "┖                  █  █  █  █                    ",
+                                                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                                                }
+                                            ],
+                                            "$type": "kOS.Safe.Encapsulation.ListValue"
+                                        }
+                                    ],
+                                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                                },
+                                {
+                                    "entries": [
+                                        {
+                                            "value": "type",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "checkCoordinate",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 3,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "logicDepth",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "isEndOfChecklist",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": false,
+                                            "$type": "kOS.Safe.Encapsulation.BooleanValue"
+                                        },
+                                        {
+                                            "value": "lines",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "items": [
+                                                {
+                                                    "value": "[ ] RUNMODE ........................... SET TO 15",
+                                                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                                                }
+                                            ],
+                                            "$type": "kOS.Safe.Encapsulation.ListValue"
+                                        }
+                                    ],
+                                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                                },
+                                {
+                                    "entries": [
+                                        {
+                                            "value": "type",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 3,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "checkCoordinate",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 5,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "logicDepth",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "isEndOfChecklist",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": false,
+                                            "$type": "kOS.Safe.Encapsulation.BooleanValue"
+                                        },
+                                        {
+                                            "value": "lines",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "items": [
+                                                {
+                                                    "value": "┎ [ ] if ( DELTA-V NOT SUFFICIENT )              ",
+                                                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                                                }
+                                            ],
+                                            "$type": "kOS.Safe.Encapsulation.ListValue"
+                                        }
+                                    ],
+                                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                                },
+                                {
+                                    "entries": [
+                                        {
+                                            "value": "type",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "checkCoordinate",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 5,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "logicDepth",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 1,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "isEndOfChecklist",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": false,
+                                            "$type": "kOS.Safe.Encapsulation.BooleanValue"
+                                        },
+                                        {
+                                            "value": "lines",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "items": [
+                                                {
+                                                    "value": "┋ [ ] RUNMODE ......................... SET TO 11",
+                                                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                                                }
+                                            ],
+                                            "$type": "kOS.Safe.Encapsulation.ListValue"
+                                        }
+                                    ],
+                                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                                },
+                                {
+                                    "entries": [
+                                        {
+                                            "value": "type",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "checkCoordinate",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 5,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "logicDepth",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 1,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "isEndOfChecklist",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": true,
+                                            "$type": "kOS.Safe.Encapsulation.BooleanValue"
+                                        },
+                                        {
+                                            "value": "lines",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "items": [
+                                                {
+                                                    "value": "┖                  █  █  █  █                    ",
+                                                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                                                }
+                                            ],
+                                            "$type": "kOS.Safe.Encapsulation.ListValue"
+                                        }
+                                    ],
+                                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                                },
+                                {
+                                    "entries": [
+                                        {
+                                            "value": "type",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 2,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "checkCoordinate",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 3,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "logicDepth",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "isEndOfChecklist",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": false,
+                                            "$type": "kOS.Safe.Encapsulation.BooleanValue"
+                                        },
+                                        {
+                                            "value": "lines",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "items": [
+                                                {
+                                                    "value": "[ ] DELTA-V MAIN                                 ",
+                                                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                                                },
+                                                {
+                                                    "value": "    RESSOURCE ................ CONFIRM SUFFICIENT",
+                                                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                                                },
+                                                {
+                                                    "value": "                                              QTY",
+                                                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                                                }
+                                            ],
+                                            "$type": "kOS.Safe.Encapsulation.ListValue"
+                                        }
+                                    ],
+                                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                                }
+                            ],
+                            "$type": "kOS.Safe.Encapsulation.ListValue"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "entries": [
+                                        {
+                                            "value": "type",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 3,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "checkCoordinate",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 5,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "logicDepth",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "isEndOfChecklist",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": false,
+                                            "$type": "kOS.Safe.Encapsulation.BooleanValue"
+                                        },
+                                        {
+                                            "value": "lines",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "items": [
+                                                {
+                                                    "value": "┎ [ ] if ( TARGET ORBITS OTHER BODY )            ",
+                                                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                                                }
+                                            ],
+                                            "$type": "kOS.Safe.Encapsulation.ListValue"
+                                        }
+                                    ],
+                                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                                },
+                                {
+                                    "entries": [
+                                        {
+                                            "value": "type",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "checkCoordinate",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 5,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "logicDepth",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 1,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "isEndOfChecklist",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": false,
+                                            "$type": "kOS.Safe.Encapsulation.BooleanValue"
+                                        },
+                                        {
+                                            "value": "lines",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "items": [
+                                                {
+                                                    "value": "┋ [ ] RUNMODE ......................... SET TO 31",
+                                                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                                                }
+                                            ],
+                                            "$type": "kOS.Safe.Encapsulation.ListValue"
+                                        }
+                                    ],
+                                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                                },
+                                {
+                                    "entries": [
+                                        {
+                                            "value": "type",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "checkCoordinate",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 5,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "logicDepth",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 1,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "isEndOfChecklist",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": true,
+                                            "$type": "kOS.Safe.Encapsulation.BooleanValue"
+                                        },
+                                        {
+                                            "value": "lines",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "items": [
+                                                {
+                                                    "value": "┖                  █  █  █  █                    ",
+                                                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                                                }
+                                            ],
+                                            "$type": "kOS.Safe.Encapsulation.ListValue"
+                                        }
+                                    ],
+                                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                                },
+                                {
+                                    "entries": [
+                                        {
+                                            "value": "type",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 1,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "checkCoordinate",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 3,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "logicDepth",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "isEndOfChecklist",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": false,
+                                            "$type": "kOS.Safe.Encapsulation.BooleanValue"
+                                        },
+                                        {
+                                            "value": "lines",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "items": [
+                                                {
+                                                    "value": "[ ] SAS ...................................... ON",
+                                                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                                                }
+                                            ],
+                                            "$type": "kOS.Safe.Encapsulation.ListValue"
+                                        }
+                                    ],
+                                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                                },
+                                {
+                                    "entries": [
+                                        {
+                                            "value": "type",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 1,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "checkCoordinate",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 3,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "logicDepth",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "isEndOfChecklist",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": false,
+                                            "$type": "kOS.Safe.Encapsulation.BooleanValue"
+                                        },
+                                        {
+                                            "value": "lines",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "items": [
+                                                {
+                                                    "value": "[ ] RCS ...................................... ON",
+                                                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                                                }
+                                            ],
+                                            "$type": "kOS.Safe.Encapsulation.ListValue"
+                                        }
+                                    ],
+                                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                                },
+                                {
+                                    "entries": [
+                                        {
+                                            "value": "type",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "checkCoordinate",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 3,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "logicDepth",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "isEndOfChecklist",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": true,
+                                            "$type": "kOS.Safe.Encapsulation.BooleanValue"
+                                        },
+                                        {
+                                            "value": "lines",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "items": [
+                                                {
+                                                    "value": "                   █  █  █  █                    ",
+                                                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                                                }
+                                            ],
+                                            "$type": "kOS.Safe.Encapsulation.ListValue"
+                                        }
+                                    ],
+                                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                                },
+                                {
+                                    "entries": [
+                                        {
+                                            "value": "type",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "checkCoordinate",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "logicDepth",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "isEndOfChecklist",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": true,
+                                            "$type": "kOS.Safe.Encapsulation.BooleanValue"
+                                        },
+                                        {
+                                            "value": "lines",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "items": [
+                                                {
+                                                    "value": "                        .                        ",
+                                                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                                                }
+                                            ],
+                                            "$type": "kOS.Safe.Encapsulation.ListValue"
+                                        }
+                                    ],
+                                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                                },
+                                {
+                                    "entries": [
+                                        {
+                                            "value": "type",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "checkCoordinate",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "logicDepth",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "isEndOfChecklist",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": true,
+                                            "$type": "kOS.Safe.Encapsulation.BooleanValue"
+                                        },
+                                        {
+                                            "value": "lines",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "items": [
+                                                {
+                                                    "value": "                        .                        ",
+                                                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                                                }
+                                            ],
+                                            "$type": "kOS.Safe.Encapsulation.ListValue"
+                                        }
+                                    ],
+                                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                                },
+                                {
+                                    "entries": [
+                                        {
+                                            "value": "type",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "checkCoordinate",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "logicDepth",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "isEndOfChecklist",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": true,
+                                            "$type": "kOS.Safe.Encapsulation.BooleanValue"
+                                        },
+                                        {
+                                            "value": "lines",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "items": [
+                                                {
+                                                    "value": "                        .                        ",
+                                                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                                                }
+                                            ],
+                                            "$type": "kOS.Safe.Encapsulation.ListValue"
+                                        }
+                                    ],
+                                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                                },
+                                {
+                                    "entries": [
+                                        {
+                                            "value": "type",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "checkCoordinate",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "logicDepth",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "isEndOfChecklist",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": true,
+                                            "$type": "kOS.Safe.Encapsulation.BooleanValue"
+                                        },
+                                        {
+                                            "value": "lines",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "items": [
+                                                {
+                                                    "value": "                        .                        ",
+                                                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                                                }
+                                            ],
+                                            "$type": "kOS.Safe.Encapsulation.ListValue"
+                                        }
+                                    ],
+                                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                                },
+                                {
+                                    "entries": [
+                                        {
+                                            "value": "type",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "checkCoordinate",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "logicDepth",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                                        },
+                                        {
+                                            "value": "isEndOfChecklist",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "value": true,
+                                            "$type": "kOS.Safe.Encapsulation.BooleanValue"
+                                        },
+                                        {
+                                            "value": "lines",
+                                            "$type": "kOS.Safe.Encapsulation.StringValue"
+                                        },
+                                        {
+                                            "items": [
+                                                {
+                                                    "value": "                        .                        ",
+                                                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                                                }
+                                            ],
+                                            "$type": "kOS.Safe.Encapsulation.ListValue"
+                                        }
+                                    ],
+                                    "$type": "kOS.Safe.Encapsulation.Lexicon"
+                                }
+                            ],
+                            "$type": "kOS.Safe.Encapsulation.ListValue"
+                        }
+                    ],
+                    "$type": "kOS.Safe.Encapsulation.ListValue"
+                },
+                {
+                    "value": "linesPerPage",
+                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                },
+                {
+                    "value": 12,
+                    "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                },
+                {
+                    "value": "pages",
+                    "$type": "kOS.Safe.Encapsulation.StringValue"
+                },
+                {
+                    "value": 2,
+                    "$type": "kOS.Safe.Encapsulation.ScalarIntValue"
+                }
+            ],
+            "$type": "kOS.Safe.Encapsulation.Lexicon"
+        }
+    ],
+    "$type": "kOS.Safe.Encapsulation.ListValue"
+}

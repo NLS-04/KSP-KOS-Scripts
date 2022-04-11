@@ -56,7 +56,6 @@ global runmode is runmodeStart.
     local timeDerivative is time:seconds.
 
     list engines in elist.
-
 // #endregion
 
 // #region INTERCOM
@@ -71,6 +70,8 @@ global runmode is runmodeStart.
         "Get_runmode",          { parameter SlaveUID, _. onNet( SlaveUID, "Set_runmode",          Net_TX["Set_runmode"]() ). },
         "Get_TZero",            { parameter SlaveUID, _. onNet( SlaveUID, "Set_TZero",            Net_TX["Set_TZero"]() ). },
         "Get_TNext",            { parameter SlaveUID, _. onNet( SlaveUID, "Set_TNext",            Net_TX["Set_TNext"]() ). },
+
+        "Set_checklist_MANUAL", { parameter from, data. set CL_got_manual_input to true. set CL_manual_input_value to data. },
 
         "Set_runmode",  { parameter from, _runmode. if RunmodeLexicon:haskey(_runmode) { set runmode to _runmode. } },
         "Set_Input",    { parameter from, data. InputCatcher:call(data). set InputCatcher to { parameter null. }. },
@@ -90,6 +91,7 @@ global runmode is runmodeStart.
         "Set_ShipPort",         { return portS:nodeposition. },
 
         "Set_checklist",        { return 0. },
+        "Set_checklist_tick",   { return 0. },
 
         "Get_TargetOrbit",      { return 0. },
         "Get_CommentList",      { return 0. },
@@ -178,7 +180,37 @@ global runmode is runmodeStart.
 
     comment("Programm Loaded").   // GUI --> GPU
 // #endregion
+
+// #region CHECKLIST
+    // CL == CheckList
+    local CL_got_manual_input to false.
+    local CL_manual_input_value to "null".
     
+    local function CL_waitFor_Decision { // MD
+        waitForCondition( { return CL_got_manual_input. } ).
+        set CL_got_manual_input to false.
+        return CL_manual_input_value.
+    }
+    local function CL_waitFor_Confirm {  // MC
+        waitForCondition( { return CL_got_manual_input. } ).
+        set CL_got_manual_input to false.
+    } 
+    local function CL_waitFor_action {   // AC
+        parameter actionFunc.
+        waitForCondition( actionFunc ).
+        CL_confirm_item().
+    }
+
+    local function CL_confirm_item { // in some sense AA
+        sendGPU( "Set_checklist_tick" ). wait 0.25.
+    }
+
+    local function CL_init {
+        parameter key is runmode.
+        sendGPU( "Set_checklist", key ).
+    }
+// #endregion
+
 // #region RUNMODE & FUNCTIONS
     // >> Organisation Functions
         local function netHandle {
@@ -202,12 +234,20 @@ global runmode is runmodeStart.
         }
 
         local function interruptWait {
-            parameter timeWait, otherDeleget is Update@.
+            parameter timeWait, otherDelegt is Update@.
             local startTimeInt is time:seconds.
 
-            until time:seconds - startTimeInt >= timeWait { otherDeleget:call(). }
+            until time:seconds - startTimeInt >= timeWait 
+                otherDelegt:call().
         }
 
+        local function waitForCondition {
+            parameter boolFunc, otherDelegt is Update@.
+
+            until boolFunc()
+                otherDelegt:call().
+        }
+        
     // >> Program Functions
         local function launchControl  {
             set azi to Azimuth(Target_Orbit:Inc).
@@ -471,12 +511,20 @@ global runmode is runmodeStart.
     // #endregion
     // #region normal operation
         local function runmode_10 { // Execute Next Node
+            CL_init(10).
+
+            if CL_waitFor_Decision() {
+                CL_confirm_item().
+                modeChange(11).
+                return.
+            }
+
             if hasNode {
                 if runmode <> 10 
                     modeChange(10).
+                CL_confirm_item().
                 Executer(nextNode, Update@, DPCNet[GPU_UID]).
             }
-            modeChange(11).
         }
         
         local function runmode_15 { // rendezvous calculation Algorithm
@@ -770,18 +818,20 @@ global runmode is runmodeStart.
             modeChange(70).
         }
         local function runmode_98 { //  ** RELOCK KOS - CONTROL ** 
-            lock throttle to throt.
-            lock sterring to "KILL".
-            SAS off.
-            RCS off.
-            modeChange(70).
+            CL_init().
+            CL_waitFor_action( { return not SAS. } ).
+            CL_waitFor_action( { return not RCS. } ).
+            CL_confirm_item(). lock throttle to throt.
+            CL_confirm_item(). lock sterring to "KILL".
+            CL_confirm_item(). modeChange(70).
         }
         local function runmode_99 { //  ** UNLOCK KOS - CONTROL ** 
-            unlock steering.
-            unlock throttle.
+            CL_init().
             set ship:control:neutralize to true.
-            SAS on.
-            modeChange(70).
+            CL_confirm_item(). unlock steering.
+            CL_confirm_item(). unlock throttle.
+            CL_confirm_item(). SAS on.
+            CL_confirm_item(). modeChange(70).
         }
     // #endregion 
     
