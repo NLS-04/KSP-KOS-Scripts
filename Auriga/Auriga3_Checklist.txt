@@ -1,0 +1,66 @@
+
+# TEST, -1
+. MC | CHECK | CHECK
+. if | first if clause
+    . AA | SAS | ON
+    . if | second if clause
+        . MC | FUELS | SUFFICIENT QTY
+        . MC | DELTA-V MAIN RESSOURCE | CONFIRM SUFFICIENT QTY
+        . if | third if clause
+            . AC | RCS | ON
+            . **
+        .endif
+    . endif
+    . MC | DELTA-V MAIN RESSOURCE | CONFIRM SUFFICIENT QTY
+    . **
+.endif
+. MC | CHECK | CHECK
+. MC | CHECK | CHECK
+
+
+# EXECUTE NODE, 10
+. if | MANEUVER NODE INCORRECT
+    . AA | RUNMODE | SET TO 11
+    . **
+.endif
+. AA | NODE EXECUTER | STARTED
+. **
+
+# PLANNING RENDEZVOUS, 15
+. AA | SAS | ON
+. AA | RCS | ON
+. MC | TARGET | CONFRIM & SET
+. if | TARGET ORBITS OTHER BODY 
+    . AC | RUNMODE | SET TO 31
+    . ** 
+. endif
+. AC | RUNMODE | SET TO 15
+. if | DELTA-V NOT SUFFICIENT
+    . AC | RUNMODE | SET TO 11
+    . **
+. endif
+. MC | DELTA-V MAIN RESSOURCE | CONFIRM SUFFICIENT QTY
+. if | TARGET ORBITS OTHER BODY 
+    . AC | RUNMODE | SET TO 31
+    . ** 
+. endif
+. AA | SAS | ON
+. AA | RCS | ON
+. **
+
+
+# ** RELOCK KOS - CONTROL **, 98
+. AC | SAS | OFF
+. AC | RCS | OFF
+. AA | THROTTLE | LOCK TO KOS
+. AA | STEERING | LOCK TO KOS
+. AA | RUNMODE | SET TO 70
+. **
+
+
+# ** UNLOCK KOS - CONTROL **, 99
+. AA | THROTTLE | UNLOCKED & FREE
+. AA | STEERING | UNLOCKED & FREE
+. AC | SAS | ON
+. AA | RUNMODE | SET TO 70
+. **
