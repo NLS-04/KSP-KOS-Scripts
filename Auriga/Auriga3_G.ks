@@ -173,11 +173,21 @@ local submode is submodeStart. // not actually in use atm
         set V_RAM:ProxOp_Soffset to ship:dockingports[0]:position.
 
         set V_RAM:DisplayHandle_Vars to list( list("HEADER", " ### TEST ### "), list("VAR", "testVar:     ", "defaultValue"), list("TXT", "this is a lovely Text :)") ).
-
+    // #endregion
+    
+    // #region checklist
         local checklistData is readJson( CHECKLIST_PATH_NAME ).
+        
         local checklist_listPtr is 0. // current Checklist
         local checklist_pagePtr is 0. // current page of checklist
         local checklist_itemPtr is 0. // current item of specific page of checklist
+
+        local CL_current_checklist is checklistData[checklist_listPtr].
+        local CL_current_page is CL_current_checklist:items[checklist_pagePtr].
+        local CL_current_item is CL_current_page[checklist_itemPtr].
+
+        local checklist_linePrintOffset is 0. // current vertical offset to adjust for multiline items
+        
         local checklist_promtInput is false. // indicates that the user input is now directed to the checklist
         local checklist_inputDecision is true. // holds intended/inputed value for items of type 3, e.g. items which req. a decision 
     // #endregion
@@ -602,30 +612,41 @@ local function ON_Checklist {
 
     set section_Ptr_lex["Checklist"] to ptr_bottom.
 
-    print "CHECKLIST:                                    "+(checklist_pagePtr+1)+"/"+checklistData[checklist_listPtr]:pages at ( 2, ptr_bottom + 1 ).
-    print checklistData[checklist_listPtr]:name at ( 13, ptr_bottom + 1 ).
+    print "CHECKLIST:                                    "+(checklist_pagePtr+1)+"/"+CL_current_checklist:pages at ( 2, ptr_bottom + 1 ).
+    print CL_current_checklist:name at ( 13, ptr_bottom + 1 ).
     print " ------------------------------------------------- " at ( 1, ptr_bottom + 2 ).
 
     local printOffset is 0.
-    for item in checklistData[checklist_listPtr]:items[checklist_pagePtr] {
+    for item in CL_current_page {
         for line in item:lines {
             print line at ( 2, ptr_bottom + 3 + printOffset ).
             set printOffset to printOffset + 1.
         }
     }
-    print "―――――――――――――――――――――――――――――――――――――――――――――――――――" at ( 1, ptr_bottom + checklistData[checklist_listPtr]:linesPerPage + 3 ).
+    print "―――――――――――――――――――――――――――――――――――――――――――――――――――" at ( 1, ptr_bottom + CL_current_checklist:linesPerPage + 3 ).
 
     checklist_setupNextItem().
 
-    set ptr_bottom to ptr_bottom + checklistData[checklist_listPtr]:linesPerPage + 3.
+    set ptr_bottom to ptr_bottom + CL_current_checklist:linesPerPage + 3.
 }
 local function OFF_Checklist {
     log checklist_listPtr to log_path.
-    log checklistData[checklist_listPtr]:linesPerPage to log_path.
-    __offModule("Checklist", checklistData[checklist_listPtr]:linesPerPage + 2).
+    log CL_current_checklist:linesPerPage to log_path.
+    __offModule("Checklist", CL_current_checklist:linesPerPage + 2).
 }
 local function TOGGLE_Checklist {
     if section_Ptr_lex:haskey("Checklist") OFF_Checklist(). else ON_Checklist().
+}
+
+local function checklist_setPage {
+    parameter page_ptr.
+    set checklist_pagePtr to page_ptr.
+    set CL_current_page to CL_current_checklist:items[checklist_pagePtr].
+}
+local function checklist_setItem {
+    parameter item_ptr is checklist_itemPtr.
+    set checklist_itemPtr to item_ptr.
+    set CL_current_item to CL_current_page[checklist_itemPtr].
 }
 
 local function checklist_byRunmode {
@@ -647,8 +668,7 @@ local function checklist_byCPU {
 local function checklist_initialize {
     parameter key.
 
-    set checklist_pagePtr to 0.
-    set checklist_itemPtr to 0.
+    set checklist_linePrintOffset to 0.
     set checklist_promtInput to false.
     set checklist_inputDecision to true.
 
@@ -656,12 +676,16 @@ local function checklist_initialize {
         for i in range( checklistData:length )
             if checklistData[i]:name = key{
                 set checklist_listPtr to i.
+                set CL_current_checklist to checklistData[checklist_listPtr].
+                checklist_setPage(0).
                 return true.
             }
     } else if key:isType("scalar") {
         for i in range( checklistData:length )
             if checklistData[i]:runmode = key {
                 set checklist_listPtr to i.
+                set CL_current_checklist to checklistData[checklist_listPtr].
+                checklist_setPage(0).
                 return true.
             }
     }
@@ -669,32 +693,41 @@ local function checklist_initialize {
 }
 
 local function checklist_stepInto {
-    checklist_blankItemTick().
+    local isIfItem is CL_current_item:type = 3.
+    
+    if isIfItem {
+        checklist_markItemTick( checklist_IF_colLineOfMark() ).
+    }
 
     // potentially stepping over an if block on the checklist, therefor search for the next item of the same Logic Depth
-    if not checklist_inputDecision {
+    if not checklist_inputDecision { // this only applies if a conditional Item was negated
         set checklist_itemPtr to checklist_findNextItemOfDepth().
-    } else { // 
-        checklist_markItemTick().
+        set checklist_linePrintOffset to checklist_linePrintOffset + CL_current_item:lineOffset.
+    } else { 
+        if not isIfItem {
+            checklist_markItemTick().
+            set checklist_linePrintOffset to checklist_linePrintOffset + CL_current_item:lineOffset.
+        } else {
+            set checklist_linePrintOffset to checklist_linePrintOffset + 1.
+        }
         set checklist_itemPtr to checklist_itemPtr + 1.
     }
 
-    if checklist_itemPtr >= checklistData[checklist_listPtr]:items[checklist_pagePtr]:length
+    if checklist_itemPtr >= CL_current_page:length
         checklist_goToNextPage().
 
     checklist_setupNextItem().
 }
 local function checklist_setupNextItem {
-    local nextItem is checklistData[checklist_listPtr]:items[checklist_pagePtr][checklist_itemPtr].
+    checklist_setItem().
 
-    if nextItem:isEndOfChecklist {
+    if CL_current_item:isEndOfChecklist {
         checklist_completed().
         return.
     }
 
     set checklist_inputDecision to true.
-
-    checklist_selectItemtick().
+ 
 
     // CHECKLIST ITEM MODES
     // | MODE NAME       | JSON TYPE NUMBER | REQUIRES MANUAL ACTION | ABRIVIATION |
@@ -703,57 +736,67 @@ local function checklist_setupNextItem {
     // | MANUAL CONFIRM  | 2                | NO                     | MC          |
     // | MANUAL DECISION | 3                | YES (req. user input)  | MD          |
 
-    if nextItem:type = "0" {
-        
-    } else if nextItem:type = "1" {
+    if not (CL_current_item:type = 3)
+        checklist_selectItemtick().
 
-    } else if nextItem:type = "2" {
+    if CL_current_item:type = 0 {        
+    } else if CL_current_item:type = 1 {
+    } else if CL_current_item:type = 2 {
         visualNotification().
         set checklist_promtInput to true.
         print "│ ░░░░░░░░░░░░░░░░░░░░ CONFIRM ░░░░░░░░░░░░░░░░░░░░ │" at (0, terminal:height-3).
-    } else if nextItem:type = "3" {
+    } else if CL_current_item:type = 3 {
+        checklist_selectItemtick( checklist_IF_colLineOfMark() ).
         visualNotification().
         set checklist_promtInput to true.
         print "│ ░░░░░░░░░ YES ░░░░░░░░░ |           NO            │" at (0, terminal:height-3).
-    }
+    }    
 }
 
 local function checklist_goToNextPage {
-    set checklist_itemPtr to 0.
-    set checklist_pagePtr to checklist_pagePtr + 1.
-
-    if checklist_pagePtr >= checklistData[checklist_listPtr]:pages {
+    if checklist_pagePtr + 1 >= CL_current_checklist:pages {
         checklist_completed().
         return.
     }
 
+    checklist_setPage( checklist_pagePtr + 1 ).
+    checklist_setItem( 0 ).
+
     // recycling the checklist
-    module:Checklist:off().
     module:Checklist:on().
 }
 local function checklist_completed {
-    comment("Checklist "+checklistData[checklist_listPtr]:name:trim+" Completed").
-    set checklist_pagePtr to 0.
-    set checklist_itemPtr to 0.
+    comment("Checklist "+CL_current_checklist:name:trim+" Completed").
+    checklist_setPage( 0 ).
+    checklist_setItem( 0 ).
+    set checklist_linePrintOffset to 0.
     set checklist_inputDecision to true.
     wait 1.
     module:Checklist:off().
 }
 
 local function checklist_colLineOfMark {
-    return list( checklistData[checklist_listPtr]:items[checklist_pagePtr][checklist_itemPtr]:checkCoordinate, section_Ptr_lex["Checklist"] + 3 + checklist_itemPtr ).
+    return list( CL_current_item:checkCoordinate, section_Ptr_lex["Checklist"] + checklist_linePrintOffset + 3 + checklist_itemPtr ).
+}
+local function checklist_IF_colLineOfMark {
+    parameter currentState is checklist_inputDecision.
+    local coords is CL_current_item:checkCoordinate.
+    if currentState
+        return list( coords[0], section_Ptr_lex["Checklist"] + checklist_linePrintOffset + 3 + checklist_itemPtr + 1 ).
+    else
+        return list( coords[1], section_Ptr_lex["Checklist"] + checklist_linePrintOffset + 3 + checklist_itemPtr + 1 ).
 }
 
 local function checklist_blankItemTick {
-    local colLine is checklist_colLineOfMark().
+    parameter colLine is checklist_colLineOfMark().
     print "[ ]" at ( colLine[0]-1, colLine[1] ).
 }
 local function checklist_selectItemtick {
-    local colLine is checklist_colLineOfMark().
+    parameter colLine is checklist_colLineOfMark().
     print ">○<" at ( colLine[0]-1, colLine[1] ).
 }
 local function checklist_markItemTick {
-    local colLine is checklist_colLineOfMark().
+    parameter colLine is checklist_colLineOfMark().
     print "[●]" at ( colLine[0]-1, colLine[1] ).
 }
 
@@ -768,9 +811,14 @@ local function checklist_checkInput {
         return.
     }
     
-    if checklistData[checklist_listPtr]:items[checklist_pagePtr][checklist_itemPtr]:type = "3" {
+    if CL_current_item:type = 3 {
         if char = terminal:input:leftCursorOne or char = terminal:input:rightCursorOne {
+            checklist_blankItemTick(  checklist_IF_colLineOfMark() ).
+
             set checklist_inputDecision to not checklist_inputDecision.
+            
+            checklist_selectItemtick( checklist_IF_colLineOfMark() ).
+
             print choose "│ ░░░░░░░░░ YES ░░░░░░░░░ |           NO            │" if checklist_inputDecision else "│           YES           | ░░░░░░░░░ NO ░░░░░░░░░░ │" at (0, terminal:height-3).
         }
         return.
@@ -778,10 +826,10 @@ local function checklist_checkInput {
 }
 
 local function checklist_findNextItemOfDepth {
-    local currentDepth is checklistData[checklist_listPtr]:items[checklist_pagePtr][checklist_itemPtr]:logicDepth.
+    local currentDepth is CL_current_item:logicDepth.
 
-    for index in range( checklist_itemPtr+1, checklistData[checklist_listPtr]:items[checklist_pagePtr]:length )
-        if checklistData[checklist_listPtr]:items[checklist_pagePtr][index]:logicDepth = currentDepth
+    for index in range( checklist_itemPtr+1, CL_current_page:length )
+        if CL_current_page[index]:logicDepth <= currentDepth
             return index.
 }
 

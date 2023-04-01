@@ -528,6 +528,8 @@ global runmode is runmodeStart.
         }
         
         local function runmode_15 { // rendezvous calculation Algorithm
+            // CL_init(15).
+
             if not hasTarget {
                 modeChange(70).
                 return.

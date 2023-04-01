@@ -10,12 +10,14 @@
 // │ [●] SAS ...................................... ON │ // AUTO ACTION
 // │ [●] RCS ...................................... ON │ // AUTO ACTION
 // │ [●] TARGET ........................ CONFIRM & SET │ // MANUAL CONFIRM
-// │ ┎ [ ] IF ( TARGET ORBITS OTHER BODY )             │ // MAUNAL DECISION 
+// │ ┎ TARGET ORBITS OTHER BODY                        │ // MAUNAL DECISION 
+// │ ┋            [ ] YES         [ ] NO               │  
 // │ ┋ [ ] RUNMODE ......................... SET TO 31 │ // AUTO CONFIRM
 // │ ┖                  █  █  █  █                     │
 // │ [ ] RUNMODE ........................... SET TO 15 │
-// │ ┎ [●] IF ( DELTA-V IS NOT SUFFICIENT )            │ // CONFIRM THIS 
-// │ ┋ >○< RUNMODE ......................... SET TO 11 │
+// │ ┎ DELTA-V NOT SUFFICIENT                          │ // CONFIRM THIS 
+// │ ┋            [ ] YES         [ ] NO               │
+// │ ┋ [ ] RUNMODE ......................... SET TO 11 │
 // │ ┖                  █  █  █  █                     │
 // │ [ ] DELTA-V MAIN                                  |
 // |     RESSOURCE ............ CONFIRM SUFFICIENT QTY |
@@ -36,7 +38,7 @@
 // | MODE NAME       | JSON TYPE NUMBER | REQUIRES MANUAL ACTION | ABRIVIATION |
 // | AUTO CONFIRM    | 0                | YES                    | AC          |
 // | AUTO ACTION     | 1                | NO                     | AA          |
-// | MANUAL CONFIRM  | 2                | NO                     | MC          |
+// | MANUAL CONFIRM  | 2                | YES                    | MC          |
 // | MANUAL DECISION | 3                | YES (req. user input)  | MD          |
 
 
@@ -59,6 +61,18 @@
 // │                    █  █  █  █                     │
 
 // IF SNIPPET
+// │ ┎ |<-------------------- 47 ------------------->| │ // if clause 
+// │ ┋            [ ] YES         [ ] NO               │ // decision clause
+// │ ┋ [ ] ABCDEFG ........................... ABCDEFG │ // items ...
+// │ ┋ ┎ |<------------------- 45 ------------------>| │ // if clause 
+// │ ┋ ┋          [ ] YES         [ ] NO               │ // decision clause
+// │ ┋ ┖ [ ] ABCDEFG ......................... ABCDEFG │ // items ...
+// │ ┖ [ ] ABCDEFG ........................... ABCDEFG │ // items ...
+// >>> OR WITH END OF CHECKLIST
+// │ ┖                  █  █  █  █                     │
+
+
+// DEPRECATED - IF SNIPPET
 // │ ┎ [ ] IF ( |<-------------- 36 -------------->| ) │  
 // │ ┋ [ ] ABCDEFG ........................... ABCDEFG │
 // │ ┋ ┎ [ ] IF ( |<------------- 34 ------------->| ) │  
@@ -76,30 +90,30 @@
 //         "linesPerPage", 12,
 //         "items", list( // this list holds the specified pages
 //             list( // this list holds the items for the first page
-//                 lex( "type", 1, "checkCoordinate", 3, "logicDepth", 0, "isEndOfChecklist", false, "lines", list("[ ] SAS ...................................... ON") ),
-//                 lex( "type", 1, "checkCoordinate", 3, "logicDepth", 0, "isEndOfChecklist", false, "lines", list("[ ] RCS ...................................... ON") ),
-//                 lex( "type", 2, "checkCoordinate", 3, "logicDepth", 0, "isEndOfChecklist", false, "lines", list("[ ] TARGET ........................ CONFIRM & SET") ),
-//                 lex( "type", 3, "checkCoordinate", 5, "logicDepth", 0, "isEndOfChecklist", false, "lines", list("┎ [ ] IF ( TARGET ORBITS OTHER BODY )            ") ),
-//                 lex( "type", 0, "checkCoordinate", 5, "logicDepth", 1, "isEndOfChecklist", false, "lines", list("┋ [ ] RUNMODE ......................... SET TO 31") ),
-//                 lex( "type", 0, "checkCoordinate", 0, "logicDepth", 1, "isEndOfChecklist", true,  "lines", list("┖                  █  █  █  █                    ") ),
-//                 lex( "type", 0, "checkCoordinate", 3, "logicDepth", 0, "isEndOfChecklist", false, "lines", list("[ ] RUNMODE ........................... SET TO 15") ),
-//                 lex( "type", 3, "checkCoordinate", 5, "logicDepth", 0, "isEndOfChecklist", false, "lines", list("┎ [ ] IF ( DELTA-V IS NOT SUFFICIENT )           ") ),
-//                 lex( "type", 0, "checkCoordinate", 5, "logicDepth", 1, "isEndOfChecklist", false, "lines", list("┋ [ ] RUNMODE ......................... SET TO 11") ),
-//                 lex( "type", 0, "checkCoordinate", 0, "logicDepth", 1, "isEndOfChecklist", true,  "lines", list("┖                  █  █  █  █                    ") ),
-//                 lex( "type", 2, "checkCoordinate", 3, "logicDepth", 0, "isEndOfChecklist", false, "lines", list("[ ] DELTA-V MAIN                                 ", "    RESSOURCE ............ CONFIRM SUFFICIENT QTY") )
+//                 lex( "type", 1, "checkCoordinate",            3, "logicDepth", 0, "isEndOfChecklist", false, "lineOffset": 0, "lines", list("[ ] SAS ...................................... ON") ),
+//                 lex( "type", 1, "checkCoordinate",            3, "logicDepth", 0, "isEndOfChecklist", false, "lineOffset": 0, "lines", list("[ ] RCS ...................................... ON") ),
+//                 lex( "type", 2, "checkCoordinate",            3, "logicDepth", 0, "isEndOfChecklist", false, "lineOffset": 0, "lines", list("[ ] TARGET ........................ CONFIRM & SET") ),
+//                 lex( "type", 3, "checkCoordinate", list(18, 34), "logicDepth", 0, "isEndOfChecklist", false, "lineOffset": 1, "lines", list("┎ TARGET ORBITS OTHER BODY                       ", "┋            [ ] YES         [ ] NO              ") ),
+//                 lex( "type", 0, "checkCoordinate",            5, "logicDepth", 1, "isEndOfChecklist", false, "lineOffset": 0, "lines", list("┋ [ ] RUNMODE ......................... SET TO 31") ),
+//                 lex( "type", 0, "checkCoordinate",            0, "logicDepth", 1, "isEndOfChecklist", true,  "lineOffset": 0, "lines", list("┖                  █  █  █  █                    ") ),
+//                 lex( "type", 0, "checkCoordinate",            3, "logicDepth", 0, "isEndOfChecklist", false, "lineOffset": 0, "lines", list("[ ] RUNMODE ........................... SET TO 15") ),
+//                 lex( "type", 3, "checkCoordinate", list(18, 34), "logicDepth", 0, "isEndOfChecklist", false, "lineOffset": 1, "lines", list("┎ DELTA-V NOT SUFFICIENT                         ", "┋            [ ] YES         [ ] NO              ") ),
+//                 lex( "type", 0, "checkCoordinate",            5, "logicDepth", 1, "isEndOfChecklist", false, "lineOffset": 0, "lines", list("┋ [ ] RUNMODE ......................... SET TO 11") ),
+//                 lex( "type", 0, "checkCoordinate",            0, "logicDepth", 1, "isEndOfChecklist", true,  "lineOffset": 0, "lines", list("┖                  █  █  █  █                    ") ),
+//                 lex( "type", 2, "checkCoordinate",            3, "logicDepth", 0, "isEndOfChecklist", false, "lineOffset": 1, "lines", list("[ ] DELTA-V MAIN                                 ", "    RESSOURCE ............ CONFIRM SUFFICIENT QTY") )
 //             ),
 //             list( // this list holds the items for the first page
-//                 lex( "type", 3, "checkCoordinate", 5, "logicDepth", 0, "isEndOfChecklist", false, "lines", list("┎ [ ] IF ( TARGET ORBITS OTHER BODY )            ") ),
-//                 lex( "type", 0, "checkCoordinate", 5, "logicDepth", 1, "isEndOfChecklist", false, "lines", list("┋ [ ] RUNMODE ......................... SET TO 31") ),
-//                 lex( "type", 0, "checkCoordinate", 0, "logicDepth", 1, "isEndOfChecklist", true,  "lines", list("┖                  █  █  █  █                    ") ),
-//                 lex( "type", 1, "checkCoordinate", 3, "logicDepth", 0, "isEndOfChecklist", false, "lines", list("[ ] SAS ...................................... ON") ),
-//                 lex( "type", 1, "checkCoordinate", 3, "logicDepth", 0, "isEndOfChecklist", false, "lines", list("[ ] RCS ...................................... ON") ),
-//                 lex( "type", 2, "checkCoordinate", 3, "logicDepth", 0, "isEndOfChecklist", false, "lines", list("[ ] DELTA-V MAIN                                 ", "    RESSOURCE ............ CONFIRM SUFFICIENT QTY") ),
-//                 lex( "type", 0, "checkCoordinate", 0, "logicDepth", 0, "isEndOfChecklist", true,  "lines", list("                   █  █  █  █                    ") ),
-//                 lex( "type", 0, "checkCoordinate", 0, "logicDepth", 0, "isEndOfChecklist", true,  "lines", list("                       .                         ") ),
-//                 lex( "type", 0, "checkCoordinate", 0, "logicDepth", 0, "isEndOfChecklist", true,  "lines", list("                       .                         ") ),
-//                 lex( "type", 0, "checkCoordinate", 0, "logicDepth", 0, "isEndOfChecklist", true,  "lines", list("                       .                         ") ),
-//                 lex( "type", 0, "checkCoordinate", 0, "logicDepth", 0, "isEndOfChecklist", true,  "lines", list("                       .                         ") )
+//                 lex( "type", 3, "checkCoordinate", list(18, 34), "logicDepth", 0, "isEndOfChecklist", false, "lineOffset": 1, "lines", list("┎ TARGET ORBITS OTHER BODY                       ", "┋            [ ] YES         [ ] NO              ") ),
+//                 lex( "type", 0, "checkCoordinate",            5, "logicDepth", 1, "isEndOfChecklist", false, "lineOffset": 0, "lines", list("┋ [ ] RUNMODE ......................... SET TO 31") ),
+//                 lex( "type", 0, "checkCoordinate",            0, "logicDepth", 1, "isEndOfChecklist", true,  "lineOffset": 0, "lines", list("┖                  █  █  █  █                    ") ),
+//                 lex( "type", 1, "checkCoordinate",            3, "logicDepth", 0, "isEndOfChecklist", false, "lineOffset": 0, "lines", list("[ ] SAS ...................................... ON") ),
+//                 lex( "type", 1, "checkCoordinate",            3, "logicDepth", 0, "isEndOfChecklist", false, "lineOffset": 0, "lines", list("[ ] RCS ...................................... ON") ),
+//                 lex( "type", 2, "checkCoordinate",            3, "logicDepth", 0, "isEndOfChecklist", false, "lineOffset": 1, "lines", list("[ ] DELTA-V MAIN                                 ", "    RESSOURCE ............ CONFIRM SUFFICIENT QTY") ),
+//                 lex( "type", 0, "checkCoordinate",            0, "logicDepth", 0, "isEndOfChecklist", true,  "lineOffset": 0, "lines", list("                   █  █  █  █                    ") ),
+//                 lex( "type", 0, "checkCoordinate",            0, "logicDepth", 0, "isEndOfChecklist", true,  "lineOffset": 0, "lines", list("                       .                         ") ),
+//                 lex( "type", 0, "checkCoordinate",            0, "logicDepth", 0, "isEndOfChecklist", true,  "lineOffset": 0, "lines", list("                       .                         ") ),
+//                 lex( "type", 0, "checkCoordinate",            0, "logicDepth", 0, "isEndOfChecklist", true,  "lineOffset": 0, "lines", list("                       .                         ") ),
+//                 lex( "type", 0, "checkCoordinate",            0, "logicDepth", 0, "isEndOfChecklist", true,  "lineOffset": 0, "lines", list("                       .                         ") )
 //             )
 //         ) 
 //     )
@@ -121,6 +135,9 @@ local STRING_IF_BEGIN is "┎".
 local STRING_IF_RAIL  is "┋".
 local STRING_IF_END   is "┖".
 local STRING_END_OF_CHECKLIST is "                   █  █  █  █                    ".
+
+local STRING_IF_DECISION is "             [ ] YES         [ ] NO              ".
+local YES_NO_CHECKMARK_INDEX is list( 1 + 15 , 1 + 31 ).
 
 local MAX_LINES_PER_PAGE is 12.
 local MIN_DOTS_PER_ITEM is 3.
@@ -150,6 +167,7 @@ local function depthOffset {
     parameter depth.
     return depth*2.
 }
+
 local function resizeTo {
     parameter str, len.
     return (str + STRING_EMPTY):substring( 0, len ).
@@ -222,8 +240,9 @@ local function createLines {
 }
 local function createIfLine {
     parameter str, depth.
-    local outStr is createIfRails( depth ) + STRING_IF_BEGIN + " [ ] if ( " + resizeTo( str, 38 - depthOffset(depth+1) ):trim + " ) ".
-    return list( resizeTo( outStr, 49 ) ). // essentially pading right with whitespaces
+    local if_str is createIfRails( depth ) + STRING_IF_BEGIN + " " + resizeTo( str, 49 - depthOffset( depth + 1 ) ):trim.
+    local yes_no_str is overlay( STRING_IF_DECISION, createIfRails( depth + 1 ), 0 ).
+    return list( resizeTo( if_str, 49 ), resizeTo( yes_no_str, 49 ) ). // essentially pading right with whitespaces
 }
 local function createEndOfChecklistLine {
     parameter depth.
@@ -232,6 +251,7 @@ local function createEndOfChecklistLine {
 local function createPlaceHolder {
     return lex( "type", 0, "checkCoordinate", 0, "logicDepth", 0, "isEndOfChecklist", true, "lines", list( STRING_NOOP ) ).
 }
+
 
 local accumulator is list().
 
@@ -273,7 +293,7 @@ for checklist in checklists {
         } else {
             if item:startswith( "if" ) {
                 itemLex:add( "type", 3 ). // == Type: MD
-                itemLex:add( "checkCoordinate", calcCheckCoord(logicDepth+1) ).
+                itemLex:add( "checkCoordinate", YES_NO_CHECKMARK_INDEX ).
                 itemLex:add( "logicDepth", logicDepth ).
                 itemLex:add( "isEndOfChecklist", false ).
                 itemLex:add( "lines", createIfLine( item:split("|")[1]:trim, logicDepth ) ).
@@ -285,6 +305,7 @@ for checklist in checklists {
                 itemLex:add( "logicDepth", logicDepth ).
                 itemLex:add( "isEndOfChecklist", true ).
                 itemLex:add( "lines", createEndOfChecklistLine(logicDepth) ).
+                itemLex:add( "lineOffset", 0 ).
             } 
             else {
                 local params is item:split("|").
@@ -292,13 +313,40 @@ for checklist in checklists {
                 itemLex:add( "checkCoordinate", calcCheckCoord(logicDepth) ).
                 itemLex:add( "logicDepth", logicDepth ).
                 itemLex:add( "isEndOfChecklist", false ).
-                itemLex:add( "lines", createLines( params[1]:trim, params[2]:trim, logicDepth ) ).                
+                itemLex:add( "lines", createLines( params[1]:trim, params[2]:trim, logicDepth ) ).
+                itemLex:add( "lineOffset", itemLex:lines:length - 1 ).
             }
             set totalLines to totalLines + itemLex:lines:length.
 
             itemList:add( itemLex ).
         }
     }
+
+    // calculating and setting the lineOffset values for each Item
+    local function getIndexOfNextIfEnd {
+        parameter ifIndex, currentDepth.
+
+        for index in range( ifIndex, itemList:length )
+            if itemList[index]:logicDepth <= currentDepth
+                return index.
+    }
+    local function calcLineOffset {
+        parameter startIndex, untilIndex.
+
+        local sum is 0.
+
+        for itemIndex in range( startIndex, untilIndex ) {            
+            if itemList[itemIndex]:type = 3
+                set itemList[itemIndex]:lineOffset to 1 + calcLineOffset( itemIndex+1, getIndexOfNextIfEnd( itemIndex+1, itemList[itemindex]:logicDepth ) ).
+            
+            set sum to sum + itemList[itemindex]:lineOffset.       
+        }
+
+        return sum.
+    }
+
+    local totalLines is calcLineOffset( 0, itemList:length ).
+
 
     local pageList is list().
     until itemList:empty {
@@ -346,15 +394,19 @@ local function compress {
     return str_out.
 }
 
-local out is jsonContent.
-set out to compress( out, "}" ).
-set out to compress( out, "," ).
-set out to compress( out, "{" ).
+local function jsonCompressing {
+    local out is jsonContent.
+    // set out to compress( out, "}" ).
+    set out to compress( out, "," ).
+    set out to compress( out, "{" ).
 
-deletePath( CHECKLIST_JSON_PATH ).
-create( CHECKLIST_JSON_PATH ).
+    deletePath( CHECKLIST_JSON_PATH ).
+    create( CHECKLIST_JSON_PATH ).
 
-local outFile is open( CHECKLIST_JSON_PATH ).
-outFile:write( out ).
+    local outFile is open( CHECKLIST_JSON_PATH ).
+    outFile:write( out ).
 
-log "JSON-FILE SIZE: " + outFile:size + " [bytes]" to CHECKLIST_DEBUG_PATH.
+    log "JSON-FILE SIZE: " + outFile:size + " [bytes]" to CHECKLIST_DEBUG_PATH.
+}
+
+jsonCompressing().
